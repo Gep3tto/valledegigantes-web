@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rancho Valle de Gigantes | Especialistas en Chiles</title>
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        :root {
+            --primary-green: #2e7d32; /* Verde Cultivo */
+            --secondary-brown: #795548; /* Café Tierra */
+            --accent-red: #c62828; /* Rojo Chile */
+            --light-bg: #f1f8e9;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-green);
+        }
+        
+        .highlight-red { color: var(--accent-red); }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* --- NAV BAR --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 20px; /* Reduje un poco el padding */
+        }
+
+        .logo img {
+            height: 120px; /* Altura controlada para el logo */
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a { font-weight: 500; }
+        nav a:hover {
+            color: var(--accent-red);
+            border-bottom: 2px solid var(--accent-red);
+        }
+
+        /* --- HERO SECTION (Portada) --- */
+        .hero {
+            /* Usé una imagen de chiles genérica de fondo, pero la puedes cambiar */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), <img src="rancho.jpg" alt="rancho">;
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            margin-top: 75px; /* Ajuste por la altura del logo */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: var(--accent-red); /* Botón rojo chile */
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover { background-color: #8e0000; }
+
+        /* --- SECCIONES --- */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        /* --- NOSOTROS --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .about-text ul li { margin-bottom: 10px; }
+
+        /* --- PRODUCTOS --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Un poco más anchas */
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-color: var(--accent-red);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px; /* Un poco más altas las fotos */
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-red);
+        }
+
+        .product-info { padding: 25px 20px; }
+        .product-info h3 { margin-top: 0; color: var(--accent-red); }
+
+        /* --- CONTACTO --- */
+        .contact-section { background-color: var(--light-bg); }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .contact-info, .contact-form { flex: 1; min-width: 300px; }
+        form input, form textarea {
+            width: 100%; padding: 10px; margin-bottom: 15px;
+            border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222; color: var(--white);
+            text-align: center; padding: 20px; margin-top: 50px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; }
+            .logo img { margin-bottom: 10px; height: 50px; }
+            nav ul { margin-top: 5px; }
+            .hero h1 { font-size: 2rem; }
+            .hero { margin-top: 110px; height: 60vh;}
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo Rancho Valle de Gigantes">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#productos">Nuestros Chiles</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div>
+            <h1>El auténtico sabor del campo</h1>
+            <p style="font-size: 1.3rem; margin-bottom: 20px; font-weight: 500;">Especialistas en Chiltepín, Jalapeño y Chipotle de la más alta calidad.</p>
+            <a href="#productos" class="btn">Ver Productos</a>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2 class="section-title">Tradición y Picante</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>En <strong>Valle de Gigantes</strong>, nos dedicamos con pasión al cultivo de los chiles más emblemáticos de nuestra región. Conocemos la tierra y respetamos los ciclos naturales para obtener productos con un sabor y picor inigualables.</p>
+                <p>Desde la selección de la semilla hasta el cuidadoso proceso de ahumado del chipotle, garantizamos calidad suprema para mercados exigentes y procesadoras.</p>
+                <ul>
+                    <li>🌶️ <strong>Especialización:</strong> Enfocados 100% en variedades de alto valor.</li>
+                    <li>🔥 <strong>Procesos Artesanales:</strong> Ahumado tradicional para el mejor chipotle.</li>
+                    <li>✅ <strong>Calidad Constante:</strong> Ideales para mayoreo, exportación y salsas gourmet.</li>
+                </ul>
+            </div>
+            <div class="about-img">
+                <img src="rancho.jpg"Campo de cultivo">
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" style="background-color: #fff;">
+        <h2 class="section-title">Nuestra Cosecha Estelar</h2>
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <img src="chiltepin.jpg" alt="Chiltepín Rojo">
+                <div class="product-info">
+                    <h3>Chiltepín: El Oro Rojo</h3>
+                    <p>La joya del norte. Chiltepín seleccionado, con un picor intenso y explosivo, pero un sabor refinado único. Disponible seco por kilo o tonelada.</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="jalapeno.jpg" alt="Jalapeño Fresco">
+                <div class="product-info">
+                    <h3>Jalapeño de Primera</h3>
+                    <p>Hortaliza fresca de excelente tamaño, color verde intenso, pared gruesa y pungencia media ideal. Perfecto para mercado fresco o industria de encurtidos.</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="chipotle.jpg" alt="Chipotle Ahumado">
+                <div class="product-info">
+                    <h3>Chipotle Ahumado Artesanal</h3>
+                    <p>Jalapeños maduros sometidos a un lento proceso de ahumado con leña seleccionada. Aroma profundo y sabor ahumado dulce que lo hace indispensable.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <h2 class="section-title">Hagamos Negocio</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>📍 Ubicación del Rancho</h3>
+                <p>Saucillo,<br>Chihuahua, México.</p>
+                
+                <h3>📞 Ventas y Pedidos</h3>
+                <p class="highlight-red" style="font-weight: bold; font-size: 1.2em;">+52 (614) 169-0797</p>
+                
+                <h3>✉️ Correo Electrónico</h3>
+                <p>jacobo@afergreens.com</p>
+
+                <p style="margin-top: 30px;"><em>Surtimos a mercados de abastos, procesadoras de alimentos y empacadoras. Cotiza tu volumen.</em></p>
+            </div>
+            
+            <div class="contact-form">
+                <form>
+                    <label>Nombre o Empresa:</label>
+                    <input type="text" placeholder="Ej. Salsas del Norte SA de CV">
+                    
+                    <label>Teléfono de Contacto:</label>
+                    <input type="text" placeholder="(614) ...">
+                    
+                    <label>¿Qué producto y volumen te interesa?</label>
+                    <textarea rows="5" placeholder="Ej. Estoy interesado en 500kg de Chipotle meco..."></textarea>
+                    
+                    <button type="submit" class="btn" style="width:100%; border:none; cursor: pointer;">Solicitar Cotización</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rancho Valle de Gigantes | Orgullosamente Chihuahuense.</p>
+    </footer>
+
+</body>
+</html>
