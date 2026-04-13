@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rancho Valle de Gigantes – Especialistas en Chiltepín, Jalapeño y Chipotle de la más alta calidad. Surtimos mayoreo, exportación y salsas gourmet desde Saucillo, Chihuahua.">
     <title>Rancho Valle de Gigantes | Especialistas en Chiles</title>
     <style>
         /* --- ESTILOS GENERALES --- */
@@ -15,6 +16,8 @@
             --white: #ffffff;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -26,7 +29,7 @@
         h1, h2, h3 {
             color: var(--primary-green);
         }
-        
+
         .highlight-red { color: var(--accent-red); }
 
         a { text-decoration: none; color: inherit; }
@@ -47,13 +50,34 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0.5rem 20px; /* Reduje un poco el padding */
+            padding: 0.5rem 20px;
+            flex-wrap: wrap;
         }
 
         .logo img {
             height: 120px; /* Altura controlada para el logo */
             width: auto;
             display: block;
+        }
+
+        /* Hamburger button (hidden on desktop) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-dark);
+            border-radius: 3px;
+            transition: all 0.3s;
         }
 
         nav ul {
@@ -72,8 +96,7 @@
 
         /* --- HERO SECTION (Portada) --- */
         .hero {
-            /* Usé una imagen de chiles genérica de fondo, pero la puedes cambiar */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), <img src="rancho.jpg" alt="rancho">;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('rancho.jpg');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -83,7 +106,7 @@
             text-align: center;
             color: var(--white);
             padding: 0 20px;
-            margin-top: 75px; /* Ajuste por la altura del logo */
+            margin-top: 136px; /* Ajuste por la altura del logo (120px) + padding (16px) */
         }
 
         .hero h1 {
@@ -130,7 +153,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        
+
         .about-text ul li { margin-bottom: 10px; }
 
         /* --- PRODUCTOS --- */
@@ -189,11 +212,19 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .about-grid { grid-template-columns: 1fr; }
-            .nav-container { flex-direction: column; }
-            .logo img { margin-bottom: 10px; height: 50px; }
-            nav ul { margin-top: 5px; }
+            .logo img { height: 60px; }
+            .menu-toggle { display: flex; }
+            nav {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            nav.open { max-height: 300px; }
+            nav ul { flex-direction: column; gap: 0; padding: 8px 0; }
+            nav ul li a { display: block; padding: 10px 0; }
             .hero h1 { font-size: 2rem; }
-            .hero { margin-top: 110px; height: 60vh;}
+            .hero { margin-top: 80px; height: 60vh; }
         }
     </style>
 </head>
@@ -204,6 +235,11 @@
             <div class="logo">
                 <img src="logo.jpg" alt="Logo Rancho Valle de Gigantes">
             </div>
+            <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('nav').classList.toggle('open')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
@@ -236,7 +272,7 @@
                 </ul>
             </div>
             <div class="about-img">
-                <img src="rancho.jpg"Campo de cultivo">
+                <img src="rancho.jpg" alt="Campo de cultivo" loading="lazy">
             </div>
         </div>
     </section>
@@ -244,25 +280,25 @@
     <section id="productos" style="background-color: #fff;">
         <h2 class="section-title">Nuestra Cosecha Estelar</h2>
         <div class="products-grid">
-            
+
             <div class="product-card">
-                <img src="chiltepin.jpg" alt="Chiltepín Rojo">
+                <img src="chiltepin.jpg" alt="Chiltepín Rojo" loading="lazy">
                 <div class="product-info">
                     <h3>Chiltepín: El Oro Rojo</h3>
                     <p>La joya del norte. Chiltepín seleccionado, con un picor intenso y explosivo, pero un sabor refinado único. Disponible seco por kilo o tonelada.</p>
                 </div>
             </div>
-            
+
             <div class="product-card">
-                <img src="jalapeno.jpg" alt="Jalapeño Fresco">
+                <img src="jalapeno.jpg" alt="Jalapeño Fresco" loading="lazy">
                 <div class="product-info">
                     <h3>Jalapeño de Primera</h3>
                     <p>Hortaliza fresca de excelente tamaño, color verde intenso, pared gruesa y pungencia media ideal. Perfecto para mercado fresco o industria de encurtidos.</p>
                 </div>
             </div>
-            
+
             <div class="product-card">
-                <img src="chipotle.jpg" alt="Chipotle Ahumado">
+                <img src="chipotle.jpg" alt="Chipotle Ahumado" loading="lazy">
                 <div class="product-info">
                     <h3>Chipotle Ahumado Artesanal</h3>
                     <p>Jalapeños maduros sometidos a un lento proceso de ahumado con leña seleccionada. Aroma profundo y sabor ahumado dulce que lo hace indispensable.</p>
@@ -278,27 +314,27 @@
             <div class="contact-info">
                 <h3>📍 Ubicación del Rancho</h3>
                 <p>Saucillo,<br>Chihuahua, México.</p>
-                
+
                 <h3>📞 Ventas y Pedidos</h3>
                 <p class="highlight-red" style="font-weight: bold; font-size: 1.2em;">+52 (614) 169-0797</p>
-                
+
                 <h3>✉️ Correo Electrónico</h3>
                 <p>jacobo@afergreens.com</p>
 
                 <p style="margin-top: 30px;"><em>Surtimos a mercados de abastos, procesadoras de alimentos y empacadoras. Cotiza tu volumen.</em></p>
             </div>
-            
+
             <div class="contact-form">
-                <form>
+                <form action="mailto:jacobo@afergreens.com" method="POST" enctype="text/plain">
                     <label>Nombre o Empresa:</label>
-                    <input type="text" placeholder="Ej. Salsas del Norte SA de CV">
-                    
+                    <input type="text" name="nombre" placeholder="Ej. Salsas del Norte SA de CV">
+
                     <label>Teléfono de Contacto:</label>
-                    <input type="text" placeholder="(614) ...">
-                    
+                    <input type="text" name="telefono" placeholder="(614) ...">
+
                     <label>¿Qué producto y volumen te interesa?</label>
-                    <textarea rows="5" placeholder="Ej. Estoy interesado en 500kg de Chipotle meco..."></textarea>
-                    
+                    <textarea name="mensaje" rows="5" placeholder="Ej. Estoy interesado en 500kg de Chipotle meco..."></textarea>
+
                     <button type="submit" class="btn" style="width:100%; border:none; cursor: pointer;">Solicitar Cotización</button>
                 </form>
             </div>
@@ -306,8 +342,17 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Rancho Valle de Gigantes | Orgullosamente Chihuahuense.</p>
+        <p>&copy; 2026 Rancho Valle de Gigantes | Orgullosamente Chihuahuense.</p>
     </footer>
+
+    <script>
+        // Close mobile nav when a link is clicked
+        document.querySelectorAll('nav a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.querySelector('nav').classList.remove('open');
+            });
+        });
+    </script>
 
 </body>
 </html>
