@@ -1167,12 +1167,11 @@
             </div>
             <div class="contact-form-wrap reveal reveal-d2">
                 <h3 class="form-title">Solicitar Cotización</h3>
-                <form action="https://formsubmit.co/jacobo@afergreens.com" method="POST">
+                <form id="cotizacion-form" action="https://formsubmit.co/ajax/jacobo@afergreens.com" method="POST">
                     <!-- FormSubmit config -->
                     <input type="hidden" name="_subject" value="Nueva Solicitud de Cotización — Valle de Gigantes">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://valledegigantes.com/?enviado=1">
                     <input type="text" name="_honey" style="display:none">
 
                     <div class="form-group">
@@ -1204,6 +1203,13 @@
                     </div>
                     <button type="submit" class="btn-submit">Enviar Solicitud →</button>
                 </form>
+                <div id="form-success" style="display:none; padding: 40px 28px; text-align: center;">
+                    <div style="width: 64px; height: 64px; margin: 0 auto 20px; background: var(--sage); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="check" width="32" height="32" style="color: var(--white);"></i>
+                    </div>
+                    <h3 style="font-family: var(--ff-display); color: var(--white); font-size: 1.6rem; margin-bottom: 12px;">¡Solicitud Enviada!</h3>
+                    <p style="color: var(--sage-mist); line-height: 1.6;">Gracias por tu interés. Nuestro equipo revisará tu solicitud y se pondrá en contacto contigo a la brevedad.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1273,14 +1279,33 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // --- Form submit ---
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const btn = this.querySelector('.btn-submit');
+        // --- Form submit (AJAX to FormSubmit, stays on page) ---
+        document.getElementById('cotizacion-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = this;
+            const btn = form.querySelector('.btn-submit');
+            const successEl = document.getElementById('form-success');
             btn.textContent = 'Enviando...';
-            btn.style.background = 'var(--sage)';
-            btn.style.color = 'var(--white)';
             btn.disabled = true;
-            // Form submits to FormSubmit.co which will redirect to the _next URL
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(form)
+                });
+                const data = await res.json();
+                if (data.success === 'true' || data.success === true) {
+                    form.style.display = 'none';
+                    successEl.style.display = 'block';
+                    lucide.createIcons();
+                } else {
+                    throw new Error(data.message || 'Error al enviar');
+                }
+            } catch (err) {
+                btn.textContent = 'Error — intenta de nuevo';
+                btn.disabled = false;
+                console.error(err);
+            }
         });
         // Initialize Lucide icons
         lucide.createIcons();
