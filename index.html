@@ -1167,28 +1167,40 @@
             </div>
             <div class="contact-form-wrap reveal reveal-d2">
                 <h3 class="form-title">Solicitar Cotización</h3>
-                <form>
+                <form action="https://formsubmit.co/jacobo@afergreens.com" method="POST">
+                    <!-- FormSubmit config -->
+                    <input type="hidden" name="_subject" value="Nueva Solicitud de Cotización — Valle de Gigantes">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://valledegigantes.com/?enviado=1">
+                    <input type="text" name="_honey" style="display:none">
+
                     <div class="form-group">
                         <label for="nombre">Nombre o Empresa</label>
-                        <input type="text" id="nombre" placeholder="Ej. Salsas del Norte SA de CV" autocomplete="organization">
+                        <input type="text" id="nombre" name="Nombre o Empresa" placeholder="Ej. Salsas del Norte SA de CV" autocomplete="organization" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="tucorreo@empresa.com" autocomplete="email" required>
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono de Contacto</label>
-                        <input type="tel" id="telefono" placeholder="(614) ..." autocomplete="tel">
+                        <input type="tel" id="telefono" name="Teléfono" placeholder="(614) ..." autocomplete="tel" required>
                     </div>
                     <div class="form-group">
                         <label for="producto">Producto de Interés</label>
-                        <select id="producto">
+                        <select id="producto" name="Producto de Interés" required>
                             <option value="" disabled selected>Seleccionar producto...</option>
-                            <option value="chiltepin">Chiltepín — El Oro Rojo</option>
-                            <option value="jalapeno">Jalapeño de Primera</option>
-                            <option value="chipotle">Chipotle Ahumado Artesanal</option>
-                            <option value="varios">Varios Productos</option>
+                            <option value="Chiltepín — El Oro Rojo">Chiltepín — El Oro Rojo</option>
+                            <option value="Jalapeño de Primera">Jalapeño de Primera</option>
+                            <option value="Chipotle Ahumado Artesanal">Chipotle Ahumado Artesanal</option>
+                            <option value="Melón Gran Torino">Melón Gran Torino</option>
+                            <option value="Varios Productos">Varios Productos</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="mensaje">Volumen y Detalles</label>
-                        <textarea id="mensaje" placeholder="Ej. Necesito 500 kg de Chipotle para salsas gourmet..."></textarea>
+                        <textarea id="mensaje" name="Volumen y Detalles" placeholder="Ej. Necesito 500 kg de Chipotle para salsas gourmet..." required></textarea>
                     </div>
                     <button type="submit" class="btn-submit">Enviar Solicitud →</button>
                 </form>
@@ -1263,12 +1275,12 @@
 
         // --- Form submit ---
         document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
             const btn = this.querySelector('.btn-submit');
-            btn.textContent = '✓ Mensaje Enviado';
+            btn.textContent = 'Enviando...';
             btn.style.background = 'var(--sage)';
             btn.style.color = 'var(--white)';
             btn.disabled = true;
+            // Form submits to FormSubmit.co which will redirect to the _next URL
         });
         // Initialize Lucide icons
         lucide.createIcons();
