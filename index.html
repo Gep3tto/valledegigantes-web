@@ -393,7 +393,11 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('rancho.jpg') center center / cover no-repeat;
+            background-image: url('rancho-1920.jpg');
+            background-image: image-set(url('rancho.webp') type('image/webp'), url('rancho-1920.jpg') type('image/jpeg'));
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
             transform: scale(1.08);
             transform-origin: center;
             will-change: transform;
@@ -1156,7 +1160,10 @@
     <header id="site-header">
         <div class="nav-container">
             <div class="logo">
-                <a href="#inicio"><img src="logo.png?v=3" alt="AFER Greens — Valle de Gigantes" width="400" height="400"></a>
+                <a href="#inicio"><picture>
+                    <source srcset="logo.webp" type="image/webp">
+                    <img src="logo.png?v=3" alt="AFER Greens — Valle de Gigantes" width="400" height="176" fetchpriority="high" decoding="async">
+                </picture></a>
             </div>
             <nav>
                 <ul>
@@ -1214,7 +1221,10 @@
         <div class="about-inner">
             <div class="about-visual reveal">
                 <div class="about-img-wrap">
-                    <img src="rancho.jpg" alt="Valle de Gigantes — campo de cultivo en Chihuahua" width="1200" height="800" loading="lazy">
+                    <picture>
+                    <source srcset="rancho.webp" type="image/webp">
+                    <img src="rancho-1920.jpg" alt="Valle de Gigantes — campo de cultivo en Chihuahua" width="1920" height="1440" loading="lazy" decoding="async">
+                </picture>
                 </div>
                 <div class="about-badge">
                     <span class="num">100%</span>
@@ -1264,7 +1274,10 @@
         </div>
         <div class="products-grid">
             <div class="product-card reveal">
-                <img src="chiltepin.jpg" alt="Chiltepín Rojo">
+                <picture>
+                    <source srcset="chiltepin.webp" type="image/webp">
+                    <img src="chiltepin-1200.jpg" alt="Chiltepín Rojo" width="1200" height="1600" loading="lazy" decoding="async">
+                </picture>
                 <div class="product-overlay"></div>
                 <div class="product-content">
                     <div class="product-num">01</div>
@@ -1274,7 +1287,10 @@
                 </div>
             </div>
             <div class="product-card reveal reveal-d2">
-                <img src="jalapeno.jpg" alt="Jalapeño Fresco">
+                <picture>
+                    <source srcset="jalapeno.webp" type="image/webp">
+                    <img src="jalapeno-1200.jpg" alt="Jalapeño Fresco" width="1118" height="1490" loading="lazy" decoding="async">
+                </picture>
                 <div class="product-overlay"></div>
                 <div class="product-content">
                     <div class="product-num">02</div>
@@ -1284,7 +1300,10 @@
                 </div>
             </div>
             <div class="product-card reveal reveal-d3">
-                <img src="chipotle.jpg" alt="Chipotle Ahumado">
+                <picture>
+                    <source srcset="chipotle.webp" type="image/webp">
+                    <img src="chipotle-1200.jpg" alt="Chipotle Ahumado" width="1200" height="1600" loading="lazy" decoding="async">
+                </picture>
                 <div class="product-overlay"></div>
                 <div class="product-content">
                     <div class="product-num">03</div>
@@ -1294,7 +1313,10 @@
                 </div>
             </div>
             <div class="product-card reveal reveal-d4">
-                <img src="melon.png" alt="Melón Gran Torino">
+                <picture>
+                    <source srcset="melon.webp" type="image/webp">
+                    <img src="melon-1600.jpg" alt="Melón Gran Torino" width="1600" height="498" loading="lazy" decoding="async">
+                </picture>
                 <div class="product-overlay"></div>
                 <div class="product-content">
                     <div class="product-num">04</div>
@@ -1408,7 +1430,10 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-logo">
-                <a href="#inicio"><img src="logo.png?v=3" alt="AFER Greens — Valle de Gigantes" width="400" height="400"></a>
+                <a href="#inicio"><picture>
+                    <source srcset="logo.webp" type="image/webp">
+                    <img src="logo.png?v=3" alt="AFER Greens — Valle de Gigantes" width="400" height="176" loading="lazy" decoding="async">
+                </picture></a>
             </div>
             <p class="footer-copy">
                 &copy; 2026 <strong>AFER Greens S. de R.L. de C.V.</strong><br>
