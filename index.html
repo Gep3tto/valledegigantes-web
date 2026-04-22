@@ -27,6 +27,9 @@
     <meta name="twitter:description" content="Exportador artesanal de Chiltepín, Jalapeño, Chipotle ahumado con mezquite y Melón Gran Torino. Certificación Primus GFS.">
     <meta name="twitter:image" content="https://www.afergreens.com/rancho.jpg">
 
+    <!-- LCP hero image — preload for earliest fetch -->
+    <link rel="preload" as="image" href="rancho.webp" type="image/webp" fetchpriority="high">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -394,11 +397,19 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url('rancho-1920.jpg');
-            background-image: image-set(url('rancho.webp') type('image/webp'), url('rancho-1920.jpg') type('image/jpeg'));
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
+        }
+
+        .hero-bg picture,
+        .hero-bg img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-bg img {
+            object-fit: cover;
+            object-position: center center;
             transform: scale(1.08);
             transform-origin: center;
             will-change: transform;
@@ -1179,7 +1190,12 @@
 
     <!-- ======================== HERO ======================== -->
     <section id="inicio" class="hero">
-        <div class="hero-bg" id="hero-parallax"></div>
+        <div class="hero-bg">
+            <picture>
+                <source srcset="rancho.webp" type="image/webp">
+                <img src="rancho-1920.jpg" alt="" id="hero-parallax" fetchpriority="high" decoding="async" width="1920" height="1440">
+            </picture>
+        </div>
         <div class="hero-content">
             <span class="hero-eyebrow">Saucillo, Chihuahua &nbsp;·&nbsp; Desde la tierra</span>
             <h1>El <em>auténtico</em><br>sabor del campo</h1>
