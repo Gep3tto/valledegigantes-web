@@ -64,12 +64,47 @@
             "availableLanguage": ["es", "en"],
             "areaServed": "MX"
           },
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "name": "Primus GFS",
-            "credentialCategory": "Certificación de Inocuidad Alimentaria",
-            "description": "Certificación Primus GFS en campo, cuadrilla de cosecha y empaque."
-          },
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Primus GFS - Granja",
+              "identifier": "373629",
+              "url": "https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373629_0_SP.pdf",
+              "credentialCategory": "Certificación de Inocuidad Alimentaria",
+              "description": "Certificación Primus GFS para campo de cultivo.",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "SCS Global Services",
+                "url": "https://www.scsglobalservices.com/"
+              }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Primus GFS - Cuadrilla",
+              "identifier": "373630",
+              "url": "https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373630_0_SP.pdf",
+              "credentialCategory": "Certificación de Inocuidad Alimentaria",
+              "description": "Certificación Primus GFS para cuadrilla de cosecha.",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "SCS Global Services",
+                "url": "https://www.scsglobalservices.com/"
+              }
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Primus GFS - Empaque",
+              "identifier": "373631",
+              "url": "https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1562_373631_0_SP.pdf",
+              "credentialCategory": "Certificación de Inocuidad Alimentaria",
+              "description": "Certificación Primus GFS para centro de empaque.",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "SCS Global Services",
+                "url": "https://www.scsglobalservices.com/"
+              }
+            }
+          ],
           "sameAs": []
         },
         {
@@ -107,12 +142,11 @@
             "opens": "08:00",
             "closes": "18:00"
           }],
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "name": "Primus GFS",
-            "credentialCategory": "Certificación de Inocuidad Alimentaria",
-            "description": "Certificado en campo, cuadrilla de cosecha y empaque."
-          },
+          "hasCredential": [
+            {"@type": "EducationalOccupationalCredential", "name": "Primus GFS - Granja", "identifier": "373629", "url": "https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373629_0_SP.pdf", "credentialCategory": "Certificación de Inocuidad Alimentaria", "recognizedBy": {"@type": "Organization", "name": "SCS Global Services"}},
+            {"@type": "EducationalOccupationalCredential", "name": "Primus GFS - Cuadrilla", "identifier": "373630", "url": "https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373630_0_SP.pdf", "credentialCategory": "Certificación de Inocuidad Alimentaria", "recognizedBy": {"@type": "Organization", "name": "SCS Global Services"}},
+            {"@type": "EducationalOccupationalCredential", "name": "Primus GFS - Empaque", "identifier": "373631", "url": "https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1562_373631_0_SP.pdf", "credentialCategory": "Certificación de Inocuidad Alimentaria", "recognizedBy": {"@type": "Organization", "name": "SCS Global Services"}}
+          ],
           "parentOrganization": {"@id": "https://www.afergreens.com/#organization"}
         },
         {
@@ -223,6 +257,8 @@
             --teal-deep:  #07433A;
             --teal-light: #1A8A78;
             --teal-dark:  #042E28;
+
+            --scs-green:  #78A22F; /* SCS Global Services brand (PMS 377c) */
 
             --white:      #FDFCFA;
             --snow:       #F7F5F0;
@@ -872,6 +908,143 @@
         }
 
         /* ============================================================
+           CERTIFICACIONES
+        ============================================================ */
+        #certificaciones {
+            background: var(--snow);
+        }
+
+        #certificaciones .section-label { color: var(--scs-green); }
+        #certificaciones .section-title { color: var(--teal-dark); }
+        #certificaciones .section-title em { color: var(--scs-green); }
+
+        .certs-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(24px, 6vw, 100px);
+            text-align: center;
+        }
+
+        .certs-intro {
+            max-width: 700px;
+            margin: 28px auto 56px;
+            font-size: clamp(1rem, 1.3vw, 1.125rem);
+            line-height: 1.65;
+            color: var(--slate);
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-bottom: 50px;
+        }
+
+        .cert-card {
+            background: var(--white);
+            padding: 44px 32px 36px;
+            border-radius: 6px;
+            border: 1px solid var(--pearl);
+            box-shadow: 0 2px 20px rgba(4, 46, 40, 0.04);
+            text-align: center;
+            transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(4, 46, 40, 0.08);
+        }
+
+        .cert-badge {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            background: var(--scs-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .cert-badge::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 2px solid var(--scs-green);
+            border-radius: 50%;
+            opacity: 0.25;
+        }
+
+        .cert-card h3 {
+            font-family: var(--ff-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--teal-dark);
+            margin-bottom: 10px;
+        }
+
+        .cert-num {
+            font-family: var(--ff-body);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--slate);
+            margin-bottom: 6px;
+        }
+
+        .cert-num strong {
+            color: var(--scs-green);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+
+        .cert-scope {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 20px;
+        }
+
+        .cert-verify {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--scs-green);
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: border-color 0.3s var(--ease-out-expo), color 0.3s var(--ease-out-expo);
+        }
+
+        .cert-verify:hover {
+            color: var(--teal-dark);
+            border-bottom-color: var(--scs-green);
+        }
+
+        .cert-verify svg {
+            stroke-width: 2.2;
+        }
+
+        .certs-footer {
+            font-size: 0.88rem;
+            color: var(--slate);
+            letter-spacing: 0.02em;
+            border-top: 1px solid var(--pearl);
+            padding-top: 28px;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .certs-footer strong {
+            color: var(--scs-green);
+            font-weight: 700;
+        }
+
+        /* ============================================================
            STATS BAR
         ============================================================ */
         .stats-bar {
@@ -1342,6 +1515,51 @@
                     <span class="product-tag">Fresco · Calidad · Mayoreo</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ======================== CERTIFICACIONES ======================== -->
+    <section id="certificaciones" class="section-full">
+        <div class="certs-inner">
+            <span class="section-label reveal">— Certificaciones</span>
+            <h2 class="section-title reveal reveal-d1">Inocuidad <em>garantizada</em></h2>
+            <p class="certs-intro reveal reveal-d2">Nuestra operación está certificada Primus GFS en los tres eslabones críticos de la cadena de suministro: campo de cultivo, cuadrilla de cosecha y centro de empaque. Auditado anualmente bajo el estándar global de inocuidad alimentaria.</p>
+            <div class="certs-grid">
+                <div class="cert-card reveal reveal-d2">
+                    <div class="cert-badge">
+                        <i data-lucide="shield-check" width="44" height="44"></i>
+                    </div>
+                    <h3>Granja</h3>
+                    <p class="cert-num">Certificado <strong>#373629</strong></p>
+                    <p class="cert-scope">Campo de cultivo</p>
+                    <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373629_0_SP.pdf" target="_blank" rel="noopener">
+                        Ver certificado <i data-lucide="external-link" width="14" height="14"></i>
+                    </a>
+                </div>
+                <div class="cert-card reveal reveal-d3">
+                    <div class="cert-badge">
+                        <i data-lucide="users" width="44" height="44"></i>
+                    </div>
+                    <h3>Cuadrilla</h3>
+                    <p class="cert-num">Certificado <strong>#373630</strong></p>
+                    <p class="cert-scope">Operación de cosecha</p>
+                    <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373630_0_SP.pdf" target="_blank" rel="noopener">
+                        Ver certificado <i data-lucide="external-link" width="14" height="14"></i>
+                    </a>
+                </div>
+                <div class="cert-card reveal reveal-d3">
+                    <div class="cert-badge">
+                        <i data-lucide="package-check" width="44" height="44"></i>
+                    </div>
+                    <h3>Empaque</h3>
+                    <p class="cert-num">Certificado <strong>#373631</strong></p>
+                    <p class="cert-scope">Centro de procesamiento</p>
+                    <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1562_373631_0_SP.pdf" target="_blank" rel="noopener">
+                        Ver certificado <i data-lucide="external-link" width="14" height="14"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="certs-footer reveal">Auditado por <strong>SCS Global Services</strong> &middot; Estándar Primus GFS</p>
         </div>
     </section>
 
