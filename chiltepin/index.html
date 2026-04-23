@@ -48,7 +48,12 @@
           "name": "Chile Chiltepín — Valle de Gigantes",
           "description": "Chile Chiltepín seco y fresco de cosecha manual y selectiva en el Valle de Gigantes, Saucillo, Chihuahua. Picor 50,000–100,000 SHU. Diámetro 5-8 mm. Disponible en presentaciones de 100 g, 1 kg y 10 kg para mercados gourmet, HoReCa, procesadoras y exportación.",
           "url": "https://www.afergreens.com/chiltepin/",
-          "image": "https://www.afergreens.com/chiltepin.jpg",
+          "image": [
+            "https://www.afergreens.com/chiltepin.jpg",
+            "https://www.afergreens.com/chiltepin-100g.jpg",
+            "https://www.afergreens.com/chiltepin-1kg.jpg",
+            "https://www.afergreens.com/chiltepin-10kg.jpg"
+          ],
           "sku": "AFER-CHIL",
           "category": "Chile / Especias",
           "inLanguage": "es-MX",
@@ -450,16 +455,38 @@
         }
         .pres-card {
             background: var(--white);
-            padding: 40px 28px;
             border-radius: 6px;
             border: 1px solid var(--pearl);
             box-shadow: 0 2px 20px rgba(4, 46, 40, 0.04);
             transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
             text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         .pres-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(4, 46, 40, 0.1);
+        }
+        .pres-img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: var(--pearl);
+            overflow: hidden;
+        }
+        .pres-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out-expo);
+        }
+        .pres-card:hover .pres-img img { transform: scale(1.04); }
+        .pres-body {
+            padding: 32px 28px 36px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         .pres-tag {
             display: inline-block;
@@ -694,7 +721,7 @@
                 <div class="spec reveal reveal-d2">
                     <i data-lucide="palette" width="28" height="28"></i>
                     <h3>Color</h3>
-                    <p>Rojo intenso al madurar; verde oscuro en fruto inmaduro.</p>
+                    <p>Rojo intenso al madurar; verde oscuro en fruto fresco.</p>
                 </div>
                 <div class="spec reveal reveal-d2">
                     <i data-lucide="circle" width="28" height="28"></i>
@@ -733,19 +760,43 @@
             <p class="pres-intro reveal reveal-d2">Chiltepín fresco y seco disponible en tres presentaciones de empaque, pensadas para el canal especializado, la operación HoReCa profesional y la formulación industrial.</p>
             <div class="pres-grid">
                 <div class="pres-card reveal reveal-d2">
-                    <span class="pres-tag">Retail gourmet</span>
-                    <div class="pres-size">100 g</div>
-                    <p>Presentación boutique para canal especializado y chef exploratorio.</p>
+                    <div class="pres-img">
+                        <picture>
+                            <source srcset="/chiltepin-100g.webp" type="image/webp">
+                            <img src="/chiltepin-100g.jpg" alt="Frasco de vidrio de 100 g de chiltepín seco Valle de Gigantes sobre tabla de madera, empaque gourmet retail" width="1376" height="768" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="pres-body">
+                        <span class="pres-tag">Retail gourmet</span>
+                        <div class="pres-size">100 g</div>
+                        <p>Presentación boutique para canal especializado y chef exploratorio.</p>
+                    </div>
                 </div>
                 <div class="pres-card reveal reveal-d3">
-                    <span class="pres-tag">HoReCa / restaurante</span>
-                    <div class="pres-size">1 kg</div>
-                    <p>Empaque profesional para cocinas de alto volumen y salsas de autor.</p>
+                    <div class="pres-img">
+                        <picture>
+                            <source srcset="/chiltepin-1kg.webp" type="image/webp">
+                            <img src="/chiltepin-1kg.jpg" alt="Bolsa resellable kraft de 1 kg de chiltepín Valle de Gigantes en cocina profesional HoReCa" width="1376" height="768" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="pres-body">
+                        <span class="pres-tag">HoReCa / restaurante</span>
+                        <div class="pres-size">1 kg</div>
+                        <p>Empaque profesional para cocinas de alto volumen y salsas de autor.</p>
+                    </div>
                 </div>
                 <div class="pres-card reveal reveal-d4">
-                    <span class="pres-tag">Industrial / procesadora</span>
-                    <div class="pres-size">10 kg</div>
-                    <p>Formato bulk para formulación de salsas, adobos y marinados comerciales.</p>
+                    <div class="pres-img">
+                        <picture>
+                            <source srcset="/chiltepin-10kg.webp" type="image/webp">
+                            <img src="/chiltepin-10kg.jpg" alt="Costal industrial kraft de 10 kg de chiltepín AFER Greens Producto de México sobre tarima en almacén de exportación" width="1376" height="768" loading="lazy" decoding="async">
+                        </picture>
+                    </div>
+                    <div class="pres-body">
+                        <span class="pres-tag">Industrial / procesadora</span>
+                        <div class="pres-size">10 kg</div>
+                        <p>Formato bulk para formulación de salsas, adobos y marinados comerciales.</p>
+                    </div>
                 </div>
             </div>
             <div class="pres-states reveal">
