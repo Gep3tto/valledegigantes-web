@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-11T00:00:00Z",
+  "title": "Design System: AFER Greens / Valle de Gigantes",
+  "extensions": {
+    "colorMeta": {
+      "harvest-amber":       { "role": "primary",   "displayName": "Harvest Amber",       "canonical": "oklch(70% 0.175 55)",  "tonalRamp": ["oklch(15% 0.04 55)","oklch(25% 0.08 55)","oklch(35% 0.12 55)","oklch(50% 0.16 55)","oklch(70% 0.175 55)","oklch(80% 0.14 60)","oklch(88% 0.10 65)","oklch(95% 0.05 70)"] },
+      "harvest-amber-light": { "role": "primary",   "displayName": "Harvest Amber Light",  "canonical": "oklch(80% 0.14 60)",  "tonalRamp": [] },
+      "harvest-amber-glow":  { "role": "primary",   "displayName": "Harvest Amber Glow",   "canonical": "oklch(97% 0.03 75)",  "tonalRamp": [] },
+      "cantera-deep":        { "role": "secondary", "displayName": "Cantera Deep",          "canonical": "oklch(18% 0.04 185)", "tonalRamp": ["oklch(8% 0.02 185)","oklch(18% 0.04 185)","oklch(27% 0.05 185)","oklch(35% 0.058 185)","oklch(42% 0.065 185)","oklch(52% 0.07 185)","oklch(65% 0.055 185)","oklch(80% 0.03 185)"] },
+      "cantera-mid":         { "role": "secondary", "displayName": "Cantera Mid",           "canonical": "oklch(27% 0.05 185)", "tonalRamp": [] },
+      "cantera-teal":        { "role": "secondary", "displayName": "Cantera Teal",          "canonical": "oklch(42% 0.065 185)","tonalRamp": [] },
+      "cantera-light":       { "role": "secondary", "displayName": "Cantera Light",         "canonical": "oklch(52% 0.07 185)", "tonalRamp": [] },
+      "agave-pale":          { "role": "tertiary",  "displayName": "Agave Pale",            "canonical": "oklch(78% 0.04 155)", "tonalRamp": ["oklch(20% 0.025 155)","oklch(35% 0.04 155)","oklch(48% 0.05 155)","oklch(58% 0.055 155)","oklch(68% 0.048 155)","oklch(78% 0.04 155)","oklch(88% 0.025 155)","oklch(96% 0.01 155)"] },
+      "agave-sage":          { "role": "tertiary",  "displayName": "Agave Sage",            "canonical": "oklch(58% 0.055 155)","tonalRamp": [] },
+      "agave-soft":          { "role": "tertiary",  "displayName": "Agave Soft",            "canonical": "oklch(94% 0.018 155)","tonalRamp": [] },
+      "scs-green":           { "role": "tertiary",  "displayName": "SCS Green (cert only)", "canonical": "oklch(56% 0.12 130)", "tonalRamp": [] },
+      "white":               { "role": "neutral",   "displayName": "White (warm-tinted)",   "canonical": "oklch(99% 0.004 90)", "tonalRamp": [] },
+      "snow":                { "role": "neutral",   "displayName": "Snow",                  "canonical": "oklch(97% 0.007 85)", "tonalRamp": [] },
+      "pearl":               { "role": "neutral",   "displayName": "Pearl",                 "canonical": "oklch(93% 0.01 85)",  "tonalRamp": [] },
+      "fog":                 { "role": "neutral",   "displayName": "Fog",                   "canonical": "oklch(84% 0.01 80)",  "tonalRamp": [] },
+      "stone":               { "role": "neutral",   "displayName": "Stone",                 "canonical": "oklch(64% 0.01 75)",  "tonalRamp": [] },
+      "slate":               { "role": "neutral",   "displayName": "Slate",                 "canonical": "oklch(46% 0.01 65)",  "tonalRamp": [] },
+      "charcoal":            { "role": "neutral",   "displayName": "Charcoal",              "canonical": "oklch(28% 0.01 65)",  "tonalRamp": [] },
+      "ink":                 { "role": "neutral",   "displayName": "Ink",                   "canonical": "oklch(12% 0.008 70)", "tonalRamp": [] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero h1 only. Once per page. Always contains one italic <em> in Harvest Amber." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2 titles. Each contains one italic <em> in Harvest Amber for the thematic word." },
+      "title":    { "displayName": "Title",    "purpose": "h3 headings — product cards, cert cards, form sections." },
+      "body":     { "displayName": "Body",     "purpose": "All paragraph copy. Weight 300 (light). Max-width ~520px / 65ch." },
+      "label":    { "displayName": "Label",    "purpose": "Section eyebrow labels, stat labels, nav links, contact metadata. Always uppercase, always tracked (0.18–0.30em)." }
+    },
+    "shadows": [
+      { "name": "cta-amber-rest",  "value": "0 4px 28px rgba(247,147,30,0.35)",  "purpose": "Primary CTA button at rest. The only at-rest shadow in the system." },
+      { "name": "cta-amber-hover", "value": "0 10px 40px rgba(247,147,30,0.5)",  "purpose": "Primary CTA button on hover, paired with translateY(-3px)." },
+      { "name": "card-ambient",    "value": "0 2px 20px rgba(4,46,40,0.04)",     "purpose": "Light-section cards at rest. Barely perceptible; lifts card 1px visually." },
+      { "name": "card-hover",      "value": "0 10px 40px rgba(4,46,40,0.08)",    "purpose": "Light-section cards on hover, paired with translateY(-4px)." },
+      { "name": "product-image",   "value": "0 20px 60px rgba(4,46,40,0.5)",     "purpose": "Hero product image on product subpages. Heaviest shadow; used once per page." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo",  "value": "cubic-bezier(0.16, 1, 0.3, 1)",  "purpose": "Default easing for all transitions (hover, reveal, transform). The only ease-out in this system." },
+      { "name": "ease-in-out",    "value": "cubic-bezier(0.4, 0, 0.2, 1)",   "purpose": "Header background/backdrop-filter transitions on scroll. Not for interactive elements." },
+      { "name": "reveal-enter",   "value": "opacity 0.9s ease-out-expo, transform 0.9s ease-out-expo", "purpose": "Scroll-reveal enter animation. Elements start at opacity:0 translateY(40px)." },
+      { "name": "marquee",        "value": "translateX(-50%) 22s linear infinite",                      "purpose": "Amber ticker strip. Two copies of content; seamless loop on transform." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "1024px", "notes": "Grid collapses: about section, product grid, contact grid go to 1 column." },
+      { "name": "mobile", "value": "768px",  "notes": "Nav stacks vertically; custom cursor disabled; mobile touch targets apply." },
+      { "name": "small",  "value": "480px",  "notes": "Hero h1 clamp lower bound; CTA stack direction column." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The conversion action. Amber pill with Ink text and ambient amber glow at rest.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Solicitar Cotización</a>",
+      "css": ".ds-btn-primary { display: inline-block; font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.92rem; font-weight: 600; background: #F7931E; color: #1D1B18; padding: 16px 38px; border-radius: 100px; box-shadow: 0 4px 28px rgba(247,147,30,0.35); transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s, background 0.3s; text-decoration: none; } .ds-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(247,147,30,0.5); background: #FBBD6E; } .ds-btn-primary:focus-visible { outline: 2px solid #F7931E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Transparent with Agave Pale border; used alongside Primary.",
+      "html": "<a href=\"#\" class=\"ds-btn-ghost\">Ver Cosecha</a>",
+      "css": ".ds-btn-ghost { display: inline-block; font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.92rem; font-weight: 500; color: #A8C4A9; border: 1.5px solid rgba(168,196,169,0.4); padding: 15px 34px; border-radius: 100px; transition: color 0.3s, border-color 0.3s, background 0.3s; text-decoration: none; } .ds-btn-ghost:hover { color: #FDFCFA; border-color: #FDFCFA; background: rgba(255,255,255,0.08); } .ds-btn-ghost:focus-visible { outline: 2px solid #A8C4A9; outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav CTA",
+      "kind": "button",
+      "refersTo": "nav-cta",
+      "description": "Compact amber pill in the navigation bar. Entry point to the quote form.",
+      "html": "<a href=\"/#contacto\" class=\"ds-nav-cta\">Cotizar</a>",
+      "css": ".ds-nav-cta { font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; background: #F7931E; color: #1D1B18; padding: 9px 24px; border-radius: 100px; box-shadow: 0 2px 16px rgba(247,147,30,0.25); transition: background 0.3s, transform 0.2s; text-decoration: none; display: inline-block; } .ds-nav-cta:hover { background: #FBBD6E; transform: translateY(-1px); } .ds-nav-cta:focus-visible { outline: 2px solid #F7931E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Uppercase eyebrow label above every section heading. Amber on dark, teal on light.",
+      "html": "<span class=\"ds-section-label\">— Nuestra Historia</span>",
+      "css": ".ds-section-label { display: block; font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.30em; text-transform: uppercase; color: #F7931E; margin-bottom: 14px; }"
+    },
+    {
+      "name": "Product Tag Chip",
+      "kind": "chip",
+      "refersTo": "label",
+      "description": "Outline-only amber chip beneath product card titles. Describes format and market.",
+      "html": "<span class=\"ds-product-tag\">Seco · Mayoreo · Exportación</span>",
+      "css": ".ds-product-tag { display: inline-block; font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #F7931E; border: 1px solid rgba(247,147,30,0.4); padding: 5px 14px; border-radius: 100px; background: transparent; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": "input-default",
+      "description": "Text field on dark contact section. Semi-transparent tinted glass background.",
+      "html": "<div class=\"ds-form-group\"><label class=\"ds-form-label\" for=\"ds-ex\">Nombre o Empresa</label><input class=\"ds-input\" id=\"ds-ex\" type=\"text\" placeholder=\"Ej. Salsas del Norte SA de CV\"></div>",
+      "css": ".ds-form-group { margin-bottom: 22px; } .ds-form-label { display: block; font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.20em; text-transform: uppercase; color: #9B9585; margin-bottom: 8px; } .ds-input { width: 100%; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(168,196,169,0.18); border-radius: 8px; color: #FDFCFA; font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.95rem; padding: 14px 18px; outline: none; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s; } .ds-input::placeholder { color: rgba(168,196,169,0.35); } .ds-input:focus { border-color: #F7931E; background: rgba(247,147,30,0.06); box-shadow: 0 0 0 3px rgba(247,147,30,0.45); } .ds-input:focus-visible { border-color: #F7931E; box-shadow: 0 0 0 3px rgba(247,147,30,0.45); }"
+    },
+    {
+      "name": "Cert Card",
+      "kind": "card",
+      "refersTo": "card-light",
+      "description": "White card on Snow background for certification display. Hover lifts via shadow and translateY.",
+      "html": "<div class=\"ds-cert-card\"><div class=\"ds-cert-badge\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"44\" height=\"44\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#FDFCFA\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/><polyline points=\"9 12 11 14 15 10\"/></svg></div><h3 class=\"ds-cert-title\">Granja</h3><p class=\"ds-cert-num\">Certificado <strong>#373629</strong></p><p class=\"ds-cert-scope\">Campo de cultivo</p><a class=\"ds-cert-verify\" href=\"#\">Ver certificado <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" aria-hidden=\"true\"><path d=\"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6\"/><polyline points=\"15 3 21 3 21 9\"/><line x1=\"10\" y1=\"14\" x2=\"21\" y2=\"3\"/></svg></a></div>",
+      "css": ".ds-cert-card { background: #FDFCFA; padding: 44px 32px 36px; border-radius: 6px; border: 1px solid #EDEAE3; box-shadow: 0 2px 20px rgba(4,46,40,0.04); text-align: center; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1); } .ds-cert-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(4,46,40,0.08); } .ds-cert-badge { width: 96px; height: 96px; margin: 0 auto 24px; border-radius: 50%; background: #78A22F; display: flex; align-items: center; justify-content: center; position: relative; } .ds-cert-badge::after { content: ''; position: absolute; inset: -6px; border: 2px solid #78A22F; border-radius: 50%; opacity: 0.25; } .ds-cert-title { font-family: 'Fraunces', Georgia, serif; font-size: 1.6rem; font-weight: 700; color: #042E28; margin-bottom: 10px; } .ds-cert-num { font-family: 'Outfit', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6B6560; margin-bottom: 6px; } .ds-cert-num strong { color: #78A22F; font-weight: 700; } .ds-cert-scope { font-size: 0.95rem; color: #6B6560; margin-bottom: 20px; } .ds-cert-verify { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #78A22F; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color 0.3s, color 0.3s; text-decoration: none; } .ds-cert-verify:hover { color: #042E28; border-bottom-color: #78A22F; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Navigation link with animated amber underline on hover. Scrolled header state shown.",
+      "html": "<header class=\"ds-header ds-header--scrolled\"><nav><ul class=\"ds-nav-list\"><li><a class=\"ds-nav-link\" href=\"/#inicio\">Inicio</a></li><li><a class=\"ds-nav-link\" href=\"/#productos\">Productos</a></li><li><a class=\"ds-nav-cta\" href=\"/#contacto\">Cotizar</a></li></ul></nav></header>",
+      "css": ".ds-header { position: relative; background: rgba(4,46,40,0.92); backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid rgba(247,147,30,0.12); padding: 12px 32px; } .ds-nav-list { list-style: none; display: flex; gap: 32px; align-items: center; margin: 0; padding: 0; } .ds-nav-link { font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; color: #A8C4A9; position: relative; padding-bottom: 4px; text-decoration: none; transition: color 0.3s; } .ds-nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #F7931E; border-radius: 1px; transition: width 0.35s cubic-bezier(0.16,1,0.3,1); } .ds-nav-link:hover { color: #FDFCFA; } .ds-nav-link:hover::after { width: 100%; } .ds-nav-link:focus-visible { outline: 2px solid #F7931E; outline-offset: 3px; border-radius: 2px; } .ds-nav-cta { font-family: 'Outfit', -apple-system, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; background: #F7931E; color: #1D1B18; padding: 9px 24px; border-radius: 100px; box-shadow: 0 2px 16px rgba(247,147,30,0.25); transition: background 0.3s, transform 0.2s; text-decoration: none; } .ds-nav-cta:hover { background: #FBBD6E; transform: translateY(-1px); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Export Estate",
+    "overview": "This is the visual language of a Chihuahuan terroir estate seen through the eye of an international buyer: a premium certified supplier that communicates confidence through restraint, not decoration. The aesthetic owes more to a high-end mezcal house or a single-origin coffee exporter than to any agricultural commodity site. Surfaces are authoritative and dark; the accent is warm but controlled; nothing shouts.\n\nThe dominant ground is deep cantera teal, a near-black that reads as serious and grounded, not tech-dark. Harvest amber appears sparingly — a single heat source on the page. Agave pale carries secondary text and supporting tone, connecting the amber and the dark without softening them. Light sections switch to off-white snow to create breathing room, staying in the same family of warm-tinted neutrals.\n\nMotion is minimal and purposeful. The interface does not perform; it invites scrutiny. An export buyer should feel they are looking at a supplier that has nothing to hide and everything to show.",
+    "keyCharacteristics": [
+      "Deep cantera teal base with a single amber accent at ≤10% coverage per surface",
+      "Fraunces (serif) for all display and identity moments; Outfit (sans) for all body, label, and interface copy",
+      "Full-capsule pill buttons; gently curved cards (6px); near-flat elevation with amber glow on CTAs only",
+      "Fluid spacing and type scales via clamp() — no breakpoint-specific magic numbers",
+      "Grain overlay (fixed, mix-blend-mode: overlay) throughout all dark sections",
+      "Custom cursor on desktop (amber dot + trailing ring); disabled on mobile"
+    ],
+    "rules": [
+      { "name": "The Rarity Rule",           "body": "Harvest Amber covers ≤10% of any given dark surface. A page where amber is everywhere has lost its edge; a page where it appears once or twice has authority.",                                           "section": "colors" },
+      { "name": "The SCS Quarantine Rule",   "body": "SCS Green (#78A22F) is reserved for Primus GFS certification contexts only. Using it for decorative accents or non-certification UI dilutes the credibility signal it carries.",              "section": "colors" },
+      { "name": "The Warm Tint Rule",        "body": "Every neutral in this system is tinted toward the brand hue. Pure #000000 and #ffffff are prohibited.",                                                                                          "section": "colors" },
+      { "name": "The Fraunces-Only Rule",    "body": "Fraunces is used exclusively for display, headline, and title roles. Outfit never appears in headline or display roles. The split is absolute.",                                                   "section": "typography" },
+      { "name": "The Italic Amber Rule",     "body": "Each h1 and h2 contains exactly one <em> rendered in italic Fraunces and Harvest Amber. One per heading, the thematic anchor word. Do not use <em> for general emphasis.",                       "section": "typography" },
+      { "name": "The 65ch Rule",             "body": "Body paragraphs are capped at ~520px / 65ch max-width. Wider line lengths on large viewports are prohibited.",                                                                                    "section": "typography" },
+      { "name": "The Flat Surface Rule",     "body": "Surfaces between sections carry no shadows. Section depth is achieved through background contrast, not elevation. If you are reaching for a section-level shadow, use a background-color change.", "section": "elevation" },
+      { "name": "The One Glow Rule",         "body": "Amber glow belongs exclusively to primary CTA buttons. No other element uses an amber-tinted shadow. An amber glow on cards, headers, or decorative elements dilutes the CTA signal.",          "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Harvest Amber (#F7931E) for CTAs, eyebrow labels, and single-word italic emphasis in Fraunces headings — and nowhere else.",
+      "Do tint every neutral toward the brand hue. Pure #000 and #fff are prohibited.",
+      "Do use <em> in Fraunces headings to render in italic amber — one per heading, the thematic anchor word.",
+      "Do apply will-change: transform and position cursor elements with transform: translate(), not top/left.",
+      "Do verify 4.5:1 contrast ratio for all text against its background before shipping.",
+      "Do honor prefers-reduced-motion for all scroll-reveal animations and the parallax hero.",
+      "Do reserve SCS Green (#78A22F) for Primus GFS certification contexts only.",
+      "Do use clamp() for all font sizes and horizontal padding.",
+      "Do keep product photography desaturated at rest (saturate(0.8)) and let hover restore color."
+    ],
+    "donts": [
+      "Don't make this look like a generic agro-commodity site. No stock-photo tractors, no green-and-yellow palette, no clip-art certification badges.",
+      "Don't use hipster-foodie aesthetics. No kraft paper textures, no hand-lettered treatments, no warm Instagram-organic softness.",
+      "Don't import SaaS or tech-startup patterns. No hero metrics on gradient backgrounds, no card grids of icon + heading + text, no Inter anywhere.",
+      "Don't allow institutional or government tone. No heavy data tables, no bureaucratic gray.",
+      "Don't use border-left or border-right greater than 1px as a colored decorative accent on cards, list items, or specification items. Use leading icons, tinted backgrounds, or full borders instead.",
+      "Don't use gradient text (background-clip: text with a gradient).",
+      "Don't use glassmorphism decoratively. Only the contact form wrap and scrolled header are justified.",
+      "Don't animate CSS layout properties. All motion must be on transform and opacity only.",
+      "Don't use bounce, elastic, or spring easing. Only ease-out-expo and ease-in-out are permitted.",
+      "Don't remove outline from interactive elements without a WCAG 2.2 AA-compliant custom focus indicator.",
+      "Don't let footer text fall below WCAG AA contrast. Minimum 75% opacity Agave Pale on dark surfaces."
+    ]
+  }
+}

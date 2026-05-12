@@ -273,6 +273,13 @@
             --charcoal:   #3D3A35;
             --ink:        #1D1B18;
 
+            --amber-dark:       #E8830A;
+            --amber-on-light:   #C4710A;
+            --about-text:       #4A5D4B;
+            --about-text-muted: #5A7A5C;
+            --pillar-bg:        #F7FAF7;
+            --pillar-hover-bg:  #FFF8EE;
+
             --ff-display: 'Fraunces', Georgia, serif;
             --ff-body:    'Outfit', -apple-system, sans-serif;
 
@@ -313,25 +320,25 @@
         ============================================================ */
         #cursor {
             position: fixed;
+            left: 0; top: 0;
             width: 12px; height: 12px;
             background: var(--amber);
             border-radius: 50%;
             pointer-events: none;
             z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: transform 0.08s var(--ease-out-expo), width 0.3s, height 0.3s;
+            transition: width 0.3s, height 0.3s;
             mix-blend-mode: difference;
         }
 
         #cursor-ring {
             position: fixed;
+            left: 0; top: 0;
             width: 40px; height: 40px;
             border: 1px solid rgba(247,147,30,0.5);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: transform 0.25s var(--ease-out-expo), width 0.3s, height 0.3s, opacity 0.3s;
+            transition: width 0.3s, height 0.3s, opacity 0.3s;
         }
 
         body:has(a:hover) #cursor { width: 20px; height: 20px; }
@@ -663,10 +670,10 @@
         /* ============================================================
            NOSOTROS
         ============================================================ */
-        #nosotros { background: #FFFFFF; }
+        #nosotros { background: var(--white); }
         #nosotros .section-label { color: var(--teal); }
         #nosotros .section-title { color: var(--teal-dark); }
-        #nosotros .section-title em { color: var(--amber); }
+        #nosotros .section-title em { color: var(--amber-on-light); }
 
         .about-inner {
             max-width: 1400px;
@@ -718,7 +725,7 @@
             text-align: center;
             z-index: 2;
             box-shadow: 0 8px 36px rgba(247,147,30,0.4);
-            border: 4px solid #FFFFFF;
+            border: 4px solid var(--white);
         }
 
         .about-badge .num {
@@ -744,7 +751,7 @@
         .about-content p {
             font-size: clamp(1rem, 1.5vw, 1.15rem);
             font-weight: 300;
-            color: #4A5D4B;
+            color: var(--about-text);
             line-height: 1.8;
             margin-bottom: 22px;
         }
@@ -762,13 +769,13 @@
             border: 1px solid rgba(13,101,88,0.12);
             border-radius: 8px;
             padding: 20px;
-            background: #F7FAF7;
+            background: var(--pillar-bg);
             transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
         }
 
         .pillar:hover {
             border-color: rgba(247,147,30,0.35);
-            background: #FFF8EE;
+            background: var(--pillar-hover-bg);
             box-shadow: 0 4px 20px rgba(247,147,30,0.08);
         }
 
@@ -782,9 +789,9 @@
             margin-bottom: 12px;
         }
 
-        .pillar-icon svg { color: #FFFFFF; }
+        .pillar-icon svg { color: var(--white); }
 
-        .pillar h4 {
+        .pillar h3 {
             font-family: var(--ff-display);
             font-size: 0.95rem;
             font-weight: 700;
@@ -792,7 +799,7 @@
             margin-bottom: 5px;
         }
 
-        .pillar p { font-size: 0.88rem !important; color: #5A7A5C !important; margin-bottom: 0 !important; }
+        .pillar p { font-size: 0.88rem !important; color: var(--about-text-muted) !important; margin-bottom: 0 !important; }
 
         /* ============================================================
            PRODUCTOS — full-bleed grid with overlays
@@ -1020,7 +1027,7 @@
             text-transform: uppercase;
             color: var(--scs-green);
             border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
+            padding: 12px 4px;
             transition: border-color 0.3s var(--ease-out-expo), color 0.3s var(--ease-out-expo);
         }
 
@@ -1046,52 +1053,6 @@
         .certs-footer strong {
             color: var(--scs-green);
             font-weight: 700;
-        }
-
-        /* ============================================================
-           STATS BAR
-        ============================================================ */
-        .stats-bar {
-            background: linear-gradient(135deg, var(--amber) 0%, #E8830A 100%);
-            padding: clamp(44px, 6vh, 70px) clamp(24px, 6vw, 100px);
-        }
-
-        .stats-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            text-align: center;
-        }
-
-        .stat-item { position: relative; }
-
-        .stat-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0; top: 50%;
-            transform: translateY(-50%);
-            width: 1px; height: 60%;
-            background: rgba(29,27,24,0.15);
-        }
-
-        .stat-num {
-            font-family: var(--ff-display);
-            font-size: clamp(2.8rem, 5vw, 4.5rem);
-            font-weight: 900;
-            color: var(--ink);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-family: var(--ff-body);
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(29,27,24,0.55);
         }
 
         /* ============================================================
@@ -1148,7 +1109,7 @@
 
         .contact-item:hover .contact-icon { background: rgba(247,147,30,0.2); }
 
-        .contact-item-text h4 {
+        .contact-item-text .contact-label {
             font-family: var(--ff-body);
             font-size: 0.7rem;
             font-weight: 600;
@@ -1220,7 +1181,7 @@
         .form-group select:focus {
             border-color: var(--amber);
             background: rgba(247,147,30,0.06);
-            box-shadow: 0 0 0 3px rgba(247,147,30,0.1);
+            box-shadow: 0 0 0 3px rgba(247,147,30,0.45);
         }
 
         .form-group textarea { resize: vertical; min-height: 120px; }
@@ -1281,18 +1242,18 @@
         .footer-copy {
             font-family: var(--ff-body);
             font-size: 0.85rem;
-            color: rgba(168,196,169,0.4);
+            color: rgba(168,196,169,0.78);
             text-align: center;
         }
 
-        .footer-copy strong { color: rgba(168,196,169,0.65); }
+        .footer-copy strong { color: rgba(168,196,169,0.92); }
 
         .footer-right {
             font-family: var(--ff-body);
             font-size: 0.72rem;
             font-weight: 500;
             letter-spacing: 0.2em;
-            color: rgba(168,196,169,0.35);
+            color: rgba(168,196,169,0.78);
             text-align: right;
         }
 
@@ -1320,12 +1281,11 @@
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 14px; padding: 14px 0; }
             .logo img { height: 70px; }
-            nav ul { gap: 16px; flex-wrap: wrap; justify-content: center; }
+            nav ul { gap: 8px 16px; flex-wrap: wrap; justify-content: center; }
+            nav a { padding: 8px 12px; }
             .hero { padding-left: 24px; padding-right: 24px; }
             .products-header { flex-direction: column; gap: 16px; }
             .products-header-right { text-align: left; }
-            .stats-inner { grid-template-columns: 1fr; gap: 30px; }
-            .stat-item::after { display: none; }
             .footer-inner { flex-direction: column; align-items: center; text-align: center; }
             .footer-right { text-align: center; }
             .pillars { grid-template-columns: 1fr; }
@@ -1338,12 +1298,28 @@
             .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
             .btn-primary, .btn-ghost { text-align: center; }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+            .hero-eyebrow, .hero h1, .hero-sub, .hero-actions, .scroll-indicator {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+            .strip-inner { animation-play-state: paused; }
+            #hero-parallax { will-change: auto; }
+            #cursor, #cursor-ring { display: none; }
+        }
     </style>
 </head>
 <body>
 
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
 
     <!-- ======================== HEADER ======================== -->
     <header id="site-header">
@@ -1357,8 +1333,8 @@
             <nav>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#contacto" class="nav-cta">Cotizar</a></li>
                 </ul>
             </nav>
@@ -1382,7 +1358,7 @@
                 <a href="#contacto" class="btn-ghost">Solicitar Cotización</a>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" aria-hidden="true">
             <span>Scroll</span>
             <div class="scroll-line"></div>
         </div>
@@ -1409,53 +1385,6 @@
             <span>Gourmet</span><span class="dot">·</span>
         </div>
     </div>
-
-    <!-- ======================== NOSOTROS ======================== -->
-    <section id="nosotros" class="section-full">
-        <div class="about-inner">
-            <div class="about-visual reveal">
-                <div class="about-img-wrap">
-                    <picture>
-                    <source srcset="rancho.webp" type="image/webp">
-                    <img src="rancho-1920.jpg" alt="Valle de Gigantes — campo de cultivo en Chihuahua" width="1920" height="1440" loading="lazy" decoding="async">
-                </picture>
-                </div>
-                <div class="about-badge">
-                    <span class="num">100%</span>
-                    <span class="lbl">Calidad<br>Artesanal</span>
-                </div>
-            </div>
-            <div class="about-content">
-                <span class="section-label reveal reveal-d1">— Nuestra Historia</span>
-                <h2 class="section-title reveal reveal-d2">Tradición<br>y <em>Picante</em></h2>
-                <br>
-                <p class="reveal reveal-d2">En <strong>Valle de Gigantes</strong>, nos dedicamos con pasión al cultivo de los chiles más emblemáticos de nuestra región. Conocemos la tierra y respetamos los ciclos naturales para obtener productos con un sabor y picor inigualables.</p>
-                <p class="reveal reveal-d3">Desde la selección de la semilla hasta el cuidadoso proceso de ahumado del chipotle, garantizamos calidad suprema para mercados exigentes y procesadoras de primer nivel.</p>
-                <div class="pillars">
-                    <div class="pillar reveal reveal-d2">
-                        <div class="pillar-icon"><i data-lucide="target" width="20" height="20"></i></div>
-                        <h4>Especialización</h4>
-                        <p>Enfocados 100% en variedades de alto valor comercial.</p>
-                    </div>
-                    <div class="pillar reveal reveal-d3">
-                        <div class="pillar-icon"><i data-lucide="flame" width="20" height="20"></i></div>
-                        <h4>Procesos Artesanales</h4>
-                        <p>Ahumado tradicional con leña seleccionada.</p>
-                    </div>
-                    <div class="pillar reveal reveal-d4">
-                        <div class="pillar-icon"><i data-lucide="shield-check" width="20" height="20"></i></div>
-                        <h4>Calidad Constante</h4>
-                        <p>Ideales para mayoreo, exportación y salsas gourmet.</p>
-                    </div>
-                    <div class="pillar reveal reveal-d5">
-                        <div class="pillar-icon"><i data-lucide="sprout" width="20" height="20"></i></div>
-                        <h4>Campo a Mesa</h4>
-                        <p>Control total del proceso: semilla, cultivo y cosecha.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ======================== PRODUCTOS ======================== -->
     <section id="productos" class="section-full">
@@ -1522,6 +1451,53 @@
         </div>
     </section>
 
+    <!-- ======================== NOSOTROS ======================== -->
+    <section id="nosotros" class="section-full">
+        <div class="about-inner">
+            <div class="about-visual reveal">
+                <div class="about-img-wrap">
+                    <picture>
+                    <source srcset="rancho.webp" type="image/webp">
+                    <img src="rancho-1920.jpg" alt="Valle de Gigantes — campo de cultivo en Chihuahua" width="1920" height="1440" loading="lazy" decoding="async">
+                </picture>
+                </div>
+                <div class="about-badge">
+                    <span class="num">100%</span>
+                    <span class="lbl">Calidad<br>Artesanal</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-label reveal reveal-d1">— Nuestra Historia</span>
+                <h2 class="section-title reveal reveal-d2">Tradición<br>y <em>Picante</em></h2>
+                <br>
+                <p class="reveal reveal-d2">En <strong>Valle de Gigantes</strong>, nos dedicamos con pasión al cultivo de los chiles más emblemáticos de nuestra región. Conocemos la tierra y respetamos los ciclos naturales para obtener productos con un sabor y picor inigualables.</p>
+                <p class="reveal reveal-d3">Desde la selección de la semilla hasta el cuidadoso proceso de ahumado del chipotle, garantizamos calidad suprema para mercados exigentes y procesadoras de primer nivel.</p>
+                <div class="pillars">
+                    <div class="pillar reveal reveal-d2">
+                        <div class="pillar-icon"><i data-lucide="target" width="20" height="20"></i></div>
+                        <h3>Especialización</h3>
+                        <p>Enfocados 100% en variedades de alto valor comercial.</p>
+                    </div>
+                    <div class="pillar reveal reveal-d3">
+                        <div class="pillar-icon"><i data-lucide="flame" width="20" height="20"></i></div>
+                        <h3>Procesos Artesanales</h3>
+                        <p>Ahumado tradicional con leña seleccionada.</p>
+                    </div>
+                    <div class="pillar reveal reveal-d4">
+                        <div class="pillar-icon"><i data-lucide="shield-check" width="20" height="20"></i></div>
+                        <h3>Calidad Constante</h3>
+                        <p>Ideales para mayoreo, exportación y salsas gourmet.</p>
+                    </div>
+                    <div class="pillar reveal reveal-d5">
+                        <div class="pillar-icon"><i data-lucide="sprout" width="20" height="20"></i></div>
+                        <h3>Campo a Mesa</h3>
+                        <p>Control total del proceso: semilla, cultivo y cosecha.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ======================== CERTIFICACIONES ======================== -->
     <section id="certificaciones" class="section-full">
         <div class="certs-inner">
@@ -1567,50 +1543,39 @@
         </div>
     </section>
 
-    <!-- ======================== STATS BAR ======================== -->
-    <div class="stats-bar">
-        <div class="stats-inner">
-            <div class="stat-item reveal">
-                <div class="stat-num">4</div>
-                <div class="stat-label">Variedades Premium</div>
-            </div>
-            <div class="stat-item reveal reveal-d2">
-                <div class="stat-num">100%</div>
-                <div class="stat-label">Proceso Artesanal</div>
-            </div>
-            <div class="stat-item reveal reveal-d3">
-                <div class="stat-num">MX &middot; USA</div>
-                <div class="stat-label">Mercados que surtimos</div>
-            </div>
-        </div>
-    </div>
-
     <!-- ======================== CONTACTO ======================== -->
     <section id="contacto" class="section-full">
         <div class="contact-inner">
             <div class="contact-left">
                 <span class="section-label reveal">— Hagamos Negocio</span>
                 <h2 class="section-title reveal reveal-d1">Hablemos<br>de <em>volumen</em></h2>
-                <p class="contact-tagline reveal reveal-d2">Surtimos a mercados de abastos, procesadoras de alimentos y empacadoras. Cotiza tu volumen directo con nosotros.</p>
+                <p class="contact-tagline reveal reveal-d2">Surtimos mercados de abastos, procesadoras y empacadoras en México y para exportación a Estados Unidos. Cotiza tu volumen directo con nosotros.</p>
                 <div class="contact-details">
                     <div class="contact-item reveal reveal-d2">
                         <div class="contact-icon"><i data-lucide="map-pin" width="20" height="20"></i></div>
                         <div class="contact-item-text">
-                            <h4>Ubicación</h4>
+                            <p class="contact-label">Ubicación</p>
                             <p>Saucillo, Chihuahua, México</p>
                         </div>
                     </div>
                     <div class="contact-item reveal reveal-d3">
                         <div class="contact-icon"><i data-lucide="phone" width="20" height="20"></i></div>
                         <div class="contact-item-text">
-                            <h4>Ventas y Pedidos</h4>
+                            <p class="contact-label">Ventas y Pedidos</p>
                             <a href="tel:+526141690797">+52 (614) 169-0797</a>
                         </div>
                     </div>
                     <div class="contact-item reveal reveal-d4">
+                        <div class="contact-icon"><i data-lucide="message-circle" width="20" height="20"></i></div>
+                        <div class="contact-item-text">
+                            <p class="contact-label">WhatsApp</p>
+                            <a href="https://wa.me/526141690797" target="_blank" rel="noopener">+52 (614) 169-0797</a>
+                        </div>
+                    </div>
+                    <div class="contact-item reveal reveal-d5">
                         <div class="contact-icon"><i data-lucide="mail" width="20" height="20"></i></div>
                         <div class="contact-item-text">
-                            <h4>Correo Electrónico</h4>
+                            <p class="contact-label">Correo Electrónico</p>
                             <a href="mailto:jacobo@afergreens.com">jacobo@afergreens.com</a>
                         </div>
                     </div>
@@ -1653,6 +1618,7 @@
                         <textarea id="mensaje" name="Volumen y Detalles" placeholder="Ej. Necesito 500 kg de Chipotle para salsas gourmet..." required></textarea>
                     </div>
                     <button type="submit" class="btn-submit">Enviar Solicitud →</button>
+                    <p id="form-error" style="display:none; margin-top:14px; font-size:0.8rem; color:var(--sage-mist); text-align:center; line-height:1.6;">No se pudo enviar. Escríbenos directamente a <a href="mailto:jacobo@afergreens.com" style="color:var(--amber-light); text-decoration:underline;">jacobo@afergreens.com</a></p>
                 </form>
                 <div id="form-success" style="display:none; padding: 40px 28px; text-align: center;">
                     <div style="width: 64px; height: 64px; margin: 0 auto 20px; background: var(--sage); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
@@ -1697,8 +1663,7 @@
             if (!cursorRafPending) {
                 cursorRafPending = true;
                 requestAnimationFrame(() => {
-                    cursor.style.left = mx + 'px';
-                    cursor.style.top  = my + 'px';
+                    cursor.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
                     cursorRafPending = false;
                 });
             }
@@ -1707,8 +1672,7 @@
         function animateRing() {
             rx += (mx - rx) * 0.14;
             ry += (my - ry) * 0.14;
-            ring.style.left = rx + 'px';
-            ring.style.top  = ry + 'px';
+            ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
             requestAnimationFrame(animateRing);
         }
         animateRing();
@@ -1758,18 +1722,18 @@
                 if (data.success === 'true' || data.success === true) {
                     form.style.display = 'none';
                     successEl.style.display = 'block';
-                    lucide.createIcons();
+                    lucide.createIcons({ attrs: { 'aria-hidden': 'true', 'focusable': 'false' } });
                 } else {
                     throw new Error(data.message || 'Error al enviar');
                 }
             } catch (err) {
                 btn.textContent = 'Error — intenta de nuevo';
                 btn.disabled = false;
-                console.error(err);
+                document.getElementById('form-error').style.display = 'block';
             }
         });
         // Initialize Lucide icons
-        lucide.createIcons();
+        lucide.createIcons({ attrs: { 'aria-hidden': 'true', 'focusable': 'false' } });
     </script>
 </body>
 </html>

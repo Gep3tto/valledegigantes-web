@@ -107,6 +107,7 @@
             --slate:      #6B6560;
             --charcoal:   #3D3A35;
             --ink:        #1D1B18;
+            --amber-dark: #E8830A;
 
             --ff-display: 'Fraunces', Georgia, serif;
             --ff-body:    'Outfit', -apple-system, sans-serif;
@@ -144,24 +145,24 @@
         /* Custom cursor */
         #cursor {
             position: fixed;
+            left: 0; top: 0;
             width: 12px; height: 12px;
             background: var(--amber);
             border-radius: 50%;
             pointer-events: none;
             z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: transform 0.08s var(--ease-out-expo), width 0.3s, height 0.3s;
+            transition: width 0.3s, height 0.3s;
             mix-blend-mode: difference;
         }
         #cursor-ring {
             position: fixed;
+            left: 0; top: 0;
             width: 40px; height: 40px;
             border: 1px solid rgba(247,147,30,0.5);
             border-radius: 50%;
             pointer-events: none;
             z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: transform 0.25s var(--ease-out-expo), width 0.3s, height 0.3s, opacity 0.3s;
+            transition: width 0.3s, height 0.3s, opacity 0.3s;
         }
         body:has(a:hover) #cursor { width: 20px; height: 20px; }
         body:has(a:hover) #cursor-ring { width: 60px; height: 60px; opacity: 0.6; }
@@ -314,8 +315,10 @@
             display: flex;
             flex-direction: column;
             gap: 4px;
-            padding-left: 14px;
-            border-left: 2px solid var(--amber);
+        }
+        .ph-meta > div svg {
+            color: var(--amber);
+            margin-bottom: 6px;
         }
         .ph-meta strong {
             font-family: var(--ff-display);
@@ -568,7 +571,7 @@
 
         /* CTA strip */
         .cta-strip {
-            background: linear-gradient(135deg, var(--amber) 0%, #E8830A 100%);
+            background: linear-gradient(135deg, var(--amber) 0%, var(--amber-dark) 100%);
             padding: clamp(60px, 8vh, 100px) clamp(24px, 6vw, 100px);
             text-align: center;
             color: var(--ink);
@@ -625,16 +628,16 @@
         .footer-copy {
             font-family: var(--ff-body);
             font-size: 0.85rem;
-            color: rgba(168,196,169,0.4);
+            color: rgba(168,196,169,0.78);
             text-align: center;
         }
-        .footer-copy strong { color: rgba(168,196,169,0.65); }
+        .footer-copy strong { color: rgba(168,196,169,0.92); }
         .footer-right {
             font-family: var(--ff-body);
             font-size: 0.72rem;
             font-weight: 500;
             letter-spacing: 0.2em;
-            color: rgba(168,196,169,0.35);
+            color: rgba(168,196,169,0.78);
             text-align: right;
         }
 
@@ -645,8 +648,9 @@
         }
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 12px; padding: 12px 0; }
-            nav ul { gap: 16px; flex-wrap: wrap; justify-content: center; }
-            .breadcrumb { padding-top: 150px; }
+            nav ul { gap: 8px 16px; flex-wrap: wrap; justify-content: center; }
+            nav a { padding: 8px 12px; }
+            .breadcrumb { padding-top: 160px; }
             .ph-meta { gap: 20px; }
             .pres-states { flex-direction: column; align-items: center; gap: 16px; }
             .footer-inner { flex-direction: column; text-align: center; }
@@ -654,12 +658,21 @@
             body { cursor: auto; }
             #cursor, #cursor-ring { display: none; }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+            #cursor, #cursor-ring { display: none; }
+        }
     </style>
 </head>
 <body>
 
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
 
     <!-- Header -->
     <header id="site-header">
@@ -685,9 +698,9 @@
     <nav class="breadcrumb" aria-label="breadcrumb">
         <div class="bc-inner">
             <a href="/">Inicio</a>
-            <span class="sep">&rsaquo;</span>
+            <span class="sep" aria-hidden="true">&rsaquo;</span>
             <a href="/#productos">Productos</a>
-            <span class="sep">&rsaquo;</span>
+            <span class="sep" aria-hidden="true">&rsaquo;</span>
             <span aria-current="page">Melón</span>
         </div>
     </nav>
@@ -700,9 +713,18 @@
                 <h1>Melón <em>Gran Torino</em></h1>
                 <p class="ph-sub">Híbrido <strong>Gran Torino F1</strong> de tipología <strong>Western Shipper</strong>: pulpa naranja firme y dulce, piel reticulada uniforme, fruto esférico de 2 a 3 kg en tamaños comerciales 9's y 9j's. Cosecha concentrada de madurez temprano-medio en el <strong>Valle de Gigantes</strong>, Saucillo, Chihuahua — bajo certificación Primus GFS y manejo de cadena de frío desde el campo.</p>
                 <div class="ph-meta">
-                    <div><strong>2-3 kg</strong><span>Calibre por pieza</span></div>
-                    <div><strong>9's · 9j's</strong><span>Tamaños comerciales</span></div>
-                    <div><strong>Primus GFS</strong><span>Certificado</span></div>
+                    <div>
+                        <i data-lucide="package" width="20" height="20"></i>
+                        <strong>2-3 kg</strong><span>Calibre por pieza</span>
+                    </div>
+                    <div>
+                        <i data-lucide="layers" width="20" height="20"></i>
+                        <strong>9's · 9j's</strong><span>Tamaños comerciales</span>
+                    </div>
+                    <div>
+                        <i data-lucide="shield-check" width="20" height="20"></i>
+                        <strong>Primus GFS</strong><span>Certificado</span>
+                    </div>
                 </div>
                 <a href="/#contacto" class="btn-primary">Solicitar cotización</a>
             </div>
@@ -846,8 +868,7 @@
             if (!cursorRafPending) {
                 cursorRafPending = true;
                 requestAnimationFrame(() => {
-                    cursor.style.left = mx + 'px';
-                    cursor.style.top  = my + 'px';
+                    cursor.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
                     cursorRafPending = false;
                 });
             }
@@ -855,8 +876,7 @@
         function animateRing() {
             rx += (mx - rx) * 0.14;
             ry += (my - ry) * 0.14;
-            ring.style.left = rx + 'px';
-            ring.style.top  = ry + 'px';
+            ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
             requestAnimationFrame(animateRing);
         }
         animateRing();
@@ -873,7 +893,7 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         // Lucide icons
-        if (window.lucide) lucide.createIcons();
+        if (window.lucide) lucide.createIcons({ attrs: { 'aria-hidden': 'true', 'focusable': 'false' } });
     </script>
 
 </body>
