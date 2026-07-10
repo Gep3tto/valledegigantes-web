@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; $i=[System.Drawing.Image]::FromFile\\('\\\\''C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\logo.png'\\\\''\\); $i.Width; $i.Height')",
+      "Bash(node \"C:\\\\Users\\\\Andres\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Andres-code-afer-web\\\\b2919f8f-47fd-4b8e-bef2-2f704ba2ab17\\\\scratchpad\\\\contrast.js\")",
+      "PowerShell(Get-FileHash \"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\chipotle.jpg\",\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\chipotle-1200.jpg\",\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\melon.jpg\",\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\melon-1200.jpg\",\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\chiltepin.jpg\",\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\chiltepin-1200.jpg\",\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\jalapeno.jpg\",\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\jalapeno-1200.jpg\" -Algorithm MD5 | Format-Table Hash, @{n='File';e={Split-Path $_.Path -Leaf}} -AutoSize)",
+      "Bash(xxd -l 40 /c/Users/Andres/code/afer-web/rancho.webp)",
+      "Bash(xxd -l 40 /c/Users/Andres/code/afer-web/logo.webp)",
+      "Bash(node -e *)",
+      "PowerShell(\\(Get-Content C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\index.html | Measure-Object -Line\\).Lines)",
+      "Bash(curl -sIL \"https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js\")",
+      "Bash(curl -sL -H \"Accept-Encoding: gzip\" \"https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js\" -o /dev/null -w \"size_download: %{size_download}\\\\n\")",
+      "Bash(curl -sL \"https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js\" -o /dev/null -w \"size_download: %{size_download}\\\\n\")",
+      "Bash(grep -E '^/\\\\*|src:' /c/Users/Andres/AppData/Local/Temp/claude/C--Users-Andres-code-afer-web/b2919f8f-47fd-4b8e-bef2-2f704ba2ab17/scratchpad/fonts.css)",
+      "Bash(sed -n '882,917p' chiltepin/index.html)",
+      "Bash(sed -n '868,903p' jalapeno/index.html)",
+      "Bash(sed -n '857,892p' chipotle/index.html)",
+      "Bash(sed -n '861,896p' melon/index.html)",
+      "Bash(python3 -)",
+      "Bash(node -e ' *)",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(curl -sL \"https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js\" -o /dev/null -w \"raw: %{size_download}\\\\n\")",
+      "Bash(curl -sL -H \"Accept-Encoding: gzip\" \"https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js\" -o /dev/null -w \"gzip: %{size_download}\\\\n\")",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\Andres\\\\code\\\\afer-web\\\\rancho.jpg\"\\); \"$\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\))",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126.0.0.0 Safari/537.36\" \"https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap\" -o fonts.css)",
+      "Bash(awk '/\\\\/\\\\* latin \\\\*\\\\//{getline; while\\($0 !~ /}/\\){if\\($0 ~ /src:/\\) print; getline}}' fonts.css)",
+      "Bash(PYTHONIOENCODING=utf-8 python -c ' *)",
+      "Bash(python -c \"from PIL import Image; im = Image.open\\('C:/Users/Andres/code/afer-web/chiltepin.jpg'\\); print\\(im.size\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"from PIL import Image, features; print\\('webp:', features.check\\('webp'\\)\\)\")",
+      "Bash(python \"C:/Users/Andres/AppData/Local/Temp/claude/C--Users-Andres-code-afer-web/b2919f8f-47fd-4b8e-bef2-2f704ba2ab17/scratchpad/build_images.py\")",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__computer",
+      "mcp__claude-in-chrome__resize_window",
+      "mcp__claude-in-chrome__javascript_tool",
+      "mcp__claude-in-chrome__browser_batch",
+      "Bash(python \"C:/Users/Andres/AppData/Local/Temp/claude/C--Users-Andres-code-afer-web/b2919f8f-47fd-4b8e-bef2-2f704ba2ab17/scratchpad/build_favicon.py\")",
+      "Bash(python \"C:/Users/Andres/AppData/Local/Temp/claude/C--Users-Andres-code-afer-web/b2919f8f-47fd-4b8e-bef2-2f704ba2ab17/scratchpad/build_favicon2.py\")"
+    ]
+  }
+}
