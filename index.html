@@ -18,7 +18,7 @@
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <meta name="theme-color" content="#F4EEE1">
+    <meta name="theme-color" content="#141110">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -40,17 +40,17 @@
     <meta name="twitter:image" content="https://www.afergreens.com/assets/img/og-home.jpg">
 
     <!-- LCP hero image -->
-    <link rel="preload" as="image" href="assets/img/chiltepin-800.webp"
-          imagesrcset="assets/img/chiltepin-480.webp 480w, assets/img/chiltepin-800.webp 800w, assets/img/chiltepin-1200.webp 1200w"
-          imagesizes="(max-width: 960px) 92vw, 38vw"
+    <link rel="preload" as="image" href="assets/img/rancho-1280.webp"
+          imagesrcset="assets/img/rancho-768.webp 768w, assets/img/rancho-1280.webp 1280w, assets/img/rancho-1920.webp 1920w"
+          imagesizes="100vw"
           fetchpriority="high">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/dossier.css">
+    <link rel="stylesheet" href="assets/cinema.css">
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -278,17 +278,17 @@
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <div class="grain" aria-hidden="true"></div>
 
-    <!-- ======================== MASTHEAD ======================== -->
-    <header class="masthead">
-        <div class="masthead-inner">
+    <!-- ======================== HEADER ======================== -->
+    <header class="site-header">
+        <div class="header-inner">
             <a class="brand" href="/" aria-label="AFER Greens — Valle de Gigantes, inicio">
-                <img src="logo.webp" alt="" width="1107" height="487" fetchpriority="high" decoding="async">
-                <span class="brand-word">AFER Greens<small>Valle de Gigantes · Chihuahua</small></span>
+                <img src="logo.webp" alt="AFER Greens — Valle de Gigantes" width="1107" height="487" fetchpriority="high" decoding="async">
             </a>
-            <nav class="mast-nav" aria-label="Navegación principal">
-                <a href="#productos">Índice</a>
-                <a href="#certificacion">Certificación</a>
+            <nav class="site-nav" aria-label="Navegación principal">
+                <a href="#productos">Productos</a>
+                <a href="#exportacion">Exportación</a>
                 <a href="#valle">El Valle</a>
+                <a href="#certificacion">Certificación</a>
                 <a href="#preguntas">Preguntas</a>
                 <a href="/en/" lang="en" hreflang="en">EN</a>
                 <a href="#cotizar" class="btn">Cotizar</a>
@@ -301,12 +301,12 @@
     </header>
 
     <nav class="mobile-menu" id="menu-movil" aria-label="Menú móvil">
-        <a href="#productos">Índice de productos <span class="mono">/ 01</span></a>
-        <a href="#exportacion">Datos de exportación <span class="mono">/ 02</span></a>
+        <a href="#productos">Productos <span class="mono">/ 01</span></a>
+        <a href="#exportacion">Exportación <span class="mono">/ 02</span></a>
         <a href="#valle">El Valle <span class="mono">/ 03</span></a>
         <a href="#certificacion">Certificación <span class="mono">/ 04</span></a>
         <a href="#preguntas">Preguntas <span class="mono">/ 05</span></a>
-        <a href="#cotizar"><em>Cotizar</em> <span class="mono">/ 06</span></a>
+        <a href="#cotizar">Cotizar <span class="mono">/ 06</span></a>
         <div class="mm-meta">
             <a href="https://wa.me/526141690797?text=Hola%2C%20me%20interesa%20cotizar%20un%20producto%20de%20AFER%20Greens." target="_blank" rel="noopener">WhatsApp</a>
             <a href="tel:+526141690797">+52 614 169 0797</a>
@@ -318,60 +318,31 @@
 
         <!-- ======================== HERO ======================== -->
         <section class="hero" id="inicio">
-            <p class="doc-meta">
-                <span>AFER Greens S. de R.L. de C.V.</span>
-                <span>Expediente de exportación — 2026</span>
-                <span>28.0049° N · 105.0831° O</span>
-            </p>
-            <div class="hero-grid">
-                <div class="hero-copy">
-                    <h1>
-                        <span class="h1-line"><span>Chile del</span></span>
-                        <span class="h1-line"><span>desierto,</span></span>
-                        <span class="h1-line"><span><em>documentado.</em></span></span>
-                    </h1>
-                    <p class="hero-sub">Chiltepín seco, jalapeño, chipotle ahumado con mezquite y melón Gran Torino — cultivados, cosechados y empacados por AFER Greens en el Valle de Saucillo, Chihuahua. Mayoreo y exportación a México y Estados Unidos, con los tres eslabones certificados Primus GFS.</p>
-                    <div class="hero-actions">
-                        <a href="#cotizar" class="btn">Solicitar cotización <span class="arr" aria-hidden="true">→</span></a>
-                        <a href="#productos" class="btn-line">Ver índice de productos</a>
-                    </div>
-                    <p class="hero-data">
-                        <span class="dot-cert">●</span>
-                        <a href="#certificacion">Primus GFS Nº 373629</a>
-                        <a href="#certificacion">Nº 373630</a>
-                        <a href="#certificacion">Nº 373631</a>
-                        <span>SCS Global Services</span>
-                    </p>
+            <div class="hero-bg" aria-hidden="true">
+                <img src="rancho.jpg"
+                     srcset="assets/img/rancho-768.webp 768w, assets/img/rancho-1280.webp 1280w, assets/img/rancho-1920.webp 1920w"
+                     sizes="100vw"
+                     alt=""
+                     width="1986" height="1490" fetchpriority="high" decoding="async">
+            </div>
+            <div class="hero-content">
+                <p class="hero-eyebrow">Valle de Gigantes · Saucillo, Chihuahua</p>
+                <h1>
+                    <span class="h1-line"><span>Chile del desierto.</span></span>
+                    <span class="h1-line"><span>Calidad de <span class="red">exportación.</span></span></span>
+                </h1>
+                <p class="hero-sub">Chiltepín seco, jalapeño, chipotle ahumado con mezquite y melón Gran Torino — cultivados, cosechados y empacados en el Valle de Saucillo, Chihuahua. Mayoreo y exportación a México y Estados Unidos, con los tres eslabones certificados Primus GFS.</p>
+                <div class="hero-actions">
+                    <a href="#cotizar" class="btn">Solicitar cotización <span class="arr" aria-hidden="true">→</span></a>
+                    <a href="#productos" class="btn-line">Ver productos</a>
                 </div>
-                <figure class="hero-figure">
-                    <div class="seal" aria-hidden="true">
-                        <svg viewBox="0 0 100 100">
-                            <defs>
-                                <path id="sealPath" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/>
-                            </defs>
-                            <circle cx="50" cy="50" r="48" fill="var(--paper)" opacity="0.9"/>
-                            <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1"/>
-                            <circle cx="50" cy="50" r="27" fill="none" stroke="currentColor" stroke-width="0.8"/>
-                            <g class="seal-rotor">
-                                <text font-family="IBM Plex Mono, monospace" font-size="8" letter-spacing="1.6" fill="currentColor">
-                                    <textPath href="#sealPath">PRIMUS GFS · CERTIFICADO · SCS GLOBAL SERVICES ·</textPath>
-                                </text>
-                            </g>
-                            <path d="M43 50 l5 5 l10 -11" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="plate">
-                        <img src="chiltepin.jpg"
-                             srcset="assets/img/chiltepin-480.webp 480w, assets/img/chiltepin-800.webp 800w, assets/img/chiltepin-1200.webp 1200w"
-                             sizes="(max-width: 960px) 92vw, 38vw"
-                             alt="Mano sosteniendo chiltepín rojo recién cosechado sobre el secado de la cosecha en Valle de Gigantes, Chihuahua"
-                             width="1200" height="1600" fetchpriority="high" decoding="async">
-                    </div>
-                    <figcaption class="figure-caption">
-                        <span>Fig. 01 — Chiltepín, cosecha manual</span>
-                        <span>Valle de Saucillo</span>
-                    </figcaption>
-                </figure>
+                <p class="hero-certline">
+                    <span class="dot">●</span>
+                    <a href="#certificacion">Primus GFS Nº 373629</a>
+                    <a href="#certificacion">Nº 373630</a>
+                    <a href="#certificacion">Nº 373631</a>
+                    <span>SCS Global Services</span>
+                </p>
             </div>
         </section>
 
@@ -399,61 +370,78 @@
             </button>
         </div>
 
-        <!-- ======================== 01 · ÍNDICE DE PRODUCTOS ======================== -->
-        <section id="productos" class="section">
-            <div class="section-head rv">
-                <span class="kicker">Índice de productos</span>
-                <span class="index">/ 01</span>
-                <h2>Cuatro cultivos, un solo <em>origen</em></h2>
+        <!-- ======================== 01 · PRODUCTOS ======================== -->
+        <section id="productos" class="section" style="padding-left: 0; padding-right: 0; max-width: none;">
+            <div class="section-head" style="max-width: 1600px; margin-left: auto; margin-right: auto; padding: 0 var(--gutter);">
+                <p class="kicker-line rv">Productos <span class="idx">/ 01</span></p>
+                <h2 class="section-title rv">Cuatro cultivos,<br>un solo <span class="red">origen</span></h2>
+                <p class="lede rv rv-2" style="margin-top: 22px;">Chile chiltepín seco, jalapeño fresco, chipotle ahumado con leña de mezquite y melón Gran Torino — cada uno con ficha técnica, presentaciones y proceso documentados para su equipo de compras.</p>
             </div>
-            <p class="lede rv" style="margin-bottom: clamp(36px, 6vh, 64px);">Chile chiltepín seco, jalapeño fresco, chipotle ahumado con leña de mezquite y melón Gran Torino — cada uno con su ficha técnica, presentaciones y proceso, documentados para su equipo de compras.</p>
-            <div class="index-rows rv">
-                <a class="index-row" href="/chiltepin/">
-                    <span class="no">01</span>
-                    <span class="name">Chiltepín <em>seco</em></span>
-                    <span class="specs"><span class="hot">50,000–100,000 SHU</span> · Ø 5–8 mm<br>100 g · 1 kg · 10 kg</span>
-                    <span class="thumb"><img src="chiltepin.jpg" srcset="assets/img/chiltepin-480.webp 480w" sizes="110px" alt="" width="1200" height="1600" loading="lazy" decoding="async"></span>
+            <div class="panels">
+                <a class="panel" href="/chiltepin/">
+                    <div class="panel-bg" aria-hidden="true">
+                        <img src="chiltepin.jpg"
+                             srcset="assets/img/chiltepin-480.webp 480w, assets/img/chiltepin-800.webp 800w, assets/img/chiltepin-1200.webp 1200w"
+                             sizes="100vw" alt="" width="1200" height="1600" loading="lazy" decoding="async">
+                    </div>
+                    <div class="panel-content">
+                        <span class="panel-no">01</span>
+                        <span class="panel-name">Chiltepín seco
+                            <small><span class="hot">50,000–100,000 SHU</span> · Ø 5–8 mm · 100 g / 1 kg / 10 kg</small>
+                        </span>
+                        <span class="panel-cta">Ficha técnica →</span>
+                    </div>
                 </a>
-                <a class="index-row" href="/jalapeno/">
-                    <span class="no">02</span>
-                    <span class="name">Jalapeño <em>fresco</em></span>
-                    <span class="specs">Pared gruesa · pungencia media<br>Mercado fresco · encurtidos · industria</span>
-                    <span class="thumb"><img src="jalapeno.jpg" srcset="assets/img/jalapeno-480.webp 480w" sizes="110px" alt="" width="1118" height="1490" loading="lazy" decoding="async"></span>
+                <a class="panel" href="/jalapeno/">
+                    <div class="panel-bg" aria-hidden="true">
+                        <img src="jalapeno.jpg"
+                             srcset="assets/img/jalapeno-480.webp 480w, assets/img/jalapeno-800.webp 800w, assets/img/jalapeno-1118.webp 1118w"
+                             sizes="100vw" alt="" width="1118" height="1490" loading="lazy" decoding="async">
+                    </div>
+                    <div class="panel-content">
+                        <span class="panel-no">02</span>
+                        <span class="panel-name">Jalapeño fresco
+                            <small>Pared gruesa · pungencia media · fresco / encurtidos / industria</small>
+                        </span>
+                        <span class="panel-cta">Ficha técnica →</span>
+                    </div>
                 </a>
-                <a class="index-row" href="/chipotle/">
-                    <span class="no">03</span>
-                    <span class="name">Chipotle <em>ahumado</em></span>
-                    <span class="specs"><span class="hot">Leña de mezquite</span> · secado lento<br>Arpilla 30 kg · salsas · gourmet</span>
-                    <span class="thumb"><img src="chipotle.jpg" srcset="assets/img/chipotle-480.webp 480w" sizes="110px" alt="" width="1200" height="1600" loading="lazy" decoding="async"></span>
+                <a class="panel" href="/chipotle/">
+                    <div class="panel-bg" aria-hidden="true">
+                        <img src="chipotle.jpg"
+                             srcset="assets/img/chipotle-480.webp 480w, assets/img/chipotle-800.webp 800w, assets/img/chipotle-1200.webp 1200w"
+                             sizes="100vw" alt="" width="1200" height="1600" loading="lazy" decoding="async">
+                    </div>
+                    <div class="panel-content">
+                        <span class="panel-no">03</span>
+                        <span class="panel-name">Chipotle ahumado
+                            <small><span class="hot">Leña de mezquite</span> · secado lento · arpilla 30 kg</small>
+                        </span>
+                        <span class="panel-cta">Ficha técnica →</span>
+                    </div>
                 </a>
-                <a class="index-row" href="/melon/">
-                    <span class="no">04</span>
-                    <span class="name">Melón <em>Gran Torino</em></span>
-                    <span class="specs">Alto °Brix · pulpa firme<br>Granel · mercado fresco · exportación</span>
-                    <span class="thumb"><img src="melon.jpg" srcset="assets/img/melon-480.webp 480w" sizes="110px" alt="" width="1200" height="1600" loading="lazy" decoding="async"></span>
+                <a class="panel" href="/melon/">
+                    <div class="panel-bg" aria-hidden="true">
+                        <img src="melon.jpg"
+                             srcset="assets/img/melon-480.webp 480w, assets/img/melon-800.webp 800w, assets/img/melon-1200.webp 1200w"
+                             sizes="100vw" alt="" width="1200" height="1600" loading="lazy" decoding="async">
+                    </div>
+                    <div class="panel-content">
+                        <span class="panel-no">04</span>
+                        <span class="panel-name">Melón Gran Torino
+                            <small>Alto °Brix · pulpa firme · granel / mercado fresco / exportación</small>
+                        </span>
+                        <span class="panel-cta">Ficha técnica →</span>
+                    </div>
                 </a>
             </div>
         </section>
 
-        <!-- ======================== PHOTO BREAK ======================== -->
-        <figure class="photo-break clip-rv">
-            <img src="rancho.jpg"
-                 srcset="assets/img/rancho-768.webp 768w, assets/img/rancho-1280.webp 1280w, assets/img/rancho-1920.webp 1920w"
-                 sizes="100vw"
-                 alt="Tormenta de verano sobre los campos de cultivo del Valle de Gigantes en Saucillo, Chihuahua"
-                 width="1986" height="1490" loading="lazy" decoding="async">
-            <figcaption class="pb-caption">
-                <span>Lámina A — El valle bajo la tormenta</span>
-                <span>Valle de Saucillo · 1,200 msnm</span>
-            </figcaption>
-        </figure>
-
-        <!-- ======================== 02 · DATOS DE EXPORTACIÓN ======================== -->
+        <!-- ======================== 02 · EXPORTACIÓN ======================== -->
         <section id="exportacion" class="section">
-            <div class="section-head rv">
-                <span class="kicker">Datos de exportación</span>
-                <span class="index">/ 02</span>
-                <h2>Para su equipo de <em>compras</em></h2>
+            <div class="section-head">
+                <p class="kicker-line rv">Exportación y logística <span class="idx">/ 02</span></p>
+                <h2 class="section-title rv">Datos para su equipo<br>de <span class="red">compras</span></h2>
             </div>
             <dl class="data-table rv">
                 <div class="data-cell">
@@ -504,10 +492,9 @@
 
         <!-- ======================== 03 · EL VALLE ======================== -->
         <section id="valle" class="section">
-            <div class="section-head rv">
-                <span class="kicker">El Valle</span>
-                <span class="index">/ 03</span>
-                <h2>Un rancho del desierto <em>chihuahuense</em></h2>
+            <div class="section-head">
+                <p class="kicker-line rv">El Valle <span class="idx">/ 03</span></p>
+                <h2 class="section-title rv">Un rancho del desierto<br><span class="red">chihuahuense</span></h2>
             </div>
             <div class="about-grid">
                 <figure class="rv">
@@ -518,8 +505,8 @@
                              alt="Trabajador cosechando melón Gran Torino en el campo de Valle de Gigantes, Chihuahua"
                              width="1200" height="1600" loading="lazy" decoding="async">
                     </div>
-                    <figcaption class="figure-caption">
-                        <span>Fig. 02 — Cosecha de melón</span>
+                    <figcaption class="plate-caption">
+                        <span>Cosecha de melón</span>
                         <span>Valle de Gigantes</span>
                     </figcaption>
                 </figure>
@@ -561,69 +548,69 @@
         </section>
 
         <!-- ======================== 04 · CERTIFICACIÓN ======================== -->
-        <section id="certificacion" class="section">
-            <div class="section-head rv">
-                <span class="kicker">Certificación</span>
-                <span class="index">/ 04</span>
-                <h2>Inocuidad <em>verificable</em></h2>
+        <section id="certificacion" class="certs-band">
+            <div class="certs-inner">
+                <div class="section-head" style="margin-bottom: 0;">
+                    <p class="kicker-line rv">Certificación <span class="idx">/ 04</span></p>
+                    <h2 class="section-title rv">Inocuidad <span class="red">verificable</span></h2>
+                </div>
+                <p class="lede certs-intro rv">Operación certificada Primus GFS en los tres eslabones críticos de la cadena de suministro, auditada anualmente por SCS Global Services. Cada certificado es un documento público: verifíquelo usted mismo en el sistema Azzule.</p>
+                <div class="cert-rows rv">
+                    <div class="cert-row">
+                        <span class="cr-seal" aria-hidden="true">
+                            <svg width="38" height="38" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                                <circle cx="50" cy="50" r="46" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="34" stroke-width="1.5" opacity="0.5"/>
+                                <path d="M36 50 l9 9 l19 -20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="cr-no">Nº 373629</span>
+                        <span class="cr-scope"><strong>Granja</strong>Campo de cultivo · Primus GFS · SCS Global Services</span>
+                        <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373629_0_SP.pdf" target="_blank" rel="noopener">
+                            Ver certificado <span aria-hidden="true">↗</span>
+                            <span class="visually-hidden">(PDF, se abre en nueva pestaña)</span>
+                        </a>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cr-seal" aria-hidden="true">
+                            <svg width="38" height="38" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                                <circle cx="50" cy="50" r="46" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="34" stroke-width="1.5" opacity="0.5"/>
+                                <path d="M36 50 l9 9 l19 -20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="cr-no">Nº 373630</span>
+                        <span class="cr-scope"><strong>Cuadrilla</strong>Operación de cosecha · Primus GFS · SCS Global Services</span>
+                        <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373630_0_SP.pdf" target="_blank" rel="noopener">
+                            Ver certificado <span aria-hidden="true">↗</span>
+                            <span class="visually-hidden">(PDF, se abre en nueva pestaña)</span>
+                        </a>
+                    </div>
+                    <div class="cert-row">
+                        <span class="cr-seal" aria-hidden="true">
+                            <svg width="38" height="38" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                                <circle cx="50" cy="50" r="46" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="34" stroke-width="1.5" opacity="0.5"/>
+                                <path d="M36 50 l9 9 l19 -20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="cr-no">Nº 373631</span>
+                        <span class="cr-scope"><strong>Empaque</strong>Centro de procesamiento · Primus GFS · SCS Global Services</span>
+                        <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1562_373631_0_SP.pdf" target="_blank" rel="noopener">
+                            Ver certificado <span aria-hidden="true">↗</span>
+                            <span class="visually-hidden">(PDF, se abre en nueva pestaña)</span>
+                        </a>
+                    </div>
+                </div>
+                <p class="certs-colophon rv">Auditado por SCS Global Services · Estándar Primus GFS · Verificable en el sistema Azzule</p>
             </div>
-            <p class="lede certs-intro rv">Operación certificada Primus GFS en los tres eslabones críticos de la cadena de suministro, auditada anualmente por SCS Global Services. Cada certificado es un documento público: verifíquelo usted mismo en el sistema Azzule.</p>
-            <div class="cert-rows rv">
-                <div class="cert-row">
-                    <span class="cr-seal" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                            <circle cx="50" cy="50" r="46" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="34" stroke-width="1.5" opacity="0.5"/>
-                            <path d="M36 50 l9 9 l19 -20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                    <span class="cr-no">Nº 373629</span>
-                    <span class="cr-scope"><strong>Granja</strong>Campo de cultivo · Primus GFS · SCS Global Services</span>
-                    <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373629_0_SP.pdf" target="_blank" rel="noopener">
-                        Ver certificado <span aria-hidden="true">↗</span>
-                        <span class="visually-hidden">(PDF, se abre en nueva pestaña)</span>
-                    </a>
-                </div>
-                <div class="cert-row">
-                    <span class="cr-seal" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                            <circle cx="50" cy="50" r="46" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="34" stroke-width="1.5" opacity="0.5"/>
-                            <path d="M36 50 l9 9 l19 -20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                    <span class="cr-no">Nº 373630</span>
-                    <span class="cr-scope"><strong>Cuadrilla</strong>Operación de cosecha · Primus GFS · SCS Global Services</span>
-                    <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373630_0_SP.pdf" target="_blank" rel="noopener">
-                        Ver certificado <span aria-hidden="true">↗</span>
-                        <span class="visually-hidden">(PDF, se abre en nueva pestaña)</span>
-                    </a>
-                </div>
-                <div class="cert-row">
-                    <span class="cr-seal" aria-hidden="true">
-                        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                            <circle cx="50" cy="50" r="46" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="34" stroke-width="1.5" opacity="0.5"/>
-                            <path d="M36 50 l9 9 l19 -20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                    <span class="cr-no">Nº 373631</span>
-                    <span class="cr-scope"><strong>Empaque</strong>Centro de procesamiento · Primus GFS · SCS Global Services</span>
-                    <a class="cert-verify" href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1562_373631_0_SP.pdf" target="_blank" rel="noopener">
-                        Ver certificado <span aria-hidden="true">↗</span>
-                        <span class="visually-hidden">(PDF, se abre en nueva pestaña)</span>
-                    </a>
-                </div>
-            </div>
-            <p class="certs-colophon rv">Auditado por SCS Global Services · Estándar Primus GFS · Verificable en el sistema Azzule</p>
         </section>
 
         <!-- ======================== 05 · PREGUNTAS ======================== -->
         <section id="preguntas" class="section">
-            <div class="section-head rv">
-                <span class="kicker">Preguntas frecuentes</span>
-                <span class="index">/ 05</span>
-                <h2>Lo que preguntan los <em>compradores</em></h2>
+            <div class="section-head">
+                <p class="kicker-line rv">Preguntas frecuentes <span class="idx">/ 05</span></p>
+                <h2 class="section-title rv">Lo que preguntan<br>los <span class="red">compradores</span></h2>
             </div>
             <div class="faq-wrap rv">
                 <details class="faq-item">
@@ -694,14 +681,11 @@
         </section>
 
         <!-- ======================== 06 · COTIZAR ======================== -->
-        <section id="cotizar" class="contact-band on-night">
+        <section id="cotizar" class="contact-band">
             <div class="contact-inner">
                 <div>
-                    <div class="section-head">
-                        <span class="kicker">Cotización</span>
-                        <span class="index">/ 06</span>
-                        <h2>Hablemos de <em>volumen</em></h2>
-                    </div>
+                    <p class="kicker-line">Cotización <span class="idx">/ 06</span></p>
+                    <h2 class="section-title">Hablemos de <span class="red">volumen</span></h2>
                     <p class="lede">Surtimos mercados de abastos, procesadoras y empacadoras en México, y exportamos a Estados Unidos. Cotice su volumen directo con nosotros.</p>
                     <div class="contact-quick">
                         <a href="https://wa.me/526141690797?text=Hola%2C%20me%20interesa%20cotizar%20un%20producto%20de%20AFER%20Greens." target="_blank" rel="noopener">
@@ -722,7 +706,7 @@
                 <div class="quote-form">
                     <div class="qf-head">
                         <h3>Solicitar cotización</h3>
-                        <span class="mono" style="color: var(--mute-on-night);">F-01</span>
+                        <span class="mono">F-01</span>
                     </div>
                     <p class="qf-note">Respondemos en menos de 24 horas hábiles <span class="stamp">Por confirmar</span></p>
                     <form action="https://formsubmit.co/jacobo@afergreens.com" method="POST">
@@ -768,7 +752,7 @@
 
     </main>
 
-    <!-- ======================== COLOPHON ======================== -->
+    <!-- ======================== FOOTER ======================== -->
     <footer class="colophon">
         <div class="colophon-inner">
             <div class="brand-block">
@@ -778,7 +762,7 @@
                 <p>Productores y exportadores de chile chiltepín, jalapeño, chipotle ahumado con mezquite y melón Gran Torino. Valle de Saucillo, Chihuahua, México.</p>
             </div>
             <nav aria-label="Productos">
-                <h2>Índice</h2>
+                <h2>Productos</h2>
                 <ul>
                     <li><a href="/chiltepin/">Chiltepín seco</a></li>
                     <li><a href="/jalapeno/">Jalapeño fresco</a></li>
@@ -787,7 +771,7 @@
                 </ul>
             </nav>
             <nav aria-label="Empresa">
-                <h2>Expediente</h2>
+                <h2>Empresa</h2>
                 <ul>
                     <li><a href="#valle">El Valle</a></li>
                     <li><a href="#certificacion">Certificación</a></li>
@@ -811,6 +795,7 @@
         </div>
     </footer>
 
-    <script src="assets/dossier.js" defer></script>
+    <script src="assets/cinema.js" defer></script>
+
 </body>
 </html>
