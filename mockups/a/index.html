@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>A · La Reserva — AFER Greens</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,400i,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ LA RESERVA — restraint as luxury ============ */
+:root {
+    --cream:#F5F1E8; --cream-2:#EFE9DB; --white:#FDFBF5;
+    --ink:#191512; --ink-2:#4A4136; --mute:#77695A;
+    --ox:#7A2C1E; --ox-2:#93331F;
+    --hair:rgba(25,21,18,.16); --hair-2:rgba(25,21,18,.09);
+    --serif:'Zodiak', Georgia, serif;
+    --sans:'General Sans', -apple-system, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --e-out:cubic-bezier(.16,1,.3,1);
+    --e-inout:cubic-bezier(.76,0,.24,1);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scrollbar-width:thin; scrollbar-color:var(--ox) var(--cream); }
+::-webkit-scrollbar { width:6px; } ::-webkit-scrollbar-thumb { background:var(--ox); }
+::selection { background:var(--ox); color:var(--cream); }
+body {
+    font-family:var(--sans); font-size:1rem; line-height:1.65;
+    background:var(--cream); color:var(--ink);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; height:auto; }
+:focus-visible { outline:2px solid var(--ox); outline-offset:3px; }
+
+/* grain */
+body::before {
+    content:''; position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* photo grading — ONE recipe for every image */
+.ph { position:relative; overflow:hidden; }
+.ph img { filter:grayscale(.15) contrast(1.06) saturate(.88) sepia(.05); transition:transform 1.2s var(--e-out); }
+.ph::after { content:''; position:absolute; inset:0; background:linear-gradient(160deg, rgba(122,44,30,.08), transparent 55%); pointer-events:none; }
+.ph:hover img { transform:scale(1.04); }
+
+.mono { font-family:var(--mono); font-size:.68rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--mute); }
+
+/* underline system */
+.u { background-image:linear-gradient(currentColor,currentColor); background-size:100% 1px; background-position:left bottom; background-repeat:no-repeat; transition:background-size .5s var(--e-out); padding-bottom:2px; }
+.u:hover { background-size:0% 1px; background-position:right bottom; }
+
+/* ============ HEADER ============ */
+header {
+    position:fixed; inset:0 0 auto 0; z-index:100; height:64px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 clamp(20px,4vw,56px);
+    background:color-mix(in srgb, var(--cream) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--hair-2);
+}
+header .brand { display:flex; align-items:center; gap:12px; }
+header .brand img { height:36px; }
+header nav { display:flex; gap:clamp(16px,2.5vw,36px); align-items:center; }
+header nav a { font-family:var(--mono); font-size:.66rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-2); }
+header .cta {
+    font-family:var(--mono); font-size:.66rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+    background:var(--ink); color:var(--cream); padding:12px 22px; border-radius:2px;
+    transition:background .25s var(--e-out), transform .14s var(--e-out);
+}
+header .cta:hover { background:var(--ox); }
+header .cta:active { transform:scale(.97); }
+@media (max-width:760px){ header nav a:not(.cta){ display:none; } }
+
+/* ============ HERO — text-forward, one overlap ============ */
+.hero { padding:clamp(120px,18vh,190px) clamp(20px,4vw,56px) 0; max-width:1480px; margin:0 auto; position:relative; }
+.hero .meta-row { display:flex; justify-content:space-between; gap:16px; border-bottom:1px solid var(--hair); padding-bottom:14px; margin-bottom:clamp(36px,6vh,72px); }
+.hero .meta-row span:nth-child(2){ text-align:right; }
+
+.hero h1 {
+    font-family:var(--serif); font-weight:400; text-box-trim:trim-both; text-box-edge:cap alphabetic;
+    font-size:clamp(3.2rem,8.6vw,8.6rem); line-height:.97; letter-spacing:-0.035em;
+    max-width:13ch; position:relative; z-index:2;
+}
+.hero h1 em { font-style:italic; color:var(--ox); }
+.l { display:block; overflow:hidden; }
+.li { display:block; transform:translateY(112%); }
+html.js.is-loaded .li { transition:transform .95s var(--e-out); transform:translateY(0); }
+html.js.is-loaded .l:nth-child(2) .li { transition-delay:.09s; }
+html.js.is-loaded .l:nth-child(3) .li { transition-delay:.18s; }
+
+.hero-grid { display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(24px,4vw,72px); align-items:end; }
+.hero-copy { padding-bottom:clamp(40px,8vh,96px); }
+.hero-sub { margin:34px 0 40px; max-width:46ch; font-size:clamp(1rem,1.3vw,1.12rem); line-height:1.75; color:var(--ink-2); }
+html.js .fade { opacity:0; transform:translateY(12px); }
+html.js.is-loaded .fade { transition:opacity .8s var(--e-out), transform .8s var(--e-out); transition-delay:.45s; opacity:1; transform:none; }
+html.js.is-loaded .fade.f2 { transition-delay:.58s; }
+.hero-actions { display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+.btn-ink {
+    display:inline-block; font-family:var(--mono); font-size:.7rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase;
+    background:var(--ink); color:var(--cream); padding:18px 34px; border-radius:2px;
+    transition:background .25s var(--e-out), transform .14s var(--e-out);
+}
+.btn-ink:hover { background:var(--ox); }
+.btn-ink:active { transform:scale(.97); }
+.link-u { font-family:var(--mono); font-size:.7rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--ink); }
+
+/* the still-life — headline overlaps its left edge */
+.hero-fig { position:relative; margin-left:calc(clamp(24px,4vw,72px) * -1.4); z-index:1; }
+.hero-fig .ph { aspect-ratio:4/5; border-radius:2px; }
+.hero-fig .ph img { width:100%; height:100%; object-fit:cover; }
+.hero-fig figcaption { display:flex; justify-content:space-between; gap:12px; padding:12px 2px; border-bottom:1px solid var(--hair); }
+html.js .hero-fig { clip-path:inset(0 0 100% 0); }
+html.js.is-loaded .hero-fig { transition:clip-path 1.1s var(--e-inout) .35s; clip-path:inset(0 0 0 0); }
+
+@media (max-width:860px){
+    .hero-grid { grid-template-columns:1fr; }
+    .hero-fig { margin-left:0; max-width:480px; }
+    .hero h1 { max-width:none; }
+}
+
+/* ============ SPECIMEN STRIP ============ */
+.specimen { max-width:1480px; margin:clamp(48px,8vh,96px) auto 0; padding:0 clamp(20px,4vw,56px); }
+.specimen-inner { border-top:1px solid var(--ink); border-bottom:1px solid var(--hair); display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); }
+.spec-cell { padding:22px 18px 24px 2px; border-right:1px solid var(--hair-2); }
+.spec-cell:last-child { border-right:none; }
+.spec-cell .k { font-family:var(--mono); font-size:.6rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--mute); margin-bottom:10px; }
+.spec-cell .v { font-family:var(--serif); font-size:1.15rem; line-height:1.3; font-variant-numeric:lining-nums tabular-nums; }
+.spec-cell .v small { display:block; font-family:var(--mono); font-size:.58rem; letter-spacing:.1em; color:var(--ox); text-transform:uppercase; margin-top:6px; }
+
+/* ============ EDITORIAL PASSAGE ============ */
+.passage { max-width:1480px; margin:0 auto; padding:clamp(90px,14vh,160px) clamp(20px,4vw,56px); display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); }
+.passage .side { position:sticky; top:96px; align-self:start; }
+.passage p.big {
+    font-family:var(--serif); font-size:clamp(1.5rem,2.8vw,2.4rem); line-height:1.35; letter-spacing:-0.01em;
+    max-width:26ch; color:var(--ink); text-wrap:balance;
+}
+.passage p.big em { font-style:italic; color:var(--ox); }
+.passage .body-copy { margin-top:28px; max-width:52ch; color:var(--ink-2); }
+html.js .io { opacity:0; transform:translateY(16px); transition:opacity .7s var(--e-out), transform .7s var(--e-out); }
+html.js .io.in { opacity:1; transform:none; }
+
+/* ============ PRODUCT INDEX ============ */
+.index { max-width:1480px; margin:0 auto; padding:0 clamp(20px,4vw,56px) clamp(90px,14vh,160px); }
+.index .head { display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--ink); padding-top:16px; margin-bottom:8px; }
+.row {
+    display:grid; grid-template-columns:auto minmax(0,5fr) minmax(0,4fr) auto;
+    gap:clamp(14px,3vw,44px); align-items:baseline;
+    padding:clamp(22px,3.5vh,34px) 6px; border-bottom:1px solid var(--hair);
+    transition:background .25s, padding-left .35s var(--e-out);
+}
+.row:hover { background:var(--white); padding-left:18px; }
+.row .no { font-family:var(--mono); font-size:.66rem; color:var(--ox); }
+.row .nm { font-family:var(--serif); font-weight:400; font-size:clamp(1.7rem,3.6vw,3rem); line-height:1.05; letter-spacing:-0.01em; }
+.row .nm em { font-style:italic; font-size:.65em; color:var(--mute); margin-left:8px; }
+.row:hover .nm em { color:var(--ox); }
+.row .dt { font-family:var(--mono); font-size:.64rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--mute); line-height:2; }
+.row .arr { font-family:var(--mono); font-size:.8rem; color:var(--mute); transition:transform .35s var(--e-out), color .25s; }
+.row:hover .arr { transform:translateX(6px); color:var(--ox); }
+@media (max-width:760px){ .row { grid-template-columns:auto 1fr auto; } .row .dt { display:none; } }
+
+/* image-follow cursor */
+.float-img {
+    position:fixed; left:0; top:0; z-index:50; width:min(300px,28vw); aspect-ratio:4/5;
+    pointer-events:none; overflow:hidden; border-radius:2px;
+    opacity:0; scale:.92; transition:opacity .35s var(--e-out), scale .5s var(--e-out);
+}
+.float-img.on { opacity:1; scale:1; }
+.float-img img { width:100%; height:100%; object-fit:cover; filter:grayscale(.15) contrast(1.06) saturate(.88) sepia(.05); }
+
+/* ============ FOOT STUB ============ */
+.stub { border-top:1px solid var(--hair); padding:28px clamp(20px,4vw,56px); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+
+@media (prefers-reduced-motion:reduce) {
+    html.js .li, html.js .fade, html.js .hero-fig, html.js .io { transform:none !important; opacity:1 !important; clip-path:none !important; transition:none !important; }
+    .ph img { transition:none !important; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <a class="brand" href="/mockups/"><img src="/logo.webp" alt="Valle de Gigantes"></a>
+    <nav>
+        <a href="#" class="u">Productos</a>
+        <a href="#" class="u">El Valle</a>
+        <a href="#" class="u">Certificación</a>
+        <a href="#" class="cta" data-magnetic>Cotizar</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <p class="meta-row mono fade">
+            <span>AFER Greens · Valle de Saucillo, Chihuahua</span>
+            <span>Est. <span style="color:var(--ox)">[año]</span> · Primus GFS Nº 373629 · 30 · 31</span>
+        </p>
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <h1>
+                    <span class="l"><span class="li">Cosechamos</span></span>
+                    <span class="l"><span class="li">el silencio</span></span>
+                    <span class="l"><span class="li">del <em>desierto.</em></span></span>
+                </h1>
+                <p class="hero-sub fade">Chiltepín, jalapeño, chipotle ahumado con mezquite y melón Gran Torino. Cultivo, cosecha y empaque certificados en un solo valle del desierto chihuahuense — para compradores que verifican antes de confiar.</p>
+                <div class="hero-actions fade f2">
+                    <a href="#" class="btn-ink" data-magnetic>Solicitar cotización</a>
+                    <a href="#index" class="link-u u">Índice de productos</a>
+                </div>
+            </div>
+            <figure class="hero-fig">
+                <div class="ph"><img src="/mockups/img/chiltepin-grade.webp" alt="Chiltepín recién cosechado en mano, Valle de Gigantes"></div>
+                <figcaption class="mono"><span>Chiltepín · cosecha manual</span><span>Fig. 01</span></figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="specimen io">
+        <div class="specimen-inner">
+            <div class="spec-cell"><p class="k">Origen</p><p class="v">28.0049° N · 105.0831° O</p></div>
+            <div class="spec-cell"><p class="k">Altitud</p><p class="v">1,180 msnm <small>dato por confirmar</small></p></div>
+            <div class="spec-cell"><p class="k">Picor chiltepín</p><p class="v">50–100 mil SHU</p></div>
+            <div class="spec-cell"><p class="k">Certificación</p><p class="v">Primus GFS × 3</p></div>
+            <div class="spec-cell"><p class="k">Proceso chipotle</p><p class="v">Leña de mezquite</p></div>
+        </div>
+    </section>
+
+    <section class="passage">
+        <div class="side io">
+            <p class="mono">— El Valle / 01</p>
+        </div>
+        <div>
+            <p class="big io">El norte no es gentil. Por eso lo que crece aquí — <em>chiltepín de picor limpio, jalapeño de pared gruesa</em> — llega a la mesa con carácter que ningún invernadero imita.</p>
+            <p class="body-copy io">Controlamos semilla, cultivo, cosecha y empaque en el Valle de Saucillo. Los tres eslabones están certificados Primus GFS y auditados anualmente por SCS Global Services: cada certificado es un documento público que usted puede verificar en línea.</p>
+        </div>
+    </section>
+
+    <section class="index" id="index" data-float>
+        <div class="head">
+            <span class="mono" style="color:var(--ink)">Índice de productos</span>
+            <span class="mono">/ 02</span>
+        </div>
+        <a class="row" href="#" data-float-src="/mockups/img/chiltepin-grade.webp">
+            <span class="no">01</span>
+            <span class="nm">Chiltepín <em>seco</em></span>
+            <span class="dt">50–100 mil SHU · Ø 5–8 mm<br>100 g · 1 kg · 10 kg</span>
+            <span class="arr">→</span>
+        </a>
+        <a class="row" href="#" data-float-src="/mockups/img/jalapeno-grade.webp">
+            <span class="no">02</span>
+            <span class="nm">Jalapeño <em>fresco</em></span>
+            <span class="dt">Pared gruesa · pungencia media<br>Fresco · encurtidos · industria</span>
+            <span class="arr">→</span>
+        </a>
+        <a class="row" href="#" data-float-src="/mockups/img/chipotle-grade.webp">
+            <span class="no">03</span>
+            <span class="nm">Chipotle <em>ahumado</em></span>
+            <span class="dt">Leña de mezquite · secado lento<br>Arpilla 30 kg</span>
+            <span class="arr">→</span>
+        </a>
+        <a class="row" href="#" data-float-src="/mockups/img/melon-grade.webp">
+            <span class="no">04</span>
+            <span class="nm">Melón <em>Gran Torino</em></span>
+            <span class="dt">Alto °Brix · pulpa firme<br>Granel · exportación</span>
+            <span class="arr">→</span>
+        </a>
+    </section>
+</main>
+
+<footer class="stub">
+    <span class="mono">Mockup A — La Reserva · <a class="u" href="/mockups/">volver al índice</a></span>
+    <span class="mono">Zodiak · General Sans · JetBrains Mono</span>
+</footer>
+
+<script src="/mockups/motion.js" defer></script>
+</body>
+</html>
