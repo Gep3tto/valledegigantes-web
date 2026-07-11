@@ -4,212 +4,307 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>D · El Archivo — AFER Greens</title>
+<title>D · Manifiesto — AFER Greens</title>
 <link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ============ EL ARCHIVO — type as interface ============ */
+/* ============ MANIFIESTO — the world's best-typeset export document ============ */
 :root {
-    --bone:#F0EEE8; --blk:#171411; --gris:#6F6B62;
-    --rojo:#C22C1C;
-    --hair:rgba(19,19,19,.16); --hair-2:rgba(19,19,19,.08);
-    --disp:'Cabinet Grotesk', -apple-system, sans-serif;
-    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --papel:#FBF9F4; --tinta:#191510; --gris:#6E6759;
+    --rojo:#BE3A21;
+    --hair:color-mix(in srgb, var(--tinta) 15%, transparent);
+    --hair-2:color-mix(in srgb, var(--tinta) 8%, transparent);
+    --sans:'Switzer', -apple-system, sans-serif;
+    --mono:'DM Mono', ui-monospace, monospace;
     --e-out:cubic-bezier(.16,1,.3,1);
-    --e-inout:cubic-bezier(.76,0,.24,1);
 }
 * { box-sizing:border-box; margin:0; padding:0; }
-html { scrollbar-width:thin; scrollbar-color:var(--blk) var(--bone); }
-::-webkit-scrollbar { width:6px; } ::-webkit-scrollbar-thumb { background:var(--blk); }
-::selection { background:var(--rojo); color:var(--bone); }
+html { scrollbar-width:thin; scrollbar-color:var(--tinta) var(--papel); }
+::-webkit-scrollbar { width:6px; } ::-webkit-scrollbar-thumb { background:var(--tinta); }
+::selection { background:var(--rojo); color:var(--papel); }
 body {
-    font-family:var(--disp); line-height:1.6; font-weight:500;
-    background:var(--bone); color:var(--blk);
+    font-family:var(--sans); font-weight:400; line-height:1.6; font-size:1.0625rem;
+    background:var(--papel); color:var(--tinta);
     -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 a { color:inherit; text-decoration:none; }
 img { display:block; max-width:100%; height:auto; }
 :focus-visible { outline:2px solid var(--rojo); outline-offset:3px; }
-.mono { font-family:var(--mono); font-size:.66rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gris); }
+.mono { font-family:var(--mono); font-size:.7rem; font-weight:400; letter-spacing:.08em; text-transform:uppercase; color:var(--gris); font-variant-numeric:lining-nums tabular-nums; }
 
-/* column grid overlay (visible structure) */
-.gridlines { position:fixed; inset:0; z-index:0; pointer-events:none; display:grid; grid-template-columns:repeat(6,1fr); }
+/* exposed working grid */
+.gridlines { position:fixed; inset:0; z-index:0; pointer-events:none; display:grid; grid-template-columns:repeat(12,1fr); }
 .gridlines i { border-left:1px solid var(--hair-2); }
 .gridlines i:first-child { border-left:none; }
+html.js .gridlines i { transform:scaleY(0); transform-origin:top; }
+html.js.is-loaded .gridlines i { transition:transform .7s var(--e-out); transform:scaleY(1); }
+html.js.is-loaded .gridlines i:nth-child(2){transition-delay:.04s} html.js.is-loaded .gridlines i:nth-child(3){transition-delay:.08s}
+html.js.is-loaded .gridlines i:nth-child(4){transition-delay:.12s} html.js.is-loaded .gridlines i:nth-child(5){transition-delay:.16s}
+html.js.is-loaded .gridlines i:nth-child(6){transition-delay:.2s} html.js.is-loaded .gridlines i:nth-child(7){transition-delay:.24s}
+html.js.is-loaded .gridlines i:nth-child(8){transition-delay:.28s} html.js.is-loaded .gridlines i:nth-child(9){transition-delay:.32s}
+html.js.is-loaded .gridlines i:nth-child(10){transition-delay:.36s} html.js.is-loaded .gridlines i:nth-child(11){transition-delay:.4s}
+html.js.is-loaded .gridlines i:nth-child(12){transition-delay:.44s}
+@media (max-width:900px){ .gridlines { grid-template-columns:repeat(4,1fr); } .gridlines i:nth-child(n+5){ display:none; } }
 
-/* ============ TOP BAR ============ */
+/* ============ HEADER ============ */
 header {
-    position:fixed; inset:0 0 auto 0; z-index:100; height:58px;
+    position:fixed; inset:0 0 auto 0; z-index:100; height:56px;
     display:flex; align-items:center; justify-content:space-between;
     padding:0 clamp(16px,3vw,40px);
-    background:color-mix(in srgb, var(--bone) 90%, transparent);
+    background:color-mix(in srgb, var(--papel) 92%, transparent);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--hair);
 }
-header .brand { display:flex; align-items:center; gap:12px; }
-header .brand img { height:32px; }
-header nav { display:flex; gap:clamp(14px,2.4vw,32px); align-items:center; }
-header nav a { font-family:var(--mono); font-size:.64rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--blk); }
-header nav a.cta { background:var(--blk); color:var(--bone); padding:10px 18px; transition:background .2s; }
+header .brand img { height:30px; }
+header nav { display:flex; gap:clamp(14px,2.2vw,30px); align-items:center; }
+header nav a { font-family:var(--mono); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--tinta); }
+header nav a.cta { background:var(--tinta); color:var(--papel); padding:10px 18px; transition:background .2s; }
 header nav a.cta:hover { background:var(--rojo); }
+/* scroll progress line */
+.progress { position:absolute; left:0; bottom:-1px; height:1px; width:100%; background:var(--tinta); transform:scaleX(0); transform-origin:left; z-index:101; }
+@supports (animation-timeline: scroll()) {
+    .progress { animation:prog linear both; animation-timeline:scroll(); }
+    @keyframes prog { to { transform:scaleX(1); } }
+}
 @media (max-width:760px){ header nav a:not(.cta){ display:none; } }
 
-/* ============ THE INDEX IS THE HERO ============ */
-.archive { position:relative; z-index:1; padding-top:58px; min-height:100svh; display:flex; flex-direction:column; }
-.arch-meta { display:flex; justify-content:space-between; gap:14px; padding:18px clamp(16px,3vw,40px); border-bottom:1px solid var(--hair); }
-.arch-rows { flex:1; display:flex; flex-direction:column; }
+/* ============ HERO — the manifest ============ */
+.manifest { position:relative; z-index:1; padding:calc(56px + clamp(28px,5vh,56px)) clamp(16px,3vw,40px) 0; max-width:1560px; margin:0 auto; }
+.manifest .strip { display:flex; justify-content:space-between; gap:14px; border-bottom:1px solid var(--hair); padding-bottom:12px; }
+.manifest h1 {
+    font-weight:600; letter-spacing:-0.04em; line-height:.95;
+    font-size:clamp(2.75rem,8.6vw,9.4rem);
+    margin:clamp(28px,5vh,56px) 0 clamp(32px,6vh,64px);
+    max-width:20ch;
+}
+.manifest h1 .r { color:var(--rojo); }
+.l { display:block; overflow:hidden; }
+.li { display:block; transform:translateY(112%); }
+html.js.is-loaded .li { transition:transform .9s var(--e-out) .3s; transform:translateY(0); }
+html.js.is-loaded .l:nth-child(2) .li { transition-delay:.4s; }
+
+/* availability table */
+.avail { position:relative; border-top:1px solid var(--tinta); }
+.avail .thead, .avail .trow {
+    display:grid; grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.4fr) minmax(0,1.6fr) minmax(0,1.4fr);
+    gap:clamp(10px,1.6vw,28px); align-items:center;
+    padding:15px 4px;
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase;
+    font-variant-numeric:lining-nums tabular-nums;
+}
+.avail .thead { color:var(--gris); font-size:.62rem; letter-spacing:.1em; border-bottom:1px solid var(--hair); }
+.avail .trow { border-bottom:1px solid var(--hair-2); color:var(--tinta); position:relative; transition:background .25s; }
+.avail .trow:hover { background:color-mix(in srgb, var(--tinta) 4%, transparent); }
+.avail .trow .est { display:flex; align-items:center; gap:8px; }
+.avail .trow .est::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--rojo); animation:blink 2.4s ease-in-out infinite; }
+.avail .trow .est.temp::before { background:var(--gris); animation:none; }
+@keyframes blink { 50% { opacity:.25; } }
+html.js .trow, html.js .thead { opacity:0; transform:translateY(14px); }
+html.js.is-loaded .thead { transition:opacity .5s var(--e-out) .8s, transform .5s var(--e-out) .8s; opacity:1; transform:none; }
+html.js.is-loaded .trow { transition:opacity .5s var(--e-out), transform .5s var(--e-out); opacity:1; transform:none; }
+html.js.is-loaded .trow:nth-child(2){ transition-delay:.9s; } html.js.is-loaded .trow:nth-child(3){ transition-delay:.96s; }
+html.js.is-loaded .trow:nth-child(4){ transition-delay:1.02s; } html.js.is-loaded .trow:nth-child(5){ transition-delay:1.08s; }
+/* hover photo verification */
+.trow .verify {
+    position:absolute; right:8px; top:50%; z-index:5;
+    width:120px; aspect-ratio:4/5; transform:translateY(-50%) scale(.96);
+    opacity:0; pointer-events:none;
+    transition:opacity .3s var(--e-out), transform .35s var(--e-out);
+    box-shadow:0 14px 40px rgba(25,21,16,.25);
+}
+.trow .verify img { width:100%; height:100%; object-fit:cover; filter:grayscale(1) sepia(.28) saturate(1.3) contrast(1.05); }
+.trow:hover .verify { opacity:1; transform:translateY(-50%) scale(1); }
+@media (max-width:900px){
+    .avail .thead { display:none; }
+    .avail .trow { grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr); font-size:.64rem; }
+    .avail .trow > span:nth-child(2), .avail .trow > span:nth-child(3), .avail .trow > span:nth-child(5) { display:none; }
+    .trow .verify { display:none; }
+}
+
+/* customs stamp */
+.stamp-seal {
+    position:absolute; right:clamp(6px,3vw,48px); top:-52px; z-index:6;
+    width:clamp(84px,9vw,120px); color:var(--rojo);
+    transform:rotate(-8deg);
+}
+html.js .stamp-seal { clip-path:circle(0% at 50% 50%); }
+html.js.is-loaded .stamp-seal { transition:clip-path .5s var(--e-out) 1.35s; clip-path:circle(52% at 50% 50%); }
+html.js .stamp-seal svg { transform:scale(1.06); }
+html.js.is-loaded .stamp-seal svg { transition:transform .45s var(--e-out) 1.55s; transform:scale(1); }
+
+.manifest .note { padding:18px 4px 0; display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+.manifest .note a { color:var(--tinta); border-bottom:1px solid var(--hair); transition:color .2s, border-color .2s; }
+.manifest .note a:hover { color:var(--rojo); border-color:var(--rojo); }
+
+/* ============ PRODUCT BLOCKS (flood-hover rows) ============ */
+.blocks { position:relative; z-index:1; max-width:1560px; margin:0 auto; padding:clamp(90px,14vh,170px) clamp(16px,3vw,40px) 0; }
+.blocks .bh { display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--tinta); padding-top:14px; margin-bottom:6px; }
 .arow {
-    position:relative; flex:1; min-height:max(19vh, 130px);
+    position:relative; min-height:clamp(120px,17vh,180px);
     display:grid; grid-template-columns:auto minmax(0,1fr) auto auto;
     align-items:center; gap:clamp(14px,3vw,44px);
-    padding:0 clamp(16px,3vw,40px);
+    padding:0 8px;
     border-bottom:1px solid var(--hair);
     overflow:hidden; isolation:isolate;
 }
-.arow .bg {
-    position:absolute; inset:0; z-index:-1; opacity:0;
-    transition:opacity .45s var(--e-out);
-}
-.arow .bg img { width:100%; height:100%; object-fit:cover; object-position:center 55%; filter:saturate(.92) contrast(1.05); }
-.arow .bg::after { content:''; position:absolute; inset:0; background:rgba(19,19,19,.42); }
+.arow .bg { position:absolute; inset:0; z-index:-1; opacity:0; transition:opacity .45s var(--e-out); }
+.arow .bg img { width:100%; height:100%; object-fit:cover; object-position:center 55%; filter:grayscale(1) sepia(.28) saturate(1.3) contrast(1.05); }
+.arow .bg::after { content:''; position:absolute; inset:0; background:rgba(25,21,16,.44); }
 .arow:hover .bg, .arow:focus-visible .bg { opacity:1; }
 .arow .no { font-family:var(--mono); font-size:.68rem; color:var(--rojo); transition:color .3s; }
-.arow .nm {
-    font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;
-    font-size:clamp(2.3rem,7.8vw,7rem); line-height:.92;
-    transition:color .3s, letter-spacing .5s var(--e-out);
-}
-.arow .dt { font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gris); line-height:1.9; text-align:right; transition:color .3s; }
-.arow .arr { font-size:clamp(1.4rem,2.4vw,2rem); font-weight:700; transition:transform .4s var(--e-out), color .3s; }
-.arow:hover .nm, .arow:hover .dt, .arow:hover .no, .arow:hover .arr { color:var(--bone); }
-.arow:hover .nm { letter-spacing:.005em; }
+.arow .nm { font-weight:600; letter-spacing:-0.03em; font-size:clamp(2.1rem,6.4vw,5.6rem); line-height:.95; transition:color .3s; }
+.arow .dt { font-family:var(--mono); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gris); line-height:1.9; text-align:right; transition:color .3s; font-variant-numeric:tabular-nums; }
+.arow .arr { font-size:clamp(1.3rem,2.2vw,1.8rem); font-weight:600; transition:transform .4s var(--e-out), color .3s; }
+.arow:hover .nm, .arow:hover .dt, .arow:hover .no, .arow:hover .arr { color:var(--papel); }
 .arow:hover .arr { transform:translateX(8px); }
-html.js .arow .nm { transform:translateY(40%); opacity:0; }
-html.js.is-loaded .arow .nm { transition:transform .8s var(--e-out), opacity .8s var(--e-out), color .3s, letter-spacing .5s var(--e-out); transform:none; opacity:1; }
-html.js.is-loaded .arow:nth-child(2) .nm { transition-delay:.08s; }
-html.js.is-loaded .arow:nth-child(3) .nm { transition-delay:.16s; }
-html.js.is-loaded .arow:nth-child(4) .nm { transition-delay:.24s; }
 @media (max-width:760px){ .arow { grid-template-columns:auto 1fr auto; } .arow .dt { display:none; } }
 
-/* ============ STATEMENT + OVERLAP ============ */
-.statement { position:relative; z-index:1; padding:clamp(90px,15vh,180px) clamp(16px,3vw,40px); max-width:1480px; margin:0 auto; }
-.statement .folio {
-    font-variant-numeric:tabular-nums;
-    position:absolute; right:-.06em; top:0; z-index:0;
-    font-weight:800; font-size:clamp(9rem,26vw,24rem); line-height:.8;
-    color:transparent; -webkit-text-stroke:1.5px var(--hair);
-    pointer-events:none; user-select:none;
-}
-.statement h2 {
-    position:relative; z-index:1;
-    font-weight:800; text-transform:uppercase; letter-spacing:-0.01em;
-    font-size:clamp(2.2rem,5.4vw,4.8rem); line-height:1;
-    max-width:16ch;
-}
-.statement h2 .r { color:var(--rojo); }
-.statement .cols { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,4vw,72px); margin-top:clamp(36px,6vh,72px); align-items:start; }
-.statement .ph { position:relative; overflow:hidden; margin-top:-14vh; z-index:2; }
-.statement .ph img { width:100%; aspect-ratio:4/5; object-fit:cover; filter:saturate(.92) contrast(1.05);
-    transform:translateY(calc((var(--p,0.5) - 0.5) * -7%)) scale(1.08); }
-.statement .txt p { max-width:50ch; color:#3E3B34; font-size:clamp(.98rem,1.3vw,1.1rem); line-height:1.75; margin-bottom:18px; }
-.statement .txt .mono { display:block; margin-bottom:22px; color:var(--rojo); }
-.spec-line { display:flex; flex-wrap:wrap; gap:10px 34px; border-top:1px solid var(--blk); margin-top:clamp(40px,7vh,80px); padding-top:16px; }
-html.js .io { opacity:0; transform:translateY(16px); transition:opacity .7s var(--e-out), transform .7s var(--e-out); }
+/* ============ ORIGIN BAND (the one inversion) ============ */
+.origin { position:relative; z-index:1; background:var(--tinta); color:var(--papel); margin-top:clamp(90px,14vh,170px); }
+.origin-inner { max-width:1560px; margin:0 auto; padding:clamp(80px,12vh,140px) clamp(16px,3vw,40px); display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:clamp(28px,5vw,88px); align-items:center; }
+.origin .ph { overflow:hidden; }
+.origin .ph img { width:100%; aspect-ratio:16/11; object-fit:cover; mix-blend-mode:luminosity; filter:contrast(1.06) brightness(.92); }
+.origin h2 { font-weight:600; letter-spacing:-0.03em; font-size:clamp(1.9rem,4.2vw,3.6rem); line-height:1.02; margin:14px 0 20px; }
+.origin h2 .r { color:#E9552F; }
+.origin p { color:color-mix(in srgb, var(--papel) 72%, transparent); max-width:46ch; }
+.origin .mono { color:color-mix(in srgb, var(--papel) 55%, transparent); }
+.origin .specrow { display:flex; flex-wrap:wrap; gap:8px 30px; border-top:1px solid rgba(251,249,244,.18); margin-top:28px; padding-top:14px; }
+html.js .io { opacity:0; transform:translateY(14px); transition:opacity .6s var(--e-out), transform .6s var(--e-out); }
 html.js .io.in { opacity:1; transform:none; }
-@media (max-width:860px){
-    .statement .cols { grid-template-columns:1fr; }
-    .statement .ph { margin-top:0; max-width:480px; }
-}
+@media (max-width:860px){ .origin-inner { grid-template-columns:1fr; } }
 
 /* stub */
-.stub { position:relative; z-index:1; border-top:1px solid var(--hair); padding:26px clamp(16px,3vw,40px); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.stub { position:relative; z-index:1; border-top:1px solid var(--hair); padding:24px clamp(16px,3vw,40px); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
 .stub a { border-bottom:1px solid var(--hair); }
 
 @media (prefers-reduced-motion:reduce) {
-    html.js .arow .nm, html.js .io { transform:none !important; opacity:1 !important; transition:none !important; }
-    .statement .ph img { transform:none !important; }
+    html.js .li, html.js .trow, html.js .thead, html.js .io, html.js .gridlines i, html.js .stamp-seal, html.js .stamp-seal svg { transform:none !important; opacity:1 !important; clip-path:none !important; transition:none !important; }
+    .avail .trow .est::before { animation:none; }
 }
 </style>
 </head>
 <body>
 
-<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="gridlines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
 <header>
     <a class="brand" href="/mockups/"><img src="/logo.webp" alt="Valle de Gigantes"></a>
     <nav>
-        <a href="#">Archivo</a>
-        <a href="#">El Valle</a>
+        <a href="#">Manifiesto</a>
+        <a href="#">Origen</a>
         <a href="#">Certificación</a>
-        <a href="#" class="cta">Cotizar</a>
+        <a href="#" class="cta">Mayoreo / Export</a>
     </nav>
+    <span class="progress" aria-hidden="true"></span>
 </header>
 
 <main>
-    <section class="archive" aria-label="Índice de productos">
-        <p class="arch-meta mono">
-            <span>AFER Greens — Archivo de cultivo · Valle de Saucillo, Chihuahua</span>
-            <span>Primus GFS Nº 373629 · 30 · 31</span>
+    <section class="manifest" aria-label="Manifiesto de carga">
+        <p class="strip mono">
+            <span>AFER Greens — Valle de Gigantes — Exportador</span>
+            <span>Chihuahua, MX — 28.0049° N · 105.0831° O</span>
         </p>
-        <div class="arch-rows">
-            <a class="arow" href="#">
-                <span class="bg" aria-hidden="true"><img src="/mockups/img/chiltepin-grade.webp" alt=""></span>
-                <span class="no">A·01</span>
-                <span class="nm">Chiltepín</span>
-                <span class="dt">Seco · 50–100 mil SHU<br>100 g / 1 kg / 10 kg</span>
-                <span class="arr" aria-hidden="true">→</span>
+        <h1>
+            <span class="l"><span class="li">Chile seco de origen único.</span></span>
+            <span class="l"><span class="li">Del desierto <span class="r">al puerto.</span></span></span>
+        </h1>
+        <div class="avail">
+            <div class="stamp-seal" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                    <defs><path id="sc" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs>
+                    <circle cx="50" cy="50" r="47" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="26" stroke-width="1"/>
+                    <text font-family="DM Mono, monospace" font-size="8.4" letter-spacing="1.9" fill="currentColor" stroke="none">
+                        <textPath href="#sc">REVISADO · AFER GREENS · PRIMUS GFS ·</textPath>
+                    </text>
+                    <path d="M42 50 l6 6 l12 -13" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="thead" aria-hidden="true">
+                <span>Producto</span><span>Lote</span><span>Cosecha</span><span>Picor / grado</span><span>Presentación</span><span>Estado</span>
+            </div>
+            <a class="trow" href="#">
+                <span>Chiltepín seco</span><span>L-04</span><span>2026</span><span>50–100K SHU</span><span>100 g · 1 kg · 10 kg</span><span class="est">Disponible</span>
+                <span class="verify" aria-hidden="true"><img src="/mockups/img/chiltepin-grade.webp" alt=""></span>
             </a>
-            <a class="arow" href="#">
-                <span class="bg" aria-hidden="true"><img src="/mockups/img/jalapeno-grade.webp" alt=""></span>
-                <span class="no">A·02</span>
-                <span class="nm">Jalapeño</span>
-                <span class="dt">Fresco · pared gruesa<br>Encurtidos / industria</span>
-                <span class="arr" aria-hidden="true">→</span>
+            <a class="trow" href="#">
+                <span>Chipotle mezquite</span><span>L-02</span><span>2026</span><span>Ahumado 72 h</span><span>Arpilla 30 kg</span><span class="est">Disponible</span>
+                <span class="verify" aria-hidden="true"><img src="/mockups/img/chipotle-grade.webp" alt=""></span>
             </a>
-            <a class="arow" href="#">
-                <span class="bg" aria-hidden="true"><img src="/mockups/img/chipotle-grade.webp" alt=""></span>
-                <span class="no">A·03</span>
-                <span class="nm">Chipotle</span>
-                <span class="dt">Ahumado con mezquite<br>Arpilla 30 kg</span>
-                <span class="arr" aria-hidden="true">→</span>
+            <a class="trow" href="#">
+                <span>Jalapeño fresco</span><span>—</span><span>2026</span><span>Pungencia media</span><span>Caja · export</span><span class="est temp">Temporada</span>
+                <span class="verify" aria-hidden="true"><img src="/mockups/img/jalapeno-grade.webp" alt=""></span>
             </a>
-            <a class="arow" href="#">
-                <span class="bg" aria-hidden="true"><img src="/mockups/img/melon-grade.webp" alt=""></span>
-                <span class="no">A·04</span>
-                <span class="nm">Melón G.T.</span>
-                <span class="dt">Alto °Brix · pulpa firme<br>Granel / exportación</span>
-                <span class="arr" aria-hidden="true">→</span>
+            <a class="trow" href="#">
+                <span>Melón Gran Torino</span><span>—</span><span>2026</span><span>Alto °Brix</span><span>Granel</span><span class="est temp">Temporada</span>
+                <span class="verify" aria-hidden="true"><img src="/mockups/img/melon-grade.webp" alt=""></span>
             </a>
         </div>
+        <p class="note mono">
+            <span>Certificación Primus GFS Nº 373629 · 373630 · 373631 — <a href="#">verificar en Azzule ↗</a></span>
+            <span><a href="#">Solicitar hoja de precios →</a></span>
+        </p>
     </section>
 
-    <section class="statement" data-scrub>
-        <span class="folio" aria-hidden="true">28°N</span>
-        <h2 class="io">Un valle del desierto,<br>documentado <span class="r">eslabón por eslabón.</span></h2>
-        <div class="cols">
-            <div class="txt io">
-                <span class="mono">El Valle / B·01</span>
-                <p>Cultivamos chiltepín, jalapeño y melón en el Valle de Saucillo, Chihuahua — ambiente semidesértico, suelos minerales, ciclos del norte. El chipotle se ahúma con leña de mezquite, sin humo líquido.</p>
-                <p>Granja, cuadrilla de cosecha y centro de empaque: los tres eslabones certificados Primus GFS y auditados por SCS Global Services. Cada certificado es público y verificable en línea.</p>
+    <section class="blocks" data-float aria-label="Productos">
+        <div class="bh">
+            <span class="mono" style="color:var(--tinta)">Bloques de producto</span>
+            <span class="mono">B·01 — B·04</span>
+        </div>
+        <a class="arow" href="#">
+            <span class="bg" aria-hidden="true"><img src="/mockups/img/chiltepin-grade.webp" alt=""></span>
+            <span class="no">B·01</span>
+            <span class="nm">Chiltepín</span>
+            <span class="dt">Sierra de Chihuahua · cosecha manual<br>SHU 50,000–100,000 · humedad &lt;12%</span>
+            <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <a class="arow" href="#">
+            <span class="bg" aria-hidden="true"><img src="/mockups/img/jalapeno-grade.webp" alt=""></span>
+            <span class="no">B·02</span>
+            <span class="nm">Jalapeño</span>
+            <span class="dt">Pared gruesa · calibre uniforme<br>Fresco / encurtidos / industria</span>
+            <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <a class="arow" href="#">
+            <span class="bg" aria-hidden="true"><img src="/mockups/img/chipotle-grade.webp" alt=""></span>
+            <span class="no">B·03</span>
+            <span class="nm">Chipotle</span>
+            <span class="dt">Jalapeño rojo maduro · leña de mezquite<br>Arpilla 30 kg · sin humo líquido</span>
+            <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <a class="arow" href="#">
+            <span class="bg" aria-hidden="true"><img src="/mockups/img/melon-grade.webp" alt=""></span>
+            <span class="no">B·04</span>
+            <span class="nm">Melón G.T.</span>
+            <span class="dt">Alto °Brix · pulpa firme<br>Granel · vida de anaquel extendida</span>
+            <span class="arr" aria-hidden="true">→</span>
+        </a>
+    </section>
+
+    <section class="origin">
+        <div class="origin-inner">
+            <div class="io">
+                <span class="mono">Origen / C·01</span>
+                <h2>Un valle del desierto,<br>auditado <span class="r">eslabón por eslabón.</span></h2>
+                <p>Granja, cuadrilla de cosecha y centro de empaque certificados Primus GFS por SCS Global Services. Cada certificado es un documento público — el comprador puede verificarlo antes de la primera llamada.</p>
+                <p class="specrow mono">
+                    <span>1,180 msnm</span>
+                    <span>Suelos minerales</span>
+                    <span>Monzón de julio</span>
+                    <span>MX–US</span>
+                </p>
             </div>
             <figure class="ph io">
-                <img src="/mockups/img/rancho-grade.webp" alt="Tormenta sobre los campos del Valle de Gigantes">
+                <img src="/mockups/img/rancho-grade.webp" alt="Tormenta del monzón sobre el Valle de Gigantes">
             </figure>
         </div>
-        <p class="spec-line mono io">
-            <span>28.0049° N · 105.0831° O</span>
-            <span>1,180 msnm</span>
-            <span>Primus GFS × 3</span>
-            <span>Mezquite · secado lento</span>
-            <span>MX–US</span>
-        </p>
     </section>
 </main>
 
 <footer class="stub">
-    <span class="mono">Mockup D — El Archivo · <a href="/mockups/">volver al índice</a></span>
-    <span class="mono">Cabinet Grotesk · IBM Plex Mono</span>
+    <span class="mono">Mockup D — Manifiesto · <a href="/mockups/">volver al índice</a></span>
+    <span class="mono">Switzer · DM Mono</span>
 </footer>
 
 <script src="/mockups/motion.js" defer></script>

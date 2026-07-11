@@ -101,6 +101,22 @@
         });
     }
 
+    // --- Scroll velocity (for reactive marquees): --vel on <html>, -1..1 ---
+    if (!reduced) {
+        var lastY = scrollY, vel = 0, velRaf = null;
+        var velTick = function () {
+            var dy = scrollY - lastY;
+            lastY = scrollY;
+            vel += ((Math.max(-40, Math.min(40, dy)) / 40) - vel) * 0.12;
+            doc.style.setProperty('--vel', vel.toFixed(3));
+            if (Math.abs(vel) > 0.002) velRaf = requestAnimationFrame(velTick);
+            else { doc.style.setProperty('--vel', '0'); velRaf = null; }
+        };
+        addEventListener('scroll', function () {
+            if (!velRaf) velRaf = requestAnimationFrame(velTick);
+        }, { passive: true });
+    }
+
     // --- Ticker pause button ---
     var ticker = document.querySelector('.ticker');
     var pauseBtn = document.querySelector('.ticker-pause');

@@ -130,8 +130,16 @@ html.js.is-loaded .hero-fig { transition:clip-path 1.1s var(--e-inout) .35s; cli
 .spec-cell .v { font-family:var(--serif); font-size:1.15rem; line-height:1.3; font-variant-numeric:lining-nums tabular-nums; }
 .spec-cell .v small { display:block; font-family:var(--mono); font-size:.58rem; letter-spacing:.1em; color:var(--ox); text-transform:uppercase; margin-top:6px; }
 
+/* ghost chapter folios */
+.folio {
+    position:absolute; right:0; top:-.05em; z-index:0;
+    font-family:var(--serif); font-size:clamp(6rem,17vw,13rem); line-height:.8;
+    color:transparent; -webkit-text-stroke:1px rgba(25,21,18,.14);
+    pointer-events:none; user-select:none; font-variant-numeric:tabular-nums;
+}
+
 /* ============ EDITORIAL PASSAGE ============ */
-.passage { max-width:1480px; margin:0 auto; padding:clamp(90px,14vh,160px) clamp(20px,4vw,56px); display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); }
+.passage { position:relative; max-width:1480px; margin:0 auto; padding:clamp(90px,14vh,160px) clamp(20px,4vw,56px); display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:clamp(24px,4vw,72px); }
 .passage .side { position:sticky; top:96px; align-self:start; }
 .passage p.big {
     font-family:var(--serif); font-size:clamp(1.5rem,2.8vw,2.4rem); line-height:1.35; letter-spacing:-0.01em;
@@ -143,7 +151,7 @@ html.js .io { opacity:0; transform:translateY(16px); transition:opacity .7s var(
 html.js .io.in { opacity:1; transform:none; }
 
 /* ============ PRODUCT INDEX ============ */
-.index { max-width:1480px; margin:0 auto; padding:0 clamp(20px,4vw,56px) clamp(90px,14vh,160px); }
+.index { position:relative; max-width:1480px; margin:0 auto; padding:0 clamp(20px,4vw,56px) clamp(90px,14vh,160px); }
 .index .head { display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--ink); padding-top:16px; margin-bottom:8px; }
 .row {
     display:grid; grid-template-columns:auto minmax(0,5fr) minmax(0,4fr) auto;
@@ -228,6 +236,7 @@ html.js .io.in { opacity:1; transform:none; }
     </section>
 
     <section class="passage">
+        <span class="folio" aria-hidden="true">01</span>
         <div class="side io">
             <p class="mono">— El Valle / 01</p>
         </div>
@@ -238,6 +247,7 @@ html.js .io.in { opacity:1; transform:none; }
     </section>
 
     <section class="index" id="index" data-float>
+        <span class="folio" aria-hidden="true">02</span>
         <div class="head">
             <span class="mono" style="color:var(--ink)">Índice de productos</span>
             <span class="mono">/ 02</span>
