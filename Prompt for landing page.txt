@@ -1,0 +1,122 @@
+Prompt to recreate this landing page:
+
+Build a single-page dark portfolio landing page using
+React + Vite + Tailwind CSS + TypeScript + GSAP + Framer Motion + hls.js.
+
+## 01. GOAL
+Recreate the HYLIOX templates landing page with a premium,
+cinematic look and smooth interactions.
+
+## 02. TECH STACK
+- React 18 + Vite + TypeScript
+- Tailwind CSS (custom config)
+- GSAP (ScrollTrigger + animations)
+- Framer Motion (micro interactions)
+- hls.js (for background video if used)
+
+## 03. DESIGN SYSTEM
+- Background: #0A0A0A (Obsidian)
+- Primary: #D4FF4F (Acid Lime)
+- Text Primary: #FAFAFA (warm white)
+- Text Secondary: rgba(250,250,250,0.64)
+- Border: rgba(255,255,255,0.06)
+- Surface: rgba(255,255,255,0.03)
+- Font Sans: Geist (or Inter fallback)
+- Font Display: Instrument Serif (italic)
+- Font Mono: Geist Mono (or JetBrains Mono)
+- Radius: 16px
+- Glass: backdrop-blur-xl on rgba(255,255,255,0.04)
+
+### Typography Scale
+Display (Serif Italic): clamp(48px, 7vw, 88px)
+H1: clamp(36px, 5vw, 64px)
+H2: clamp(24px, 3vw, 32px)
+H3: clamp(20px, 2.5vw, 28px)
+Body: 16px / 1.6
+Mono: 13px / 1.7
+Tracking eyebrow: 0.4em
+
+### Layout
+Max content width: 1280px
+Section vertical padding: clamp(80px, 10vw, 160px)
+Container padding: 24px
+Grid: 12 columns, gap 24px
+
+## 04. PAGE STRUCTURE
+1. Loading screen (3s monogram shimmer, ease-out fade)
+2. Hero section (full-bleed HLS video bg, centered headline)
+3. Templates showcase (8-tile asymmetric bento)
+4. How it works (3 steps, alternating alignment)
+5. Social proof + testimonial wall
+6. Pricing (3 tiers, lime highlight on middle)
+7. FAQ accordion (8 items, smooth height transition)
+8. Final CTA (marquee + lime button)
+9. Footer (3 columns + brand mark)
+
+## 05. HERO
+- Eyebrow: "TEMPLATES · 2026" (mono, lime, uppercase, tracking 0.4em)
+- Headline mixing sans + italic serif:
+  "Ship a site that
+  doesn't feel like AI made it."
+- Sub: "8 premium templates. Cursor / v0 / Lovable ready."
+- Primary CTA: "Browse templates →" (lime fill)
+- Secondary: "See the method" (ghost outline)
+- Background: hls.js video with 50% black overlay
+- Subtle dust particle layer on top
+- Hero takes 100svh, content centered
+
+## 06. BENTO GRID
+- 8 cards in an asymmetric grid
+- 12-col base, cards span 4/6/8 cols depending on row
+- Each card: rounded 16px, glass surface, hover lift 6px
+- Card content: thumbnail (16:10), title, 1-line subtitle
+- Lime accent on first card (featured)
+
+## 07. HOW IT WORKS
+- 3 steps numbered 01 / 02 / 03 in mono lime
+- Each step: large H2 in sans, body paragraph, supporting image
+- Alternate text-image / image-text across rows
+- Sticky-pinned scroll variant on desktop
+
+## 08. PRICING
+- 3 tiers: Express (€297), Standard (€597), Custom (€1,499)
+- Middle card highlighted (lime border + soft glow)
+- Each card: eyebrow, name, price, feature list, CTA
+- All checkmarks lime, all crosses muted
+- Footer note: "All prices one-shot, no subscription"
+
+## 09. FAQ
+- Accordion, 8 items
+- Question in sans medium 18px
+- Answer in body color 16px / 1.6
+- Open state: lime border-left 2px
+- Smooth height + opacity transition (300ms ease-out)
+
+## 10. FINAL CTA
+- Eyebrow + display headline:
+  "Ready to ship?
+  Or still scrolling references?"
+- Single lime button: "Browse templates →"
+- Marquee strip below: "BUILT WITH AI · NOT BY AI · " (loops infinitely)
+- Background: subtle radial lime glow at bottom-center
+
+## 11. INTERACTIONS
+- Page load: 3s monogram loader, then ease-out fade
+- Scroll: GSAP ScrollTrigger for section reveals
+- Hover: card lift, button slight scale (1.02)
+- Marquee: CSS infinite scroll, pauses on hover
+- Mobile: disable parallax, simplify hover states
+
+## 12. ACCESSIBILITY
+- All interactive elements keyboard-reachable
+- Focus rings: 2px lime offset
+- Color contrast: AA on all body text
+- prefers-reduced-motion: disable scroll-triggered animations
+- aria-labels on all icon-only buttons
+
+## 13. PERFORMANCE
+- Lazy-load all images below the fold
+- Use next-gen formats (AVIF / WebP)
+- Inline critical CSS for above-the-fold
+- Defer non-critical JS
+- Lighthouse budget: LCP < 2.5s, CLS < 0.05
