@@ -1,28 +1,46 @@
 # Images
 
-All images live at the repo root because the site is served from it (GitHub Pages) and the URLs are indexed and used as Open Graph images. Do not move or rename them.
+The site is served from the repo root on GitHub Pages. Full-size originals stay at the
+root under their historical names because those URLs are indexed and used as Open Graph
+and schema images. Responsive variants live in `/img` and are generated, never edited.
 
-## Web files (tracked)
+## Root originals (tracked)
 
-| Name pattern | What it is | Formats |
+| Name | What it is | Source |
 |---|---|---|
-| `logo` | Brand logo | png, webp |
-| `rancho`, `rancho-1920` | Hero photo of the ranch | jpg, webp |
-| `chiltepin`, `jalapeno`, `chipotle`, `melon` | Product hero photo | jpg, webp |
-| `chiltepin-1200`, `jalapeno-1200` | Product hero resized to 1200 px wide | jpg |
-| `chiltepin-100g`, `chiltepin-1kg`, `chiltepin-10kg` | Chiltepín presentations | jpg, webp |
-| `jalapeno-17kg`, `jalapeno-30kg` | Jalapeño presentations | jpg, webp |
-| `chipotle-30kg` | Chipotle presentation | jpg, webp |
-| `melon-granel` | Melón presentation | jpg, webp |
+| `logo` | Brand logo | Owner |
+| `rancho`, `rancho-1920` | Storm over the chile field | Photograph |
+| `chiltepin`, `chiltepin-1200` | Chiltepín in hand over the drying bed | Photograph |
+| `jalapeno`, `jalapeno-1200` | Harvest crew emptying a bucket into a bin | Photograph |
+| `melon` | Cantaloupe on desert soil, one cut open | Generated (gpt-image-2), see SPEC.md §14 |
+| `chipotle` | Dried chipotles on a wooden drying tray | Generated |
+| `chiltepin-100g`, `chiltepin-1kg`, `chiltepin-10kg` | Chiltepín presentations | Generated |
+| `jalapeno-17kg`, `jalapeno-30kg` | Jalapeño presentations | Generated |
+| `chipotle-30kg` | Chipotle presentation | Generated |
+| `melon-granel` | Melon bulk bin | Generated |
 
-Chipotle and melón use the base `.jpg` at 1200 px, so they have no `-1200` variant.
+Each ships as `.jpg` plus `.webp`.
 
-## Source files (not tracked)
+## Generated variants (`/img`, tracked, do not edit)
 
-The original PNG exports for the presentation images are kept out of the repo to keep it lean:
+Made by `python tools/images.py` from the root originals:
+
+- Hero: `rancho-768/1280/1920`
+- Product heroes and home card: `<name>-480/960/1440`
+- Home row thumbnails and "otros productos": `<name>-112/224` (square crops)
+- Presentations: `<name>-480/960`
+- Link previews: `og-home`, `og-melon`, `og-chiltepin`, `og-jalapeno`, `og-chipotle` at 1200×630
+
+Re-run the script after replacing any root original.
+
+## Sources (not tracked)
+
+Original PNG exports and the full-resolution generated files live outside the repo:
 
 ```
 C:\Users\Andres\Dropbox\AFER Greens\Branding\Web image sources\
 ```
 
-Regenerate a jpg/webp from a source there, then commit only the jpg and webp.
+To replace an image: put the new original there, export a `.jpg` (quality 82) and a
+`.webp` (quality 78) to the repo root under the existing name, then run
+`python tools/images.py <name>`.

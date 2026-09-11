@@ -23,28 +23,28 @@ colors:
   ink:                 "#1D1B18"
 typography:
   display:
-    fontFamily: "'Fraunces', Georgia, serif"
-    fontSize: "clamp(3.2rem, 7vw, 7rem)"
-    fontWeight: 900
-    lineHeight: 1.0
-    letterSpacing: "normal"
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+    fontSize: "clamp(3.4rem, 8.5vw, 8rem)"
+    fontWeight: 300
+    lineHeight: 0.98
+    letterSpacing: "-0.01em"
   headline:
-    fontFamily: "'Fraunces', Georgia, serif"
-    fontSize: "clamp(2.4rem, 5vw, 4.5rem)"
-    fontWeight: 900
-    lineHeight: 1.05
-    letterSpacing: "normal"
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+    fontSize: "clamp(2.4rem, 4.6vw, 4rem)"
+    fontWeight: 400
+    lineHeight: 1.02
+    letterSpacing: "-0.005em"
   title:
-    fontFamily: "'Fraunces', Georgia, serif"
-    fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)"
-    fontWeight: 700
-    lineHeight: 1.15
+    fontFamily: "'Cormorant Garamond', Georgia, serif"
+    fontSize: "clamp(1.5rem, 2.2vw, 1.9rem)"
+    fontWeight: 500
+    lineHeight: 1.1
     letterSpacing: "normal"
   body:
     fontFamily: "'Outfit', -apple-system, sans-serif"
     fontSize: "clamp(1rem, 1.5vw, 1.15rem)"
     fontWeight: 300
-    lineHeight: 1.75
+    lineHeight: 1.7
     letterSpacing: "normal"
   label:
     fontFamily: "'Outfit', -apple-system, sans-serif"
@@ -135,7 +135,7 @@ This system explicitly rejects: generic agricultural-commodity aesthetics (stock
 
 **Key Characteristics:**
 - Deep cantera teal base with a single amber accent at ≤10% coverage per surface
-- Fraunces (serif) for all display and identity moments; Outfit (sans) for all body, label, and interface copy
+- Cormorant Garamond (serif, weights 300–500) for all display and identity moments; Outfit (sans) for all body, label, and interface copy
 - Full-capsule pill buttons; gently curved cards (6px); near-flat elevation with amber glow on CTAs only
 - Fluid spacing and type scales via `clamp()` — no breakpoint-specific magic numbers
 - Grain overlay (fixed, `mix-blend-mode: overlay`) throughout all dark sections
@@ -168,7 +168,7 @@ Three chromatic families — amber heat, cantera depth, agave support — ground
 - **Snow** (`#F7F5F0`, `oklch(97% 0.007 85)`): Secondary light surface; pillar card backgrounds; light section padding areas.
 - **Pearl** (`#EDEAE3`, `oklch(93% 0.01 85)`): Borders and dividers on light sections. Card borders in cert section.
 - **Fog** (`#D5D0C6`, `oklch(84% 0.01 80)`): Lighter divider; less used.
-- **Stone** (`#9B9585`, `oklch(64% 0.01 75)`): Muted UI labels — contact section `h4` labels, cert number metadata. Never for body copy.
+- **Stone** (`#9B9585`, `oklch(64% 0.01 75)`): Muted UI labels on LIGHT surfaces only (cert metadata). Fails contrast on Cantera surfaces; use Agave Pale or Fog there. Never for body copy.
 - **Slate** (`#6B6560`, `oklch(46% 0.01 65)`): Supporting text on light backgrounds (certs intro, pres intro). Verify 4.5:1 against Snow before use.
 - **Charcoal** (`#3D3A35`, `oklch(28% 0.01 65)`): Dark text on light surfaces; rarely needed given the split between dark and light sections.
 - **Ink** (`#1D1B18`, `oklch(12% 0.008 70)`): Text on amber CTA buttons and amber backgrounds (stats bar). The only near-black in the system.
@@ -183,22 +183,24 @@ Three chromatic families — amber heat, cantera depth, agave support — ground
 
 ## 3. Typography
 
-**Display Font:** Fraunces (Google Fonts, optical-size-aware serif with `opsz` axis, 9–144; fallback: Georgia, serif)
-**Body Font:** Outfit (Google Fonts, geometric humanist sans; fallback: -apple-system, sans-serif)
+**Display Font:** Cormorant Garamond (Google Fonts, self-hosted latin subsets in `assets/fonts/`; weights 300, 400, 500 and 400 italic; fallback: Georgia, serif). Replaced Cormorant Garamond on 2026-09-11.
+**Body Font:** Outfit (self-hosted; weights 300, 500, 600; fallback: -apple-system, sans-serif)
 
-**Character:** Fraunces is a newspaper-editorial serif with dramatic weight contrast at 900 and soft italic personality at lower weights — it signals authority and origin without formality. Outfit is clean and legible at small sizes without the coldness of geometric grotesques; it pairs with Fraunces by staying neutral. The pairing reads as: a commodity that takes itself seriously enough to have a byline.
+**Character:** Cormorant Garamond is a high-contrast old-style serif with tall ascenders and a calm italic. At weight 300 and large sizes it reads like a wine estate or a specialty fruit house: classical, unhurried, premium by restraint. Its authority comes from size and white space, never from stroke weight. Outfit stays neutral underneath it.
 
 ### Hierarchy
-- **Display** (Fraunces 900, `clamp(3.2rem, 7vw, 7rem)`, line-height 1.0): Hero `h1` only. Used once per page, never repeated. Italic `<em>` in amber for the key brand phrase.
-- **Headline** (Fraunces 900, `clamp(2.4rem, 5vw, 4.5rem)`, line-height 1.05): Section `h2` titles throughout. Italic `<em>` in amber for the thematic word per section. Sentence-case.
-- **Title** (Fraunces 700, `clamp(1.4rem, 2.5vw, 1.9rem)`, line-height 1.15): Product card headings (`h3`), cert card headings, form section titles. Less dramatic — carries content, not identity.
-- **Body** (Outfit 300, `clamp(1rem, 1.5vw, 1.15rem)`, line-height 1.75): All paragraph copy. Max line length 520px or ~65ch on desktop. Weight 300 (light) to let Fraunces headlines dominate.
-- **Label** (Outfit 600, `0.72–0.82rem`, letter-spacing `0.18–0.30em`, uppercase): Section eyebrow labels, stat labels, tag content, contact `h4` metadata, nav links. Always uppercase, always tracked. The secondary rhythm element that gives structure without competing with Fraunces.
+- **Display** (Cormorant 300, `clamp(3.4rem, 8.5vw, 8rem)`, line-height 0.98, tracking -0.01em, `max-width: 14ch`, `text-wrap: balance`): Hero `h1` only. Italic `<em>` at weight 400 in amber for the key word.
+- **Headline** (Cormorant 400, `clamp(2.4rem, 4.6vw, 4rem)`, line-height 1.02): Section `h2` titles. Italic `<em>` in amber for the thematic word. Sentence case.
+- **Title** (Cormorant 500, `clamp(1.5rem, 2.2vw, 1.9rem)`, line-height 1.1): Product names on cards and rows, cert card headings, form title, FAQ questions.
+- **Body** (Outfit 300, `clamp(1rem, 1.5vw, 1.15rem)`, line-height 1.7): All paragraph copy. Max 520px / 65ch.
+- **Label** (Outfit 600, `0.68–0.75rem`, letter-spacing `0.18–0.28em`, uppercase): Eyebrows, stat labels, tags, form labels, footer column headings.
 
 ### Named Rules
-**The Fraunces-Only Rule.** Fraunces is used exclusively for display, headline, and title roles. It never appears in label, body, or UI copy. Outfit never appears in headline or display roles. The split is absolute.
+**The Cormorant-Only Rule.** Cormorant Garamond is used exclusively for display, headline and title roles. It never appears in labels, body or UI copy. Outfit never appears in headings. The split is absolute.
 
-**The Italic Amber Rule.** Each `h1` and `h2` contains exactly one `<em>` rendered in italic Fraunces and Harvest Amber. This is the typographic heartbeat of the system. Do not use `<em>` for general emphasis; do not use amber on non-italic Fraunces.
+**The Never-Bold Rule.** Cormorant is never set at weight 600 or above. Emphasis comes from size, italics and the amber `<em>`. Below 32px use weight 400 or 500; weight 300 is for display and headline sizes only, and never on Agave Pale.
+
+**The Italic Amber Rule.** Each `h1` and `h2` contains exactly one `<em>` rendered in italic Cormorant and Harvest Amber (Amber Text `#B06A10` on light surfaces). Do not use `<em>` for general emphasis.
 
 **The 65ch Rule.** Body paragraphs are capped at ~520px / 65ch max-width. Wider line lengths on large viewports are prohibited. Apply `max-width: 520px` or equivalent on all `.sub`, `.intro`, and `.tagline` elements.
 
@@ -243,8 +245,8 @@ Cards are not the default layout choice. When used, they are understated: minima
 ### Inputs / Fields
 Form inputs sit on the dark cantera contact section. They use semi-transparent tinted glass backgrounds to stay in the surface family, not white boxes that would look grafted on.
 
-- **Default:** `rgba(255,255,255,0.05)` background, `1.5px solid rgba(168,196,169,0.18)` border, `8px` radius, Outfit 0.95rem, `14px 18px` padding, White text. Placeholder: `rgba(168,196,169,0.35)`.
-- **Focus:** Border shifts to Harvest Amber, background `rgba(247,147,30,0.06)`, focus ring `0 0 0 3px rgba(247,147,30,0.45)`. The focus ring must meet WCAG 2.2 AA — use minimum 45% opacity, not 10%.
+- **Default:** `rgba(255,255,255,0.05)` background, `1.5px solid rgba(168,196,169,0.18)` border, `8px` radius, Outfit 0.95rem, `14px 18px` padding, White text. Placeholder: `rgba(168,196,169,0.75)` (≥4.5:1).
+- **Focus:** Border shifts to Harvest Amber, background `rgba(247,147,30,0.06)`, focus ring `0 0 0 3px rgba(247,147,30,0.45)`. Keyboard focus uses a 2px solid Harvest Amber outline with 2px offset via `:focus-visible` on every interactive element.
 - **Select:** `-webkit-appearance: none`; styled identically to text inputs. Option background uses `{colors.cantera-mid}`.
 - **Textarea:** `min-height: 120px`, `resize: vertical` only.
 
@@ -255,15 +257,15 @@ The header is transparent at page top and transitions to a blurred dark glass on
 - **Scrolled (`.scrolled`):** `rgba(4,46,40,0.92)` background, `backdrop-filter: blur(18px) saturate(160%)`, `1px solid rgba(247,147,30,0.12)` border-bottom. Transition `0.5s ease-in-out`.
 - **Nav links:** Outfit 500, `0.9rem`, letter-spacing `0.08em`, Agave Pale at rest, White on hover. Underline animation: a `width: 0 → 100%` pseudo-element in Harvest Amber, `2px` height, `0.35s ease-out-expo`.
 - **Logo:** Inverted white filter (`brightness(0) invert(1)`). Height `100px` at rest → `64px` on scroll (`0.4s` ease-out-expo). On mobile: `70px` fixed.
-- **Mobile:** Nav stacks vertically at ≤768px. `cursor: auto` restored; custom cursor elements display none.
+- **Mobile:** Single 64px row: logo left, Cotizar pill and hamburger right; the menu opens as a full-screen sheet. Custom cursor never activates without a fine pointer.
 
 ### Product Cards (Signature Component)
-Full-bleed photography cards with overlay gradients, numbered in Fraunces, and reveal text on hover. The numbering system (`01` through `04`) is structural identity, not decoration.
+Full-bleed photography cards with overlay gradients, numbered in Cormorant Garamond, and reveal text on hover. The numbering system (`01` through `04`) is structural identity, not decoration.
 
 - **Container:** `position: relative`, `overflow: hidden`, `aspect-ratio: 4/3` (desktop), `aspect-ratio: 3/4` (mobile).
 - **Image:** `object-fit: cover`, `filter: saturate(0.8) brightness(0.8)` at rest. Hover: `transform: scale(1.06)`, `filter: saturate(1) brightness(0.88)`.
 - **Overlay:** `linear-gradient(to top, rgba(4,46,40,0.95) 0%, rgba(4,46,40,0.3) 55%, transparent 100%)`. Hover: deepens to `0.98` at bottom, adds `rgba(247,147,30,0.08)` at top.
-- **Number:** Fraunces 900, `5rem`, `rgba(247,147,30,0.2)` at rest → `0.5` on hover, `translateY(-4px)` on hover.
+- **Number:** Cormorant Garamond 900, `5rem`, `rgba(247,147,30,0.2)` at rest → `0.5` on hover, `translateY(-4px)` on hover.
 - **Tag:** Outfit 600, `0.7rem`, letter-spacing `0.18em`, uppercase, Harvest Amber text, `1px solid rgba(247,147,30,0.4)` border, `100px` radius, `5px 14px` padding. No fill — outline chip only.
 
 ### Ticker Strip (Signature Component)
@@ -273,13 +275,13 @@ An amber marquee band between the hero and the first content section. `aria-hidd
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** use Harvest Amber (`#F7931E`) for CTAs, eyebrow labels, and single-word italic emphasis in Fraunces headings — and nowhere else.
+- **Do** use Harvest Amber (`#F7931E`) for CTAs, eyebrow labels, and single-word italic emphasis in Cormorant Garamond headings — and nowhere else.
 - **Do** tint every neutral toward the brand hue. The lightest surface is `#FDFCFA` (White); the darkest is `#042E28` (Cantera Deep). Pure `#000` and `#fff` are prohibited.
-- **Do** use `<em>` in Fraunces headings to render in italic amber — one `<em>` per heading, the thematic anchor word.
+- **Do** use `<em>` in Cormorant Garamond headings to render in italic amber — one `<em>` per heading, the thematic anchor word.
 - **Do** apply `will-change: transform` and position cursor elements with `transform: translate()`, not `top`/`left`, to keep the cursor compositor-only.
 - **Do** verify 4.5:1 contrast ratio for all text against its background before shipping. Pay special attention to `rgba`-opacity text on dark surfaces (footer, stat labels).
 - **Do** honor `prefers-reduced-motion` for all scroll-reveal animations and the parallax hero.
-- **Do** use Fraunces exclusively for display, headline, and title roles; Outfit exclusively for body, label, and interface copy. The split is absolute.
+- **Do** use Cormorant Garamond exclusively for display, headline, and title roles; Outfit exclusively for body, label, and interface copy. The split is absolute.
 - **Do** keep product photography desaturated at rest (`saturate(0.8)`) and let hover restore color — it makes the page feel like it responds to attention.
 - **Do** reserve SCS Green (`#78A22F`) for Primus GFS certification contexts only. Never use it as a decorative accent.
 - **Do** use `clamp()` for all font sizes and horizontal padding. Never hardcode breakpoint-specific size overrides.

@@ -1,0 +1,7 @@
+# Dev tooling — never deploy
+.claude/
+.impeccable/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
