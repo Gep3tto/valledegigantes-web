@@ -9,11 +9,12 @@ and schema images. Responsive variants live in `/img` and are generated, never e
 | Name | What it is | Source |
 |---|---|---|
 | `logo` | Brand logo | Owner |
-| `rancho`, `rancho-1920` | Storm over the chile field | Photograph |
+| `melon-flores` | Melon field in flower, home hero | Photograph (owner, 2026-09) |
+| `rancho`, `rancho-1920` | Storm over the chile field, Nosotros | Photograph |
 | `chiltepin`, `chiltepin-1200` | Chiltepín in hand over the drying bed | Photograph |
 | `jalapeno`, `jalapeno-1200` | Harvest crew emptying a bucket into a bin | Photograph |
 | `melon` | Cantaloupe on desert soil, one cut open | Generated (gpt-image-2), see SPEC.md §14 |
-| `chipotle` | Dried chipotles on a wooden drying tray | Generated |
+| `chipotle` | Drying shed with jalapeños turning to chipotle | Generated from the owner's `chipotle-cocedores` reference photo |
 | `chiltepin-100g`, `chiltepin-1kg`, `chiltepin-10kg` | Chiltepín presentations | Generated |
 | `jalapeno-17kg`, `jalapeno-30kg` | Jalapeño presentations | Generated |
 | `chipotle-30kg` | Chipotle presentation | Generated |
@@ -25,7 +26,8 @@ Each ships as `.jpg` plus `.webp`.
 
 Made by `python tools/images.py` from the root originals:
 
-- Hero: `rancho-768/1280/1920`
+- Home hero: `melon-flores-768/1280` (root file is the 1920 tier)
+- Nosotros: `rancho-768/1280/1920`
 - Product heroes and home card: `<name>-480/960/1440`
 - Home row thumbnails and "otros productos": `<name>-112/224` (square crops)
 - Presentations: `<name>-480/960`

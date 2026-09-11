@@ -17,6 +17,7 @@ OUT = os.path.join(ROOT, "img")
 # name -> (widths, square thumb widths)
 PLAN = {
     "rancho":         ([768, 1280, 1920], []),
+    "melon-flores":   ([768, 1280], []),
     "melon":          ([480, 960, 1440], [112, 224]),
     "chiltepin":      ([480, 960, 1440], [112, 224]),
     "jalapeno":       ([480, 960, 1440], [112, 224]),
