@@ -383,8 +383,9 @@ html.js .reveal.visible { opacity: 1; transform: none; }
    NOSOTROS
    ============================================================ */
 #nosotros { background: var(--white); color: var(--charcoal); }
-.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: center; }
-.about-img-wrap { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 4 / 5; }
+.about-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
+.about-visual { position: sticky; top: calc(var(--header-h) + 32px); }
+.about-img-wrap { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 4 / 3; }
 .about-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-out-expo); }
 .about-img-wrap:hover img { transform: scale(1.04); }
 .about-img-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,67,58,0.45), transparent 50%); z-index: 1; }
