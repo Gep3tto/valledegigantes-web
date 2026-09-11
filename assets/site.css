@@ -8,7 +8,8 @@
     --amber:       #F7931E;
     --amber-light: #FBBD6E;
     --amber-glow:  #FFF3E0;
-    --amber-text:  #B06A10;   /* amber for small text on light surfaces (≥4.5:1 on Snow) */
+    --amber-text:  #9A5A0A;   /* amber for small text on light surfaces (5.0:1 on Snow) */
+    --amber-pale:  #FDD9A6;   /* amber for small text on Cantera Teal (5.2:1) */
 
     --teal-dark:   #042E28;   /* Cantera Deep */
     --teal-deep:   #07433A;   /* Cantera Mid  */
@@ -288,7 +289,8 @@ html.js .reveal.visible { opacity: 1; transform: none; }
    ============================================================ */
 #productos { background: var(--teal); }
 #productos .section-intro { color: var(--sage-pale); }
-#productos .section-label { color: var(--amber-light); }
+#productos .section-label, .others .section-label { color: var(--amber-pale); }
+.light .pending { color: var(--amber-text); }
 .products-header {
     display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap;
     margin-bottom: clamp(40px, 6vh, 72px);
@@ -472,7 +474,7 @@ html.js .reveal.visible { opacity: 1; transform: none; }
 .form-title { font-family: var(--ff-display); font-weight: 500; font-size: 1.9rem; color: var(--white); margin-bottom: 28px; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sage-mist); margin-bottom: 8px; }
-.form-group label .opt { color: rgba(168,196,169,0.6); letter-spacing: 0.08em; text-transform: none; font-weight: 400; }
+.form-group label .opt { color: var(--sage-mist); letter-spacing: 0.06em; text-transform: none; font-weight: 400; }
 .form-group input, .form-group textarea, .form-group select {
     width: 100%; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(168,196,169,0.22); border-radius: 8px;
     color: var(--white); font-family: var(--ff-body); font-size: 1rem; font-weight: 300; padding: 14px 18px; outline: none;
@@ -528,7 +530,7 @@ footer { background: var(--teal-dark); border-top: 1px solid rgba(168,196,169,0.
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(168,196,169,0.12); }
 .footer-logo img { height: 56px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
 .footer-brand p { margin-top: 16px; font-size: 0.9rem; color: rgba(168,196,169,0.85); max-width: 32ch; line-height: 1.6; }
-.footer-col h4 { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 16px; }
+.footer-col h2 { font-family: var(--ff-body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 16px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 2px; }
 .footer-col a, .footer-col address { display: inline-block; font-size: 0.92rem; color: rgba(168,196,169,0.9); padding: 6px 0; line-height: 1.5; font-style: normal; transition: color 0.3s; }
 .footer-col a:hover { color: var(--white); }
@@ -715,6 +717,7 @@ footer { background: var(--teal-dark); border-top: 1px solid rgba(168,196,169,0.
     .season-months span { border: 1px solid #999; }
     .season-months span.on { background: #999; }
     .pres-card { box-shadow: none; border-color: #bbb; break-inside: avoid; }
-    footer { border: none; padding: 16px 0; }
-    .footer-bottom { color: #000; }
+    footer { border: none; padding: 16px 0; background: #fff !important; }
+    .footer-bottom, .footer-bottom strong { color: #000; }
+    .pending, .spec-list dd a, .pres-tag, .section-label { color: #000 !important; }
 }

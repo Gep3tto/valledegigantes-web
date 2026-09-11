@@ -138,7 +138,7 @@ This system explicitly rejects: generic agricultural-commodity aesthetics (stock
 - Cormorant Garamond (serif, weights 300–500) for all display and identity moments; Outfit (sans) for all body, label, and interface copy
 - Full-capsule pill buttons; gently curved cards (6px); near-flat elevation with amber glow on CTAs only
 - Fluid spacing and type scales via `clamp()` — no breakpoint-specific magic numbers
-- Grain overlay (fixed, `mix-blend-mode: overlay`) throughout all dark sections
+- Grain overlay: a fixed 128px tiled noise PNG at 3.5% opacity, no blend mode (an SVG turbulence filter froze rendering)
 - Custom cursor on desktop (amber dot + trailing ring); disabled on mobile
 
 

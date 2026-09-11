@@ -33,7 +33,8 @@
     <meta name="twitter:description" content="Melón dulce del desierto, chiltepín, jalapeño y chipotle ahumado con mezquite. Certificación Primus GFS.">
     <meta name="twitter:image" content="https://www.afergreens.com/img/og-home.jpg">
 
-    <!-- Fonts (self-hosted) + styles -->
+    <!-- LCP image, fonts (self-hosted), styles -->
+    <link rel="preload" as="image" imagesrcset="/img/rancho-768.webp 768w, /img/rancho-1280.webp 1280w, /img/rancho-1920.webp 1920w" imagesizes="100vw" type="image/webp" fetchpriority="high">
     <link rel="preload" href="/assets/fonts/cormorant-garamond-300.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/outfit-300.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/site.css">
@@ -231,9 +232,9 @@
             </div>
             <p class="cert-strip">
                 Primus GFS<span class="sep">·</span>
-                Campo <a href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373629_0_SP.pdf" target="_blank" rel="noopener" aria-label="Certificado Primus GFS de campo número 373629, PDF, abre en ventana nueva">#373629</a><span class="sep">·</span>
-                Cuadrilla <a href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373630_0_SP.pdf" target="_blank" rel="noopener" aria-label="Certificado Primus GFS de cuadrilla número 373630, PDF, abre en ventana nueva">#373630</a><span class="sep">·</span>
-                Empaque <a href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1562_373631_0_SP.pdf" target="_blank" rel="noopener" aria-label="Certificado Primus GFS de empaque número 373631, PDF, abre en ventana nueva">#373631</a><span class="sep">·</span>
+                Campo <a href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373629_0_SP.pdf" target="_blank" rel="noopener">#373629<span class="visually-hidden">, certificado Primus GFS de campo, PDF, abre en ventana nueva</span></a><span class="sep">·</span>
+                Cuadrilla <a href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1546_373630_0_SP.pdf" target="_blank" rel="noopener">#373630<span class="visually-hidden">, certificado Primus GFS de cuadrilla, PDF, abre en ventana nueva</span></a><span class="sep">·</span>
+                Empaque <a href="https://secure.azzule.com/PGFSDocuments/PGFS_Certificate_SCS-PGFS-1562_373631_0_SP.pdf" target="_blank" rel="noopener">#373631<span class="visually-hidden">, certificado Primus GFS de empaque, PDF, abre en ventana nueva</span></a><span class="sep">·</span>
                 Verificable
             </p>
         </div>
@@ -312,7 +313,7 @@
                 </div>
                 <p class="section-intro reveal reveal-d2">Melón y jalapeño son cultivos de temporada. Chiltepín seco y chipotle se surten todo el año sujeto a inventario.</p>
             </div>
-            <div class="cal-scroll reveal reveal-d2">
+            <div class="cal-scroll reveal reveal-d2" tabindex="0" role="region" aria-label="Calendario de disponibilidad, desplazable">
                 <table class="cal-table">
                     <caption class="visually-hidden">Meses de disponibilidad por producto</caption>
                     <thead><tr><th scope="col">Producto</th><th scope="col">Ene</th><th scope="col">Feb</th><th scope="col">Mar</th><th scope="col">Abr</th><th scope="col">May</th><th scope="col">Jun</th><th scope="col">Jul</th><th scope="col">Ago</th><th scope="col">Sep</th><th scope="col">Oct</th><th scope="col">Nov</th><th scope="col">Dic</th></tr></thead>
@@ -539,7 +540,7 @@
                     <p>Melón y chile del Valle de Gigantes, Chihuahua. Certificación Primus GFS de campo a empaque.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Productos</h4>
+                    <h2>Productos</h2>
                     <ul>
                         <li><a href="/melon/">Melón dulce del desierto</a></li>
                         <li><a href="/chiltepin/">Chile chiltepín</a></li>
@@ -548,7 +549,7 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Empresa</h4>
+                    <h2>Empresa</h2>
                     <ul>
                         <li><a href="/#certificaciones">Certificaciones</a></li>
                         <li><a href="/#nosotros">Nosotros</a></li>
@@ -558,7 +559,7 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Contacto</h4>
+                    <h2>Contacto</h2>
                     <ul>
                         <li><a href="tel:+526141690797">+52 (614) 169-0797</a></li>
                         <li><a href="mailto:jacobo@afergreens.com">jacobo@afergreens.com</a></li>

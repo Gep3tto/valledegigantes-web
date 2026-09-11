@@ -249,7 +249,7 @@ FOOTER = """    <footer>
                     <p>Melón y chile del Valle de Gigantes, Chihuahua. Certificación Primus GFS de campo a empaque.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Productos</h4>
+                    <h2>Productos</h2>
                     <ul>
                         <li><a href="/melon/">Melón dulce del desierto</a></li>
                         <li><a href="/chiltepin/">Chile chiltepín</a></li>
@@ -258,7 +258,7 @@ FOOTER = """    <footer>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Empresa</h4>
+                    <h2>Empresa</h2>
                     <ul>
                         <li><a href="/#certificaciones">Certificaciones</a></li>
                         <li><a href="/#nosotros">Nosotros</a></li>
@@ -268,7 +268,7 @@ FOOTER = """    <footer>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Contacto</h4>
+                    <h2>Contacto</h2>
                     <ul>
                         <li><a href="tel:+526141690797">+52 (614) 169-0797</a></li>
                         <li><a href="mailto:jacobo@afergreens.com">jacobo@afergreens.com</a></li>
@@ -343,8 +343,8 @@ def build(slug):
     p = PRODUCTS[slug]
     others = [s for s in ORDER if s != slug]
     meta_html = "".join(f"<div><strong>{v}</strong><span>{l}</span></div>" for v, l in p["meta"])
-    meta_html += (f'<a href="{CERT["campo"][1]}" target="_blank" rel="noopener" aria-label="Certificado Primus GFS de campo, PDF, abre en ventana nueva">'
-                  f"<strong>Primus GFS</strong><span>Certificado</span></a>")
+    meta_html += (f'<a href="{CERT["campo"][1]}" target="_blank" rel="noopener">'
+                  f'<strong>Primus GFS</strong><span>Certificado<span class="visually-hidden"> de campo, PDF, abre en ventana nueva</span></span></a>')
     specs_html = dl(p["specs"] + [("Certificación", " · ".join(
         f'<a href="{u}" target="_blank" rel="noopener">Primus GFS {k} #{n}<span class="visually-hidden"> (PDF, abre en ventana nueva)</span></a>' for k, (n, u) in CERT.items()))])
     log_rows = list(p["logistics"])
@@ -452,14 +452,18 @@ def build(slug):
             <span class="section-label reveal">Ficha técnica</span>
             <h2 class="section-title reveal reveal-d1">Datos del <em>producto</em>.</h2>
             <div class="spec-grid">
-                <dl class="spec-list reveal reveal-d2">
+                <div class="spec-list reveal reveal-d2">
                     <h3>Características</h3>
+                    <dl>
 {specs_html}
-                </dl>
-                <dl class="spec-list reveal reveal-d3">
+                    </dl>
+                </div>
+                <div class="spec-list reveal reveal-d3">
                     <h3>Logística y disponibilidad</h3>
+                    <dl>
 {log_html}
-                </dl>
+                    </dl>
+                </div>
             </div>
             <p class="spec-note reveal reveal-d3">Los datos marcados <span class="pending">por confirmar</span> se completan con el productor y se confirman en cada cotización. Esta página se puede imprimir como ficha técnica.</p>
         </div>
