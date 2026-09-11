@@ -1,0 +1,28 @@
+# Disavow file for https://www.afergreens.com/
+# Generated 2026-04-23 from Moz Link Explorer data
+# Scope: domain-level disavow — blocks ALL links from these hosts
+#
+# Rationale: 17/17 referring domains detected are scraper/spam/URL-shortener
+# networks on low-reputation TLDs (.top, .party, .monster, .sbs, .icu,
+# .cloud, .fyi, .info). No legitimate inbound links were found.
+#
+# Upload to Google: https://search.google.com/search-console/disavow-links
+# Select property: afergreens.com (or sc-domain:afergreens.com)
+
+domain:quero.party
+domain:selfie-battles-are-for-amateurs-tim--kalin-from-seodomains-here.com
+domain:drjack.world
+domain:urls-shortener.eu
+domain:shortenurls.eu
+domain:ageokousei.jp
+domain:blogsphere.top
+domain:metamagic.top
+domain:bye.fyi
+domain:sergechel.info
+domain:qa-animals.info
+domain:fldh.info
+domain:knows.monster
+domain:knows.sbs
+domain:atomizelink.icu
+domain:anchorurl.cloud
+domain:kompromat100.info
