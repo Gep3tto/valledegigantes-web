@@ -370,8 +370,12 @@ def build(slug):
                     <div class="thumb"><picture><source type="image/webp" srcset="/img/{q['image']}-112.webp 112w, /img/{q['image']}-224.webp 224w" sizes="88px"><img src="/img/{q['image']}-224.jpg" alt="" width="224" height="224" loading="lazy" decoding="async"></picture></div>
                     <div><h3>{q['name']}</h3><p>{q['meta'][0][0]} {q['meta'][0][1]}</p></div>
                 </a>"""
-    hero_pic = (f'<picture><source type="image/webp" srcset="/img/{p["image"]}-480.webp 480w, /img/{p["image"]}-960.webp 960w, /img/{p["image"]}-1440.webp 1440w" sizes="(min-width: 1025px) 45vw, 100vw">'
-                f'<img src="/{p["image"]}.jpg" srcset="/img/{p["image"]}-480.jpg 480w, /img/{p["image"]}-960.jpg 960w, /{p["image"]}.jpg 1200w" sizes="(min-width: 1025px) 45vw, 100vw" alt="{html.escape(p["image_alt"])}" fetchpriority="high" decoding="async" width="1200" height="1600"></picture>')
+    iw, ih = Image.open(os.path.join(ROOT, p["image"] + ".jpg")).size
+    hero_widths = [w for w in (480, 960, 1440) if w < iw]
+    hero_webp = ", ".join(f"/img/{p['image']}-{w}.webp {w}w" for w in hero_widths) + f", /{p['image']}.webp {iw}w"
+    hero_jpg = ", ".join(f"/img/{p['image']}-{w}.jpg {w}w" for w in hero_widths) + f", /{p['image']}.jpg {iw}w"
+    hero_pic = (f'<picture><source type="image/webp" srcset="{hero_webp}" sizes="(min-width: 1025px) 45vw, 100vw">'
+                f'<img src="/{p["image"]}.jpg" srcset="{hero_jpg}" sizes="(min-width: 1025px) 45vw, 100vw" alt="{html.escape(p["image_alt"])}" fetchpriority="high" decoding="async" width="{iw}" height="{ih}"></picture>')
     wa = wa_link(p["wa_msg"])
 
     return f"""<!DOCTYPE html>
