@@ -350,10 +350,10 @@ def build(slug):
     log_rows = list(p["logistics"])
     log_html = dl(log_rows) + f'<div class="row"><dt>Calendario</dt><dd>{season_strip(p["season"])}</dd></div>'
     pres_html = ""
-    for tag, size, img, text, alt in p["presentations"]:
+    for i, (tag, size, img, text, alt) in enumerate(p["presentations"]):
         pres_html += f"""
-                <div class="pres-card reveal reveal-d2">
-                    <div class="pres-img">{picture(img, alt, "(min-width: 769px) 33vw, 100vw", [480, 960])}</div>
+                <div class="pres-card reveal reveal-d{min(2 + i, 4)}">
+                    <div class="pres-img curtain">{picture(img, alt, "(min-width: 769px) 33vw, 100vw", [480, 960])}</div>
                     <div class="pres-body">
                         <span class="pres-tag">{tag}</span>
                         <div class="pres-size">{size}</div>
@@ -367,7 +367,7 @@ def build(slug):
         q = PRODUCTS[o]
         others_html += f"""
                 <a class="other-card reveal" href="/{o}/">
-                    <div class="thumb"><picture><source type="image/webp" srcset="/img/{q['image']}-112.webp 112w, /img/{q['image']}-224.webp 224w" sizes="88px"><img src="/img/{q['image']}-224.jpg" alt="" width="224" height="224" loading="lazy" decoding="async"></picture></div>
+                    <div class="thumb" data-vt="{o}"><picture><source type="image/webp" srcset="/img/{q['image']}-112.webp 112w, /img/{q['image']}-224.webp 224w" sizes="88px"><img src="/img/{q['image']}-224.jpg" alt="" width="224" height="224" loading="lazy" decoding="async"></picture></div>
                     <div><h3>{q['name']}</h3><p>{q['meta'][0][0]} {q['meta'][0][1]}</p></div>
                 </a>"""
     iw, ih = Image.open(os.path.join(ROOT, p["image"] + ".jpg")).size
@@ -410,6 +410,7 @@ def build(slug):
     <meta name="twitter:image" content="{SITE}/img/og-{slug}.jpg">
 
     <link rel="preload" href="/assets/fonts/cormorant-garamond-300.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/cormorant-garamond-400-italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/outfit-300.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/site.css">
 
@@ -458,13 +459,13 @@ def build(slug):
             <div class="spec-grid">
                 <div class="spec-list reveal reveal-d2">
                     <h3>Características</h3>
-                    <dl>
+                    <dl class="stagger">
 {specs_html}
                     </dl>
                 </div>
                 <div class="spec-list reveal reveal-d3">
                     <h3>Logística y disponibilidad</h3>
-                    <dl>
+                    <dl class="stagger">
 {log_html}
                     </dl>
                 </div>
@@ -489,7 +490,7 @@ def build(slug):
             <span class="section-label reveal">Aplicaciones</span>
             <h2 class="section-title reveal reveal-d1">{p['uses_title']}</h2>
             <p class="section-intro reveal reveal-d2">{p['uses_intro']}</p>
-            <ul class="uses-tags reveal reveal-d2">{uses_html}</ul>
+            <ul class="uses-tags reveal reveal-d2 stagger">{uses_html}</ul>
         </div>
     </section>
 

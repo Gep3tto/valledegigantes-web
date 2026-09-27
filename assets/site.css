@@ -248,7 +248,7 @@ body::after {
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(247,147,30,0.5); background: var(--amber-light); }
 .btn-ghost {
     font-weight: 500; color: var(--sage-mist); border: 1.5px solid rgba(168,196,169,0.4); padding: 15px 34px;
-    transition: color 0.3s, border-color 0.3s, background 0.3s;
+    transition: color 0.3s, border-color 0.3s, background 0.3s, transform 0.25s var(--ease-out-expo);
 }
 .btn-ghost:hover { color: var(--white); border-color: var(--white); background: rgba(255,255,255,0.08); }
 
@@ -276,13 +276,14 @@ main > section, .section-full { scroll-margin-top: var(--header-h); }
 .light .section-label { color: var(--amber-text); }
 .light .section-intro { color: var(--slate); }
 
-/* Scroll reveal — only hidden when JS is present */
-html.js .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
-html.js .reveal.visible { opacity: 1; transform: none; }
-.reveal-d1 { transition-delay: 0.1s; }
-.reveal-d2 { transition-delay: 0.2s; }
-.reveal-d3 { transition-delay: 0.3s; }
-.reveal-d4 { transition-delay: 0.4s; }
+/* Scroll reveal — only hidden when JS is present. Moves with `translate` so hover `transform`s still work.
+   The stagger delay lives inside the shorthand: a separate transition-delay would be reset by it */
+html.js .reveal { opacity: 0; translate: 0 32px; transition: opacity 0.9s var(--ease-out-expo) var(--d, 0s), translate 0.9s var(--ease-out-expo) var(--d, 0s); }
+html.js .reveal.visible { opacity: 1; translate: none; }
+.reveal-d1 { --d: 0.1s; }
+.reveal-d2 { --d: 0.2s; }
+.reveal-d3 { --d: 0.3s; }
+.reveal-d4 { --d: 0.4s; }
 
 /* ============================================================
    PRODUCTOS — featured melon + three rows
@@ -652,6 +653,122 @@ footer { background: var(--teal-dark); border-top: 1px solid rgba(168,196,169,0.
 .page-simple .actions { display: flex; flex-wrap: wrap; gap: 14px 18px; margin-top: 32px; }
 
 /* ============================================================
+   MOTION — one vocabulary on every page
+   Headings rise line by line from a mask, eyebrow hairlines draw,
+   photographs are unveiled, lists arrive one item at a time.
+   Only translate / scale / opacity move, on the two system easings.
+   Reduced motion and print switch all of it off (see below).
+   ============================================================ */
+@keyframes mo-rise   { from { opacity: 0; translate: 0 24px; } }
+@keyframes mo-fade   { from { opacity: 0; } }
+@keyframes mo-out    { to { opacity: 0; } }
+@keyframes mo-draw   { from { scale: 0 1; } }
+@keyframes mo-settle { from { scale: 1.1; } }
+@keyframes mo-dusk   { from { opacity: 0.72; } }
+@keyframes mo-unfold { from { opacity: 0; translate: 0 -8px; } }
+@keyframes mo-press  { from { opacity: 0; scale: 1.25; } }
+
+/* Hero title card: the words are there from the first frame while the field comes up out of dusk and settles
+   behind them, and the eyebrow hairline draws. The copy itself does not animate: the h1 is the home page's
+   largest paint (LCP), and SPEC §16 wants the h1, CTA and certificate strip visible at load */
+.hero-bg::before { content: ''; position: absolute; inset: 0; z-index: 1; background: var(--teal-dark); opacity: 0; animation: mo-dusk 1.6s var(--ease-in-out) backwards; }
+.hero-bg picture { animation: mo-settle 2.8s var(--ease-out-expo) backwards; }
+.hero-eyebrow::before, .ph-content .section-label::before { transform-origin: left; animation: mo-draw 1.1s var(--ease-out-expo) 0.2s backwards; }
+
+/* Product hero: the same sequence beside a photograph that settles into its frame */
+.breadcrumb { animation: mo-fade 0.9s var(--ease-out-expo) backwards; }
+.ph-content .section-label { animation: mo-rise 0.9s var(--ease-out-expo) 0.1s backwards; }
+.ph-content h1 { animation: mo-rise 1.1s var(--ease-out-expo) 0.2s backwards; }
+.ph-sub { animation: mo-rise 1s var(--ease-out-expo) 0.45s backwards; }
+.ph-meta > * { animation: mo-rise 0.9s var(--ease-out-expo) 0.55s backwards; }
+.ph-meta > :nth-child(2) { animation-delay: 0.62s; }
+.ph-meta > :nth-child(3) { animation-delay: 0.69s; }
+.ph-actions { animation: mo-rise 1s var(--ease-out-expo) 0.8s backwards; }
+.ph-visual img { animation: mo-settle 2.4s var(--ease-out-expo) backwards; }
+
+/* Headings: site.js masks each rendered line, the lines rise in turn, then the markup is restored.
+   A keyframe animation, not a transition: the lines are new elements, so there is no earlier style to transition from */
+@keyframes mo-line { from { translate: 0 1.45em; } }
+.split { display: flex; flex-direction: column; }
+.split .ln { display: block; overflow: hidden; padding: 0.16em 0.12em 0.2em; margin: -0.16em -0.12em -0.2em; }
+.split .ln > span { display: block; white-space: nowrap; animation: mo-line 1.1s var(--ease-out-expo) calc(var(--d, 0s) + var(--ln, 0) * 0.09s) backwards; }
+html.js .reveal.split { opacity: 1; translate: none; transition: none; }
+
+/* Eyebrows: the hairline draws out and the label follows it in */
+html.js .section-label.reveal { translate: -12px 0; }
+html.js .section-label.reveal::before { scale: 0 1; transform-origin: left; transition: scale 1s var(--ease-out-expo) var(--d, 0s); }
+html.js .section-label.reveal.visible, html.js .section-label.reveal.visible::before { translate: none; scale: none; }
+
+/* Photographs: a panel in the surrounding colour lifts away while the picture settles into its frame */
+html.js .curtain { position: relative; }
+html.js .curtain::after {
+    content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+    background: var(--curtain, var(--teal-dark));
+    transform-origin: top; transition: scale 1.2s var(--ease-in-out) calc(var(--d, 0s) + 0.1s);
+}
+html.js .curtain picture { scale: 1.14; transition: scale 1.8s var(--ease-out-expo) calc(var(--d, 0s) + 0.1s); }
+html.js .visible.curtain::after, html.js .visible .curtain::after { scale: 1 0; }
+html.js .visible.curtain picture, html.js .visible .curtain picture { scale: none; }
+html.js .reveal.curtain { opacity: 1; translate: none; }
+#productos .curtain { --curtain: var(--teal); }
+#nosotros .curtain, .pres-card .curtain { --curtain: var(--white); }
+html.js .product-featured.reveal .content { opacity: 0; translate: 0 18px; transition: opacity 1s var(--ease-out-expo) 0.6s, translate 1s var(--ease-out-expo) 0.6s; }
+html.js .product-featured.reveal.visible .content { opacity: 1; translate: none; }
+
+/* Lists: items arrive one at a time */
+html.js .stagger > * { opacity: 0; translate: 0 14px; transition: opacity 0.8s var(--ease-out-expo), translate 0.8s var(--ease-out-expo); transition-delay: calc(var(--d, 0s) + 0.1s + var(--i, 0) * 0.06s); }
+html.js .visible.stagger > *, html.js .visible .stagger > * { opacity: 1; translate: none; }
+html.js .reveal.stagger { opacity: 1; translate: none; }
+
+/* Availability: the months fill in turn, row after row */
+html.js .cal-table .cell, html.js .season-months span { scale: 0 1; transform-origin: left; transition: scale 0.7s var(--ease-out-expo) calc(var(--d, 0s) + 0.3s + var(--r, 0) * 0.1s + var(--m, 0) * 0.04s); }
+html.js .visible .cal-table .cell, html.js .visible .season-months span { scale: none; }
+
+/* Certificates: campo, cuadrilla, empaque land in order and each seal is pressed on */
+html.js .cert-card.reveal .cert-mark { opacity: 0; scale: 1.18; transition: opacity 0.45s var(--ease-out-expo), scale 0.7s var(--ease-out-expo); transition-delay: calc(var(--d, 0s) + 0.35s); }
+html.js .cert-card.reveal.visible .cert-mark { opacity: 1; scale: none; }
+
+/* Cards that reveal keep their own hover transitions (the reveal's transition list would replace them) */
+html.js .cert-card.reveal, html.js .pres-card.reveal { transition: opacity 0.9s var(--ease-out-expo) var(--d, 0s), translate 0.9s var(--ease-out-expo) var(--d, 0s), transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo); }
+html.js .other-card.reveal { transition: opacity 0.9s var(--ease-out-expo), translate 0.9s var(--ease-out-expo), background 0.3s, border-color 0.3s; }
+
+/* FAQ: the answer unfolds beneath its question */
+.faq-list details[open] .answer { animation: mo-unfold 0.5s var(--ease-out-expo); }
+
+/* Quote sent: the check is pressed on and the message rises */
+#form-success:not([hidden]) .check { animation: mo-press 0.7s var(--ease-out-expo) backwards; }
+#form-success:not([hidden]) h3 { animation: mo-rise 0.9s var(--ease-out-expo) 0.15s backwards; }
+#form-success:not([hidden]) p { animation: mo-rise 0.9s var(--ease-out-expo) 0.25s backwards; }
+
+/* Press feedback on every pill */
+.btn-primary:active, .btn-ghost:active, .nav-cta:active, .btn-submit:not(:disabled):active { transform: scale(0.97); transition-duration: 0.1s; }
+.wa-float:active { transform: scale(0.95); transition-duration: 0.1s; }
+
+@media (max-width: 768px) {
+    /* Mobile menu: the links follow the sheet in, one after another */
+    .nav-main li { opacity: 0; translate: 0 16px; transition: opacity 0.5s var(--ease-out-expo), translate 0.7s var(--ease-out-expo); }
+    .nav-main.open li { opacity: 1; translate: none; }
+    .nav-main.open li:nth-child(2) { transition-delay: 0.05s; }
+    .nav-main.open li:nth-child(3) { transition-delay: 0.1s; }
+    .nav-main.open li:nth-child(4) { transition-delay: 0.15s; }
+}
+
+/* Page transitions (Chrome, Edge, Safari 18.2+; others navigate as before): pages crossfade,
+   and the product photo you click grows into the next page's hero (site.js names it on pageswap) */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition { navigation: auto; }
+}
+#site-header { view-transition-name: site-header; }
+/* The picture, not .ph-visual: a snapshot includes the frame's box-shadow, which would ghost around the photo.
+   It clips the settling image for the snapshot; the corner radius is borrowed only while a transition runs */
+.ph-visual picture { view-transition-name: product-photo; overflow: hidden; }
+:active-view-transition .ph-visual picture { border-radius: inherit; }
+::view-transition-old(root) { animation: mo-out 0.3s var(--ease-in-out) both; }
+::view-transition-new(root) { animation: mo-fade 0.5s var(--ease-in-out) both; }
+::view-transition-group(product-photo) { animation-duration: 0.75s; animation-timing-function: var(--ease-in-out); }
+::view-transition-old(product-photo), ::view-transition-new(product-photo) { height: 100%; object-fit: cover; overflow: clip; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
@@ -693,8 +810,9 @@ footer { background: var(--teal-dark); border-top: 1px solid rgba(168,196,169,0.
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
-    html.js .reveal { opacity: 1; transform: none; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-delay: 0s !important; animation-delay: 0s !important; }
+    html.js .reveal { opacity: 1; translate: none; }
+    html.js .curtain::after { display: none; }
     .hero-bg img { transform: none; }
     html.js-cursor body, html.js-cursor a, html.js-cursor button, html.js-cursor select, html.js-cursor summary { cursor: auto; }
     html.js-cursor #cursor, html.js-cursor #cursor-ring { display: none; }
@@ -706,7 +824,11 @@ footer { background: var(--teal-dark); border-top: 1px solid rgba(168,196,169,0.
 @media print {
     body { background: #fff; color: var(--ink); }
     body::after, #site-header, #cursor, #cursor-ring, .wa-float, .skip-link, .nav-toggle, .others, .cta-band, .uses, footer .footer-grid, .ph-actions, .breadcrumb { display: none !important; }
-    html.js .reveal { opacity: 1 !important; transform: none !important; }
+    html.js .reveal { opacity: 1 !important; translate: none !important; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    html.js .curtain::after { display: none !important; }
+    html.js .stagger > *, html.js .cert-mark, html.js .product-featured .content { opacity: 1 !important; translate: none !important; scale: none !important; }
+    html.js .cal-table .cell, html.js .season-months span, html.js .curtain picture, html.js .section-label::before { scale: none !important; }
     .product-hero, .section-pad { padding: 16px 0; }
     .ph-inner { grid-template-columns: 1fr; gap: 16px; }
     .ph-visual { aspect-ratio: auto; height: 220px; box-shadow: none; border-radius: 0; }
