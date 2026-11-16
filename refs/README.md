@@ -10,6 +10,15 @@ Screenshots of real sites that set the quality bar for this one. They are other 
 | `nav-footer/` | Headers, menus, footers |
 | `motion/` | Short screen recordings or frame sequences of transitions |
 
+## Where to collect from
+
+| Source | Good for |
+|---|---|
+| [Awwwards](https://www.awwwards.com) | Award-winning sites; the sites already listed in `mockups/RESEARCH.md` |
+| [Savee](https://savee.com) | Mood boards: photography, type, colour, layout fragments |
+| [Rebrand Gallery](https://www.rebrand.gallery) | Brand identity: logos, packaging, type systems, before and after |
+| `inspo` MCP server | Whole pages of real production sites, searchable from a prompt |
+
 ## Naming
 
 `<site>-<what>-<width>.png`, for example `flamingo-estate-hero-390.png`. Capture each reference at 390px and at 1440px.
